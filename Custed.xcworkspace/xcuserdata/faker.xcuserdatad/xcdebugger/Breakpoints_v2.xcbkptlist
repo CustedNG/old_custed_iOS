@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/TCAllFunctionModel.swift"
+            timestampString = "573571381.354342"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "loadHitokotoData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionViewController.swift"
+            timestampString = "574605302.615491"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "clicked(target:index:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "574958570.7573299"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "TCAllFunctionView"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "574958570.75837"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "359"
+            endingLineNumber = "359"
+            landmarkName = "widgetsAddMas()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "574958570.758845"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
+            landmarkName = "widgetsAddMas()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Custed.TCAllFunctionView.widgetsAddMas() -&gt; ()"
+                  moduleName = "Custed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faker/Desktop/CUSTED/Custed/Custed/Pages/%E5%85%A8%E9%83%A8%E5%8A%9F%E8%83%BD/%E5%BC%B9%E6%A1%86/TCAllFunctionView.swift"
+                  timestampString = "574000130.20058"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "141"
+                  endingLineNumber = "141"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SnapKit.ConstraintMaker) -&gt; () in Custed.TCAllFunctionView.widgetsAddMas() -&gt; ()"
+                  moduleName = "Custed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faker/Desktop/CUSTED/Custed/Custed/Pages/%E5%85%A8%E9%83%A8%E5%8A%9F%E8%83%BD/%E5%BC%B9%E6%A1%86/TCAllFunctionView.swift"
+                  timestampString = "574000130.204051"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "37">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "574958570.759313"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
+            landmarkName = "widgetsPrepare()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionViewController.swift"
+            timestampString = "574605302.616859"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
+            timestampString = "575029166.480318"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "loadData(completedo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "574958570.7599289"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "300"
+            endingLineNumber = "300"
+            landmarkName = "widgetsAddMas()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Custed.TCAllFunctionView.widgetsAddMas() -&gt; ()"
+                  moduleName = "Custed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faker/Desktop/CUSTED/Custed/Custed/Pages/%E5%85%A8%E9%83%A8%E5%8A%9F%E8%83%BD/%E5%BC%B9%E6%A1%86/TCAllFunctionView.swift"
+                  timestampString = "574002110.120627"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "1137">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (SnapKit.ConstraintMaker) -&gt; () in Custed.TCAllFunctionView.widgetsAddMas() -&gt; ()"
+                  moduleName = "Custed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faker/Desktop/CUSTED/Custed/Custed/Pages/%E5%85%A8%E9%83%A8%E5%8A%9F%E8%83%BD/%E5%BC%B9%E6%A1%86/TCAllFunctionView.swift"
+                  timestampString = "574002110.124748"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "152"
+                  endingLineNumber = "152"
+                  offsetFromSymbolStart = "37">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "574958570.76047"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
+            landmarkName = "widgetsAddMas()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
+            timestampString = "575029166.480881"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "loadData(completedo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "574958570.761003"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "446"
+            endingLineNumber = "446"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "574958570.761367"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "438"
+            endingLineNumber = "438"
+            landmarkName = "numberOfSections(in:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "574958570.7618051"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "434"
+            endingLineNumber = "434"
+            landmarkName = "TCAllFunctionView"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "574958570.76221"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "TCAllFunctionView"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "574958570.7626621"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "311"
+            endingLineNumber = "311"
+            landmarkName = "widgetsAddMas()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Custed.TCAllFunctionView.widgetsAddMas() -&gt; ()"
+                  moduleName = "Custed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faker/Desktop/CUSTED/Custed/Custed/Pages/%E5%85%A8%E9%83%A8%E5%8A%9F%E8%83%BD/%E5%BC%B9%E6%A1%86/TCAllFunctionView.swift"
+                  timestampString = "574365131.193786"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "176"
+                  endingLineNumber = "176"
+                  offsetFromSymbolStart = "1191">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #5 (SnapKit.ConstraintMaker) -&gt; () in Custed.TCAllFunctionView.widgetsAddMas() -&gt; ()"
+                  moduleName = "Custed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faker/Desktop/CUSTED/Custed/Custed/Pages/%E5%85%A8%E9%83%A8%E5%8A%9F%E8%83%BD/%E5%BC%B9%E6%A1%86/TCAllFunctionView.swift"
+                  timestampString = "574365131.196191"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "177"
+                  endingLineNumber = "177"
+                  offsetFromSymbolStart = "37">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "574958570.764149"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "widgetsPrepare()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
+            timestampString = "575029166.481272"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "convertToInt(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
+            timestampString = "575029166.481636"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "loadData(completedo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
+            timestampString = "575029166.481915"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "loadData(completedo:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 () -&gt; () in Custed.TCAllFunctionModel.loadHitokotoData(completedo: () -&gt; ()) -&gt; Swift.Bool"
+                  moduleName = "Custed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faker/Desktop/CUSTED/Custed/Custed/Pages/%E5%85%A8%E9%83%A8%E5%8A%9F%E8%83%BD/%E5%BC%B9%E6%A1%86/TCAllFunctionModel.swift"
+                  timestampString = "574522338.521387"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "112"
+                  endingLineNumber = "112"
+                  offsetFromSymbolStart = "25">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #3 () -&gt; () in Custed.TCAllFunctionModel.loadHitokotoData(completedo: () -&gt; ()) -&gt; Swift.Bool"
+                  moduleName = "Custed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faker/Desktop/CUSTED/Custed/Custed/Pages/%E5%85%A8%E9%83%A8%E5%8A%9F%E8%83%BD/%E5%BC%B9%E6%A1%86/TCAllFunctionModel.swift"
+                  timestampString = "574522338.523545"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "18">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
+            timestampString = "575029166.48218"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "loadData(completedo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
+            timestampString = "575029166.4824409"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "loadData(completedo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
+            timestampString = "575029166.482721"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "loadData(completedo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
+            timestampString = "575029166.482983"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "loadData(completedo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
+            timestampString = "575029166.48324"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "loadData(completedo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "574958570.765116"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "409"
+            endingLineNumber = "409"
+            landmarkName = "giveDataToView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "574958570.765604"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "TCAllFunctionView"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "574958570.766085"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "339"
+            endingLineNumber = "339"
+            landmarkName = "widgetsAddMas()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "574958570.766562"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "340"
+            endingLineNumber = "340"
+            landmarkName = "widgetsAddMas()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "574958570.766986"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "346"
+            endingLineNumber = "346"
+            landmarkName = "widgetsAddMas()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Custed.TCAllFunctionView.widgetsAddMas() -&gt; ()"
+                  moduleName = "Custed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faker/Desktop/CUSTED/Custed/Custed/Pages/%E5%85%A8%E9%83%A8%E5%8A%9F%E8%83%BD/%E5%BC%B9%E6%A1%86/TCAllFunctionView.swift"
+                  timestampString = "574594698.853937"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "283"
+                  endingLineNumber = "283"
+                  offsetFromSymbolStart = "2949">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #11 (SnapKit.ConstraintMaker) -&gt; () in Custed.TCAllFunctionView.widgetsAddMas() -&gt; ()"
+                  moduleName = "Custed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faker/Desktop/CUSTED/Custed/Custed/Pages/%E5%85%A8%E9%83%A8%E5%8A%9F%E8%83%BD/%E5%BC%B9%E6%A1%86/TCAllFunctionView.swift"
+                  timestampString = "574594698.873621"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "274"
+                  endingLineNumber = "274"
+                  offsetFromSymbolStart = "45">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "574958570.767378"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
+            landmarkName = "widgetsPrepare()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Custed.TCAllFunctionView.widgetsAddMas() -&gt; ()"
+                  moduleName = "Custed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faker/Desktop/CUSTED/Custed/Custed/Pages/%E5%85%A8%E9%83%A8%E5%8A%9F%E8%83%BD/%E5%BC%B9%E6%A1%86/TCAllFunctionView.swift"
+                  timestampString = "574595136.603556"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "263"
+                  endingLineNumber = "263"
+                  offsetFromSymbolStart = "557">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (SnapKit.ConstraintMaker) -&gt; () in Custed.TCAllFunctionView.widgetsAddMas() -&gt; ()"
+                  moduleName = "Custed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faker/Desktop/CUSTED/Custed/Custed/Pages/%E5%85%A8%E9%83%A8%E5%8A%9F%E8%83%BD/%E5%BC%B9%E6%A1%86/TCAllFunctionView.swift"
+                  timestampString = "574595136.607164"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "264"
+                  endingLineNumber = "264"
+                  offsetFromSymbolStart = "37">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
