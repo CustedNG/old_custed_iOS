@@ -71,6 +71,7 @@ class TCAllFunctionModel: NSObject {
             guard response.result.isSuccess else{
                 //请求错误
                 print("请求错误")
+                queueGroup.leave()
                 return
             }
             //print(Thread.current.description)
@@ -101,36 +102,39 @@ class TCAllFunctionModel: NSObject {
          "低温-2°C - 高温12°C - 晴"
          */
         queueGroup.enter()
-        Alamofire.request("http://t.weather.sojson.com/api/weather/city/101060101").responseJSON(queue:requestQueue) { (response) in
-            guard response.result.isSuccess else{
-                //请求错误
-                print("错误")
-                return
+        requestQueue.async(group:queueGroup){
+            Alamofire.request("http://t.weather.sojson.com/api/weather/city/101060101").responseJSON(queue:requestQueue) { (response) in
+                guard response.result.isSuccess else{
+                    //请求错误
+                    print("错误")
+                    queueGroup.leave()
+                    return
+                }
+                let json = JSON(response.result.value!)
+                self.weatherDataSource = weather.init()
+                //let updateTimeString = json["cityInfo"]["updateTime"].string ?? "莫得值"
+                //print("updatetime:\(updateTimeString)")
+                let nowTemp = json["data"]["wendu"].string ?? "莫得值"
+                //print("nowTemp:\(nowTemp)")
+                let length = nowTemp.lengthOfBytes(using: String.Encoding.utf8)
+                let nowTempString:String = "当前气温\(nowTemp)°C"
+                //赋值
+                //print("现在的温度:",nowTempString)
+                self.weatherDataSource?.currentTemp = nowTempString
+                self.weatherDataSource?.highlightLength = length
+                //获取最高温、最低位和天气状况
+                let highTemp = json["data"]["forecast"][0]["high"].string ?? "莫得值"
+                let highTempInt = self.convertToInt(highTemp)
+                let lowTemp = json["data"]["forecast"][0]["low"].string ?? "莫得值"
+                let lowTempInt = self.convertToInt(lowTemp)
+                let weatherType = json["data"]["forecast"][0]["type"].string ?? "莫得值"
+                //print("high:\(highTempInt )low:\(lowTempInt),type:\(weatherType) ")
+                let tempRangeAndStatusString = "低温:\(lowTempInt)°C - 高温:\(highTempInt) - \(weatherType)"
+                //赋值
+                self.weatherDataSource?.tempRangeAndStatus = tempRangeAndStatusString
+                //print("string:\(tempRangeAndStatusString)")
+                queueGroup.leave()
             }
-            let json = JSON(response.result.value!)
-            self.weatherDataSource = weather.init()
-            //let updateTimeString = json["cityInfo"]["updateTime"].string ?? "莫得值"
-            //print("updatetime:\(updateTimeString)")
-            let nowTemp = json["data"]["wendu"].string ?? "莫得值"
-            //print("nowTemp:\(nowTemp)")
-            let length = nowTemp.lengthOfBytes(using: String.Encoding.utf8)
-            let nowTempString:String = "当前气温\(nowTemp)°C"
-            //赋值
-            //print("现在的温度:",nowTempString)
-            self.weatherDataSource?.currentTemp = nowTempString
-            self.weatherDataSource?.highlightLength = length
-            //获取最高温、最低位和天气状况
-            let highTemp = json["data"]["forecast"][0]["high"].string ?? "莫得值"
-            let highTempInt = self.convertToInt(highTemp)
-            let lowTemp = json["data"]["forecast"][0]["low"].string ?? "莫得值"
-            let lowTempInt = self.convertToInt(lowTemp)
-            let weatherType = json["data"]["forecast"][0]["type"].string ?? "莫得值"
-            //print("high:\(highTempInt )low:\(lowTempInt),type:\(weatherType) ")
-            let tempRangeAndStatusString = "低温:\(lowTempInt)°C - 高温:\(highTempInt) - \(weatherType)"
-            //赋值
-            self.weatherDataSource?.tempRangeAndStatus = tempRangeAndStatusString
-            //print("string:\(tempRangeAndStatusString)")
-            queueGroup.leave()
         }
         
         requestQueue.async(group:queueGroup) {

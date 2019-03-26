@@ -14,7 +14,6 @@ class TCTabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         testSetting()
-        
     }
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -26,7 +25,7 @@ class TCTabBarController: UITabBarController, UITabBarControllerDelegate {
         let test :WYYTestViewController = WYYTestViewController()
         let allfunctionVC:TCAllFunctionWebViewController = TCAllFunctionWebViewController()
         let homepageVC : TCHomePageViewController = TCHomePageViewController()
-        let nav = UINavigationController.init(rootViewController: homepageVC)
+        let nav :UINavigationController = UINavigationController.init(rootViewController: homepageVC)
         self.viewControllers = [nav,test,allfunctionVC]
         self.delegate = self
     }

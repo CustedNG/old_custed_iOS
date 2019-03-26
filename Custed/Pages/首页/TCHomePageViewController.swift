@@ -13,8 +13,17 @@ import SVGKit
 class TCHomePageViewController: UIViewController,UIGestureRecognizerDelegate{
 
     var isMainPage : Bool = true
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    override var prefersStatusBarHidden: Bool{
+        return true
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.white
+        self.navigationController?.navigationBar.barTintColor = UIColor.yellow
+        self.navigationController?.navigationBar.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: 88)
     }
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -27,14 +36,13 @@ class TCHomePageViewController: UIViewController,UIGestureRecognizerDelegate{
         rightSVGImage?.size = CGSize.init(width: 25, height: 25)
         let rightBarItem = UIBarButtonItem.init(image: rightSVGImage?.uiImage, style: .done, target: self, action: #selector(rightBarItemClicked))
         self.navigationItem.rightBarButtonItem = rightBarItem
-        self.view.backgroundColor = UIColor.white
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("not be implemented")
     }
     
     @objc func leftBarItemClicked(){
-        print("左边点击")
+        self.slideViewController()?.showSlide()
     }
     @objc func rightBarItemClicked(){
         print("右边点击")

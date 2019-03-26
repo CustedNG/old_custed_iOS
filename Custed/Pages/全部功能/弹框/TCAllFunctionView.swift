@@ -406,12 +406,12 @@ class TCAllFunctionView: UIView,UICollectionViewDataSource,UICollectionViewDeleg
         self.titleLabel?.text = self.models.yiYanDataSource?.Title
         let index :NSInteger = self.models.yiYanDataSource?.presentAt ?? 0
         self.contentLabel?.text = self.models.yiYanDataSource?.contents[index].content
-        self.contentLabel?.textAlignment = (self.models.yiYanDataSource?.contents[index].textAlign)!
+        self.contentLabel?.textAlignment = (self.models.yiYanDataSource?.contents[index].textAlign) ?? .center
         let paraStyle = NSMutableParagraphStyle()
         paraStyle.lineSpacing = contentLineSapcing
         paraStyle.headIndent = contentHeadingSapcing
-        let attributeStr = NSMutableAttributedString.init(string: (self.contentLabel?.text)!, attributes: [NSAttributedString.Key.paragraphStyle:paraStyle])
-        self.contentLabel?.attributedText = attributeStr
+//        let attributeStr = NSMutableAttributedString.init(string: (self.contentLabel?.text)!, attributes: [NSAttributedString.Key.paragraphStyle:paraStyle])
+//        self.contentLabel?.attributedText = attributeStr
         self.fromLabel?.text = self.models.yiYanDataSource?.contents[index].from
         
         //        let index = fcModel?.yiYanDataSource?.presentAt

@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         testSetting()
         
+        
         return true
     }
     
@@ -25,7 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func testSetting() -> Void {
         window = UIWindow.init(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = TCTabBarController()
+        let slide  = TCSlideViewController.init(SlideViewController: TCLeftViewController(), MainTabBarController: TCTabBarController())
+        window?.rootViewController = slide
     }
     
     
