@@ -179,12 +179,11 @@ class TCSlideViewController: UIViewController,UIGestureRecognizerDelegate {
                 self.hideSlide(time)
             }
             }
-        case .possible:
-            print("possible")
-        case .cancelled:
-            print("cancelled")
-        case .failed:
-            print("failed")
+        case .possible: print("switch possible")
+        case .cancelled: print("switch cancelled")
+        case .failed: print("switch failed ")
+        @unknown default:
+            print("swift unknown default")
         }
     }
     @objc func tapGestureHandler(){

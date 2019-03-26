@@ -511,13 +511,16 @@
 				TargetAttributes = {
 					3E4F5564222D4D1B00221EB4 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					3E4F5578222D4D1D00221EB4 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 3E4F5564222D4D1B00221EB4;
 					};
 					3E4F5583222D4D1D00221EB4 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 3E4F5564222D4D1B00221EB4;
 					};
 				};
@@ -887,7 +890,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Toast.Custed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -908,7 +911,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Toast.Custed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -929,7 +932,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Toast.CustedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Custed.app/Custed";
 			};
@@ -951,7 +954,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Toast.CustedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Custed.app/Custed";
 			};
@@ -972,7 +975,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Toast.CustedUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Custed;
 			};
@@ -993,7 +996,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Toast.CustedUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Custed;
 			};
