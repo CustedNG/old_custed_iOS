@@ -12,7 +12,7 @@ protocol ButtonPressedDelegate :NSObjectProtocol{
     func click(target: UIView ,index: NSInteger)
 }
 
-class TCAllFunctionWebView: UIView {
+class TCAllFunctionContentView: UIView {
     weak var btnDelegate:ButtonPressedDelegate?
     override init(frame: CGRect) {
         super.init(frame: frame)

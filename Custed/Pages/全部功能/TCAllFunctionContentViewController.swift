@@ -8,14 +8,14 @@
 
 import UIKit
 
-class TCAllFunctionWebViewController: UIViewController ,ButtonPressedDelegate{
+class TCAllFunctionContentViewController: UIViewController ,ButtonPressedDelegate{
     func click(target: UIView, index: NSInteger) {
         print(index)
     }
     
     
     
-    var tcView :TCAllFunctionWebView = TCAllFunctionWebView()
+    var tcView :TCAllFunctionContentView = TCAllFunctionContentView()
     init() {
         super.init(nibName: nil, bundle: nil)
         self.tabBarItem.title = "全部功能"
