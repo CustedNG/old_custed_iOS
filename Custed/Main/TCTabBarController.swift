@@ -9,7 +9,7 @@
 import UIKit
 
 class TCTabBarController: UITabBarController, UITabBarControllerDelegate {
-    private var allFunctionAlertVC : TCAllFunctionViewController?
+    private var allFunctionAlertVC : TCAllFunctionContentViewController?
     private lazy var fcView : TCAllFunctionView = TCAllFunctionView()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +23,16 @@ class TCTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     func testSetting() -> Void {
         let test :WYYTestViewController = WYYTestViewController()
-        let allfunctionVC:TCAllFunctionWebViewController = TCAllFunctionWebViewController()
         let homepageVC : TCHomePageViewController = TCHomePageViewController()
-        let nav :UINavigationController = UINavigationController.init(rootViewController: homepageVC)
-        self.viewControllers = [nav,test,allfunctionVC]
+        let homePageNav :UINavigationController = UINavigationController.init(rootViewController: homepageVC)
+        let GradeVC : TCGradeViewController = TCGradeViewController()
+        let GradeNav : UINavigationController = UINavigationController.init(rootViewController: GradeVC)
+        let allfunctionVC:TCAllFunctionContentViewController = TCAllFunctionContentViewController()
+        let scheduleVC : TCScheduleViewController = TCScheduleViewController()
+        let scheduleNav : UINavigationController = UINavigationController.init(rootViewController: scheduleVC)
+        let accountVC : TCAccountViewController = TCAccountViewController()
+        let accountNav : UINavigationController = UINavigationController.init(rootViewController: accountVC)
+        self.viewControllers = [homePageNav,GradeNav,allfunctionVC,scheduleNav,accountNav]
         self.delegate = self
     }
     

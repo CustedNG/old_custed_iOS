@@ -13,6 +13,7 @@ import SVGKit
 class TCHomePageViewController: UIViewController,UIGestureRecognizerDelegate{
 
     var isMainPage : Bool = true
+    private let myView = TCHomePageView()
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
