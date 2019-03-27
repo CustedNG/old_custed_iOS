@@ -15,11 +15,9 @@ extension UIViewController{
         var vc = self.parent
         while (vc != nil) {
             if (vc?.isKind(of: TCSlideViewController.self))!{
-                print("yes")
                 return (vc as! TCSlideViewController)
             }
             else if ((vc?.parent) != nil) || (vc?.parent?.isKind(of: UINavigationController.self))! || (vc?.parent?.isKind(of: TCTabBarController.self))!{
-                print(vc?.description ?? "no description")
                 vc = vc?.parent
             }
             else{

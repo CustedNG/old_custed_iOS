@@ -160,7 +160,7 @@ class TCSlideViewController: UIViewController,UIGestureRecognizerDelegate {
             }
             //根据拖动大小缩放
             self.mainView?.transform = CGAffineTransform.translatedBy((self.mainView?.transform)!)(x: -movedWidth, y: 0)
-            self.slideView?.transform = CGAffineTransform.translatedBy((self.slideView?.transform)!)(x: -movedWidth*2/3, y: 0)
+            self.slideView?.transform = CGAffineTransform.translatedBy((self.slideView?.transform)!)(x: -movedWidth/2, y: 0)
             self.maskView?.alpha = 0.5*(-totalMovedWidth/slideViewWidth)
             print("total:",-totalMovedWidth)
             endPoint = point
@@ -197,7 +197,7 @@ class TCSlideViewController: UIViewController,UIGestureRecognizerDelegate {
         self.mainView?.bringSubviewToFront(self.maskView!)
         self.view.bringSubviewToFront(self.mainView!)
         UIView.animate(withDuration: Duration, animations: {
-            self.slideView?.transform = CGAffineTransform.init(translationX: -self.slideViewWidth/3, y: 0)
+            self.slideView?.transform = CGAffineTransform.init(translationX: -self.slideViewWidth/2, y: 0)
 //            self.slideView?.transform = CGAffineTransform.scaledBy((self.slideView?.transform)!)(x: 1, y: 1)
             self.mainView?.transform = CGAffineTransform.init(translationX: self.slideViewWidth, y: 0)
 //            self.mainView?.transform = CGAffineTransform.scaledBy((self.mainView?.transform)!)(x: self.slideScale, y: self.slideScale)

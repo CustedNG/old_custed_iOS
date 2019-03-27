@@ -138,6 +138,7 @@ class TCAllFunctionView: UIView,UICollectionViewDataSource,UICollectionViewDeleg
     var cellsSize : CGSize{
         get{
             if isIpad{
+                print("is ipad")
                 return CGSize.init(width: 60*Iphone2IpadIamgeScale, height: 80*Iphone2IpadIamgeScale)
             }
             else{
@@ -145,11 +146,22 @@ class TCAllFunctionView: UIView,UICollectionViewDataSource,UICollectionViewDeleg
             }
         }
     }
+    //image size
+    var imageSize : CGSize{
+        get{
+            if isIpad{
+                return CGSize.init(width: 60*Iphone2IpadIamgeScale, height: 60*Iphone2IpadIamgeScale)
+            }
+            else{
+                return CGSize.init(width: 50, height: 50)
+            }
+        }
+    }
     //cell列边距
     var cellRow : CGFloat{
         get{
             if isIpad{
-                return 20
+                return 30*Iphone2IpadIamgeScale
             }
             else{
                 return 20
@@ -348,7 +360,6 @@ class TCAllFunctionView: UIView,UICollectionViewDataSource,UICollectionViewDeleg
             height = 220
         }
         //流式布局
-        print(height)
         collectionView?.snp.makeConstraints({ (make) in
             make.bottom.equalTo((footButton?.snp.top)!).offset(20)
             //宽度等于cells的宽度 加上列边距 加上cell的边距
@@ -452,7 +463,7 @@ class TCAllFunctionView: UIView,UICollectionViewDataSource,UICollectionViewDeleg
             let cellsName : String = collecitionDataArray[indexPath.section][indexPath.row]
             cells.lbl?.text = cellsName
             let img = SVGKImage.init(named: "\(cellsName).svg")
-            img?.size = CGSize.init(width: 50, height: 50)
+            img?.size = imageSize
             cells.imageView?.image = img?.uiImage
         }
         return cells
