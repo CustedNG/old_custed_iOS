@@ -7,15 +7,15 @@
 //
 
 import UIKit
-
-class TCAccountModel: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+import Alamofire
+import SwiftyJSON
+class TCAccountModel: NSObject {
+    override init() {
+        super.init()
+        request()
     }
-    */
+    func request(){
+        
+    }
 
 }

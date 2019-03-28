@@ -9,14 +9,18 @@
 import UIKit
 
 class TCAccountViewController: UIViewController {
-    let MyView = TCAccountView()
+    let myView = TCAccountView()
+    let myModel = TCAccountModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //test
     }
     init() {
         super.init(nibName: nil, bundle: nil)
-        self.view = MyView
+        self.title = "我的账户"
+        self.view = myView
+        TCNetWorkingManager.shared.gettingTakenID(id: "2017000254", pass: "028298")
+        
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("no")
