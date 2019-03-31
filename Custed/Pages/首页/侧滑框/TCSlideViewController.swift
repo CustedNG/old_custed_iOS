@@ -87,7 +87,6 @@ class TCSlideViewController: UIViewController,UIGestureRecognizerDelegate {
         let view_frame = self.view.bounds
         
         mainView = UIView.init(frame: view_frame)
-//        slideView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: slideViewWidth, height: ScreenHeight))
         slideView = UIView.init(frame: view_frame)
         maskView = UIView.init(frame: view_frame)
         maskView?.isHidden = true
@@ -163,38 +162,35 @@ class TCSlideViewController: UIViewController,UIGestureRecognizerDelegate {
                 if totalMovedWidth > slideViewWidth{ //滑过头
                     break
                 }
-                self.mainView?.transform = CGAffineTransform.translatedBy((self.mainView?.transform)!)(x: -movedWidth, y: 0)
-                self.slideView?.transform = CGAffineTransform.translatedBy((self.slideView?.transform)!)(x: -movedWidth/2, y: 0)
-                self.maskView?.alpha = 0.5*(1 - totalMovedWidth/slideViewWidth)
+                self.maskView?.alpha = 0.5*(1-totalMovedWidth/slideViewWidth)
             }
             else{
                 //右滑弹出
 //                print(movedWidth)
 //                print(totalMovedWidth)
-                //var MainX:CGFloat = (mainView?.frame.origin.x)!
                 if totalMovedWidth > 0 { //如果大于0说明往左滑
                     break
                 }
                 if totalMovedWidth < -slideViewWidth{ //滑过头了
                     break
                 }
-                //根据拖动大小缩放
-                self.mainView?.transform = CGAffineTransform.translatedBy((self.mainView?.transform)!)(x: -movedWidth, y: 0)
-                self.slideView?.transform = CGAffineTransform.translatedBy((self.slideView?.transform)!)(x: -movedWidth/2, y: 0)
                 self.maskView?.alpha = 0.5*(-totalMovedWidth/slideViewWidth)
             }
-            print("total:",-totalMovedWidth)
+            //根据拖动大小缩放
+            self.mainView?.transform = CGAffineTransform.translatedBy((self.mainView?.transform)!)(x: -movedWidth, y: 0)
+            self.slideView?.transform = CGAffineTransform.translatedBy((self.slideView?.transform)!)(x: -movedWidth/2, y: 0)
+            print("total:",totalMovedWidth)
             endPoint = point
             }
         case .ended: do{
             let movedWidth = startPoint!.x-endPoint!.x
             let MainX = self.mainView?.frame.origin.x
-            let time : TimeInterval = TimeInterval(0.5*(1-(MainX!/slideViewWidth)))
             if isShowing{
 //                if movedWidth > slideViewWidth{ //已经滑好了啊
 //                    isShowing = false
 //                    break
 //                }
+                let time : TimeInterval = TimeInterval(0.5*(MainX!/slideViewWidth))
                 if movedWidth > slideMinDragLength{
                     self.hideSlide(time)
                 }
@@ -208,6 +204,7 @@ class TCSlideViewController: UIViewController,UIGestureRecognizerDelegate {
 //                    isShowing = true
 //                    break
 //                }
+                let time : TimeInterval = TimeInterval(0.5*(1-(MainX!/slideViewWidth)))
                 if movedWidth < -slideMinDragLength{
                     self.showSlide(time)
                 }
@@ -221,7 +218,7 @@ class TCSlideViewController: UIViewController,UIGestureRecognizerDelegate {
         case .cancelled: print("switch cancelled")
         case .failed: print("switch failed ")
         @unknown default:
-            print("swift unknown default")
+            print("switch unknown default")
         }
     }
     @objc func tapGestureHandler(){
@@ -234,12 +231,9 @@ class TCSlideViewController: UIViewController,UIGestureRecognizerDelegate {
         self.maskView?.isHidden = false
         self.mainView?.bringSubviewToFront(self.maskView!)
         self.view.bringSubviewToFront(self.mainView!)
-        print(Duration)
         UIView.animate(withDuration: Duration, animations: {
             self.slideView?.transform = CGAffineTransform.init(translationX: -self.slideViewWidth/2, y: 0)
-//            self.slideView?.transform = CGAffineTransform.scaledBy((self.slideView?.transform)!)(x: 1, y: 1)
             self.mainView?.transform = CGAffineTransform.init(translationX: self.slideViewWidth, y: 0)
-//            self.mainView?.transform = CGAffineTransform.scaledBy((self.mainView?.transform)!)(x: self.slideScale, y: self.slideScale)
             self.maskView?.alpha = 0.5
             
         }) { (finished) in
@@ -247,14 +241,11 @@ class TCSlideViewController: UIViewController,UIGestureRecognizerDelegate {
         }
     }
     func hideSlide(_ Duration:TimeInterval=0.5){
+        print(Duration)
         UIView.animate(withDuration: Duration, animations: {
             self.mainView?.transform = CGAffineTransform.init(translationX: 0, y: 0)
-//            self.mainView?.transform = CGAffineTransform.scaledBy((self.mainView?.transform)!)(x: 1, y: 1)
-            
             self.slideView?.transform = CGAffineTransform.init(translationX: -self.slideViewWidth, y: 0)
-//            self.slideView?.transform = CGAffineTransform.scaledBy((self.slideView?.transform)!)(x: self.slideScale, y: self.slideScale)
             self.maskView?.alpha = 0
-            
         }) { (finished) in
             self.isShowing = false
             self.maskView?.isHidden = true
