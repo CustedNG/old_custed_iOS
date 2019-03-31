@@ -25,14 +25,18 @@ class TCTabBarController: UITabBarController, UITabBarControllerDelegate {
         let test :WYYTestViewController = WYYTestViewController()
         let homepageVC : TCHomePageViewController = TCHomePageViewController()
         let homePageNav :UINavigationController = UINavigationController.init(rootViewController: homepageVC)
+        homePageNav.navigationBar.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: TabBarHeight+NavigationHeight)
         let GradeVC : TCGradeViewController = TCGradeViewController()
         let GradeNav : UINavigationController = UINavigationController.init(rootViewController: GradeVC)
+        GradeNav.navigationBar.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: TabBarHeight+NavigationHeight)
         let allfunctionVC:TCAllFunctionContentViewController = TCAllFunctionContentViewController()
         let scheduleVC : TCScheduleViewController = TCScheduleViewController()
         let scheduleNav : UINavigationController = UINavigationController.init(rootViewController: scheduleVC)
+        scheduleNav.navigationBar.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: TabBarHeight+NavigationHeight)
         let accountVC : TCAccountViewController = TCAccountViewController()
         let accountNav : UINavigationController = UINavigationController.init(rootViewController: accountVC)
-        self.viewControllers = [homePageNav,GradeNav,allfunctionVC,scheduleNav,accountNav]
+        accountNav.navigationBar.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: TabBarHeight+NavigationHeight)
+        self.viewControllers = [homePageNav,GradeNav,allfunctionVC,scheduleNav,accountVC]
         self.delegate = self
     }
     

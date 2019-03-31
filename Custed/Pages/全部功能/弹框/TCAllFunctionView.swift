@@ -138,7 +138,6 @@ class TCAllFunctionView: UIView,UICollectionViewDataSource,UICollectionViewDeleg
     var cellsSize : CGSize{
         get{
             if isIpad{
-                print("is ipad")
                 return CGSize.init(width: 60*Iphone2IpadIamgeScale, height: 80*Iphone2IpadIamgeScale)
             }
             else{
