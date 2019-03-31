@@ -14,8 +14,8 @@ class TCSlideViewController: UIViewController,UIGestureRecognizerDelegate {
     /*------------------------ slide config -----------------*/
     let slideViewWidth : CGFloat = floor(ScreenWidth*2.0/3.0)  //侧滑框的大小
     let slideScale : CGFloat = 0.8 //侧滑框出现时 主视图缩放比例
-    let slideDragbleWidth : CGFloat = floor(ScreenWidth/7.0) //可呼出侧滑框的范围
-    let slideMinDragLength : CGFloat = floor(ScreenWidth/3.0) //拖动100长度可以弹出侧滑框
+    let slideDragbleWidth : CGFloat = floor(ScreenWidth/6.0) //可呼出侧滑框的范围
+    let slideMinDragLength : CGFloat = floor(ScreenWidth/3.0) //可以弹出侧滑框的最小拖动长度
     
     /*------------------------ widgets config -----------------*/
     private var slideView : UIView?
@@ -33,7 +33,7 @@ class TCSlideViewController: UIViewController,UIGestureRecognizerDelegate {
             canShow = true
             self._slideViewController = slideVC
             //因为要缩放视图，所以设置view的属性是上下左右都缩放
-            self._slideViewController?.view.autoresizingMask = [.flexibleTopMargin,.flexibleBottomMargin,.flexibleLeftMargin,.flexibleRightMargin]
+//            self._slideViewController?.view.autoresizingMask = [.flexibleTopMargin,.flexibleBottomMargin,.flexibleLeftMargin,.flexibleRightMargin]
             self.addChild(slideVC!)
             self.slideView?.addSubview((slideVC?.view)!)
             //把侧滑框移过去
@@ -65,7 +65,6 @@ class TCSlideViewController: UIViewController,UIGestureRecognizerDelegate {
     var isShowing : Bool = false //是否侧滑框已经弹出
     var startPoint : CGPoint? //滑的起始点
     var endPoint : CGPoint? //滑的结束点
-    
     init(SlideViewController:UIViewController,MainTabBarController:UITabBarController) {
         super.init(nibName: nil, bundle: nil)
         self.initConfig()
@@ -116,7 +115,12 @@ class TCSlideViewController: UIViewController,UIGestureRecognizerDelegate {
         }
         //判断侧滑的起始位置是否可以唤起侧滑框
         let point : CGPoint = gestureRecognizer.location(in: self.view)
-        if point.x <= slideDragbleWidth{
+        //如果侧滑框没有弹出右滑弹出的手势
+        if isShowing==false && point.x <= slideDragbleWidth{
+            return true
+        }
+        //侧滑框已经弹出左滑收起的手势
+        if isShowing==true && point.x >= ScreenWidth-slideDragbleWidth{
             return true
         }
         return false
@@ -128,17 +132,20 @@ class TCSlideViewController: UIViewController,UIGestureRecognizerDelegate {
         
         switch gestureRecognizer.state {
         case .began: do {
-            print("begin")
-            if isShowing{
-                canShow = false
-            }
+            //print("begin")
             //记录起始点 ，为防止endPoint 为nil 先记录下
             startPoint = point
             endPoint = point
-            self.slideView?.isHidden = false
-            self.view.bringSubviewToFront(self.mainView!)
-            self.maskView?.isHidden = false
-            self.mainView?.bringSubviewToFront(self.maskView!)
+            if isShowing{
+                //左滑隐藏 什么操作都不用做
+            }
+            else{
+                //右滑弹出
+                self.slideView?.isHidden = false
+                self.view.bringSubviewToFront(self.mainView!)
+                self.maskView?.isHidden = false
+                self.mainView?.bringSubviewToFront(self.maskView!)
+            }
             }
         case .changed:do {
             //如果不能展示 直接break
@@ -146,22 +153,36 @@ class TCSlideViewController: UIViewController,UIGestureRecognizerDelegate {
                 break
             }
             //根据拖动距离来进行按比例的移动
-            //self.view.bringSubviewToFront(self.mainView!)
             let movedWidth:CGFloat = endPoint!.x - point.x
             let totalMovedWidth : CGFloat = startPoint!.x - point.x
             endPoint = point
-            print(movedWidth)
-            //var MainX:CGFloat = (mainView?.frame.origin.x)!
-            if totalMovedWidth > 0 { //如果大于0说明往左滑
-                break
+            if isShowing{
+                if totalMovedWidth < 0 {//向右滑了，不做操作
+                    break
+                }
+                if totalMovedWidth > slideViewWidth{ //滑过头
+                    break
+                }
+                self.mainView?.transform = CGAffineTransform.translatedBy((self.mainView?.transform)!)(x: -movedWidth, y: 0)
+                self.slideView?.transform = CGAffineTransform.translatedBy((self.slideView?.transform)!)(x: -movedWidth/2, y: 0)
+                self.maskView?.alpha = 0.5*(1 - totalMovedWidth/slideViewWidth)
             }
-            if totalMovedWidth < -slideViewWidth{ //滑过头了
-                break
+            else{
+                //右滑弹出
+//                print(movedWidth)
+//                print(totalMovedWidth)
+                //var MainX:CGFloat = (mainView?.frame.origin.x)!
+                if totalMovedWidth > 0 { //如果大于0说明往左滑
+                    break
+                }
+                if totalMovedWidth < -slideViewWidth{ //滑过头了
+                    break
+                }
+                //根据拖动大小缩放
+                self.mainView?.transform = CGAffineTransform.translatedBy((self.mainView?.transform)!)(x: -movedWidth, y: 0)
+                self.slideView?.transform = CGAffineTransform.translatedBy((self.slideView?.transform)!)(x: -movedWidth/2, y: 0)
+                self.maskView?.alpha = 0.5*(-totalMovedWidth/slideViewWidth)
             }
-            //根据拖动大小缩放
-            self.mainView?.transform = CGAffineTransform.translatedBy((self.mainView?.transform)!)(x: -movedWidth, y: 0)
-            self.slideView?.transform = CGAffineTransform.translatedBy((self.slideView?.transform)!)(x: -movedWidth/2, y: 0)
-            self.maskView?.alpha = 0.5*(-totalMovedWidth/slideViewWidth)
             print("total:",-totalMovedWidth)
             endPoint = point
             }
@@ -169,14 +190,31 @@ class TCSlideViewController: UIViewController,UIGestureRecognizerDelegate {
             let movedWidth = startPoint!.x-endPoint!.x
             let MainX = self.mainView?.frame.origin.x
             let time : TimeInterval = TimeInterval(0.5*(1-(MainX!/slideViewWidth)))
-            if movedWidth < -slideViewWidth{ //已经滑好了啊
-                break
-            }
-            if movedWidth < -slideMinDragLength{
-                self.showSlide(time)
+            if isShowing{
+//                if movedWidth > slideViewWidth{ //已经滑好了啊
+//                    isShowing = false
+//                    break
+//                }
+                if movedWidth > slideMinDragLength{
+                    self.hideSlide(time)
+                }
+                else{
+                    self.showSlide(time)
+                }
+
             }
             else{
-                self.hideSlide(time)
+//                if movedWidth < -slideViewWidth{ //已经滑好了啊
+//                    isShowing = true
+//                    break
+//                }
+                if movedWidth < -slideMinDragLength{
+                    self.showSlide(time)
+                }
+                else{
+                    self.hideSlide(time)
+                }
+                isShowing = true
             }
             }
         case .possible: print("switch possible")
@@ -196,6 +234,7 @@ class TCSlideViewController: UIViewController,UIGestureRecognizerDelegate {
         self.maskView?.isHidden = false
         self.mainView?.bringSubviewToFront(self.maskView!)
         self.view.bringSubviewToFront(self.mainView!)
+        print(Duration)
         UIView.animate(withDuration: Duration, animations: {
             self.slideView?.transform = CGAffineTransform.init(translationX: -self.slideViewWidth/2, y: 0)
 //            self.slideView?.transform = CGAffineTransform.scaledBy((self.slideView?.transform)!)(x: 1, y: 1)
