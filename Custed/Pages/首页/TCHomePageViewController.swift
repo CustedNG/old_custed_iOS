@@ -24,7 +24,7 @@ class TCHomePageViewController: UIViewController,UIGestureRecognizerDelegate{
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.barTintColor = UIColor.yellow
-        self.navigationController?.navigationBar.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: 88)
+        self.navigationController?.navigationBar.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: TabBarHeight+StatusBarheight)
     }
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -48,7 +48,6 @@ class TCHomePageViewController: UIViewController,UIGestureRecognizerDelegate{
     @objc func rightBarItemClicked(){
         print("右边点击")
     }
-
     
 
 }

@@ -53,6 +53,13 @@
 		3EF6E5E5224BD331007025B2 /* TCGradeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6E5E4224BD331007025B2 /* TCGradeModel.swift */; };
 		3EF6E5E7224BD341007025B2 /* TCGradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6E5E6224BD341007025B2 /* TCGradeView.swift */; };
 		3EF6E5E9224BD355007025B2 /* TCGradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6E5E8224BD355007025B2 /* TCGradeViewController.swift */; };
+		3EF6E5EC224CCF05007025B2 /* TCNetWorkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6E5EB224CCF05007025B2 /* TCNetWorkingManager.swift */; };
+		3EF6E5EF224D0379007025B2 /* widget_week_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EF6E5ED224D0379007025B2 /* widget_week_close.png */; };
+		3EF6E5F0224D0379007025B2 /* widget_week_open.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EF6E5EE224D0379007025B2 /* widget_week_open.png */; };
+		3EF6E5F2224D0E6D007025B2 /* UIColor+fromRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6E5F1224D0E6D007025B2 /* UIColor+fromRGB.swift */; };
+		3EF6E5F5224F2533007025B2 /* 13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EF6E5F4224F2533007025B2 /* 13.jpg */; };
+		3EF6E5F7224F25F8007025B2 /* test1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3EF6E5F6224F25F8007025B2 /* test1.JPG */; };
+		3EF6E5F9224F375F007025B2 /* UIFont+fontSizeToFit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6E5F8224F375F007025B2 /* UIFont+fontSizeToFit.swift */; };
 		62365023B00EDE1F2CE36C8B /* Pods_CustedUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D19F11D5C0249AEB8B21FBF /* Pods_CustedUITests.framework */; };
 		B4C6125FAA82201C635C18C3 /* Pods_CustedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F95319B5CF389348B1847D2 /* Pods_CustedTests.framework */; };
 /* End PBXBuildFile section */
@@ -130,6 +137,13 @@
 		3EF6E5E4224BD331007025B2 /* TCGradeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCGradeModel.swift; path = Custed/Tools/Extensions/TCGradeModel.swift; sourceTree = SOURCE_ROOT; };
 		3EF6E5E6224BD341007025B2 /* TCGradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCGradeView.swift; path = Custed/Tools/Extensions/TCGradeView.swift; sourceTree = SOURCE_ROOT; };
 		3EF6E5E8224BD355007025B2 /* TCGradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCGradeViewController.swift; path = Custed/Tools/Extensions/TCGradeViewController.swift; sourceTree = SOURCE_ROOT; };
+		3EF6E5EB224CCF05007025B2 /* TCNetWorkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCNetWorkingManager.swift; sourceTree = "<group>"; };
+		3EF6E5ED224D0379007025B2 /* widget_week_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = widget_week_close.png; sourceTree = "<group>"; };
+		3EF6E5EE224D0379007025B2 /* widget_week_open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = widget_week_open.png; sourceTree = "<group>"; };
+		3EF6E5F1224D0E6D007025B2 /* UIColor+fromRGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+fromRGB.swift"; sourceTree = "<group>"; };
+		3EF6E5F4224F2533007025B2 /* 13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 13.jpg; sourceTree = "<group>"; };
+		3EF6E5F6224F25F8007025B2 /* test1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test1.JPG; sourceTree = "<group>"; };
+		3EF6E5F8224F375F007025B2 /* UIFont+fontSizeToFit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+fontSizeToFit.swift"; sourceTree = "<group>"; };
 		4565650A5D0C30454C14C4EF /* Pods-Custed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Custed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Custed/Pods-Custed.debug.xcconfig"; sourceTree = "<group>"; };
 		52B0C33DF958DFB5A3A8515B /* Pods-CustedUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustedUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CustedUITests/Pods-CustedUITests.release.xcconfig"; sourceTree = "<group>"; };
 		613C2C716B05B64E23C3D2E1 /* Pods_Custed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Custed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,6 +201,7 @@
 		3E4B39BE22414D6D00035DEE /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				3EF6E5F3224F2201007025B2 /* test Image */,
 				3E4B39C4224216F200035DEE /* AllFunction img */,
 				3E4B39C3224216BB00035DEE /* TabbarImg */,
 			);
@@ -196,6 +211,8 @@
 		3E4B39C3224216BB00035DEE /* TabbarImg */ = {
 			isa = PBXGroup;
 			children = (
+				3EF6E5ED224D0379007025B2 /* widget_week_close.png */,
+				3EF6E5EE224D0379007025B2 /* widget_week_open.png */,
 				3E4B39FA2245128C00035DEE /* list.svg */,
 				3E4B39F82245125E00035DEE /* custedid.svg */,
 				3E4B39D922421DE600035DEE /* allFunc.svg */,
@@ -232,6 +249,8 @@
 			children = (
 				3E4B3A412247542A00035DEE /* UIViewController+slideViewController.swift */,
 				3E4B3A7D2247E16800035DEE /* UIApplication+statusBarView.swift */,
+				3EF6E5F1224D0E6D007025B2 /* UIColor+fromRGB.swift */,
+				3EF6E5F8224F375F007025B2 /* UIFont+fontSizeToFit.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -364,6 +383,7 @@
 		3E4F55A0222D4EDF00221EB4 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				3EF6E5EB224CCF05007025B2 /* TCNetWorkingManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -378,8 +398,8 @@
 		3E4F55A2222D4EF000221EB4 /* 我的账户 */ = {
 			isa = PBXGroup;
 			children = (
-				3EF6E5D8224BD251007025B2 /* TCAccountViewController.swift */,
 				3EF6E5DA224BD265007025B2 /* TCAccountView.swift */,
+				3EF6E5D8224BD251007025B2 /* TCAccountViewController.swift */,
 				3EF6E5DC224BD277007025B2 /* TCAccountModel.swift */,
 			);
 			path = "我的账户";
@@ -446,6 +466,15 @@
 			children = (
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		3EF6E5F3224F2201007025B2 /* test Image */ = {
+			isa = PBXGroup;
+			children = (
+				3EF6E5F6224F25F8007025B2 /* test1.JPG */,
+				3EF6E5F4224F2533007025B2 /* 13.jpg */,
+			);
+			path = "test Image";
 			sourceTree = "<group>";
 		};
 		49AA24B49395196C5A632CC4 /* Frameworks */ = {
@@ -584,10 +613,13 @@
 			files = (
 				3E4F5573222D4D1D00221EB4 /* LaunchScreen.storyboard in Resources */,
 				3E4B3A82224A15C200035DEE /* 123.jpg in Resources */,
+				3EF6E5EF224D0379007025B2 /* widget_week_close.png in Resources */,
 				3E4B39E622421FCF00035DEE /* 失物招领.svg in Resources */,
 				3E4B39DC22421DE600035DEE /* allFunc.svg in Resources */,
+				3EF6E5F5224F2533007025B2 /* 13.jpg in Resources */,
 				3E4B39E722421FCF00035DEE /* 体测成绩.svg in Resources */,
 				3E4B39E922421FCF00035DEE /* 一键教评.svg in Resources */,
+				3EF6E5F0224D0379007025B2 /* widget_week_open.png in Resources */,
 				3E4B39DA22421DE600035DEE /* bigevent.svg in Resources */,
 				3E4B39EA22421FCF00035DEE /* 文档库.svg in Resources */,
 				3E4B39E422421FCF00035DEE /* 吐司大事件.svg in Resources */,
@@ -596,6 +628,7 @@
 				3E4F5570222D4D1D00221EB4 /* Assets.xcassets in Resources */,
 				3E4B39DB22421DE600035DEE /* dataBank.svg in Resources */,
 				3E4B39F92245125E00035DEE /* custedid.svg in Resources */,
+				3EF6E5F7224F25F8007025B2 /* test1.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,6 +759,7 @@
 				3E4B3978223FEBF400035DEE /* TCToast.swift in Sources */,
 				3EF6E5E7224BD341007025B2 /* TCGradeView.swift in Sources */,
 				3E4F55B2222DAA7300221EB4 /* TCHUD.swift in Sources */,
+				3EF6E5F2224D0E6D007025B2 /* UIColor+fromRGB.swift in Sources */,
 				3E4F55A8222D4F4C00221EB4 /* TCTabBarController.swift in Sources */,
 				3E4B396F223FC34400035DEE /* TCHomePageView.swift in Sources */,
 				3E4B3A422247542A00035DEE /* UIViewController+slideViewController.swift in Sources */,
@@ -735,6 +769,7 @@
 				3EF6E5E5224BD331007025B2 /* TCGradeModel.swift in Sources */,
 				3E4B3A3F224752F400035DEE /* TCLeftViewController.swift in Sources */,
 				3E4B3A7E2247E16800035DEE /* UIApplication+statusBarView.swift in Sources */,
+				3EF6E5F9224F375F007025B2 /* UIFont+fontSizeToFit.swift in Sources */,
 				3E4F562F22321DBA00221EB4 /* TCAllFunctionContentViewController.swift in Sources */,
 				3EF6E5E3224BD2F7007025B2 /* TCScheduleModel.swift in Sources */,
 				3E4F5569222D4D1B00221EB4 /* AppDelegate.swift in Sources */,
@@ -743,6 +778,7 @@
 				3EF6E5DF224BD2B9007025B2 /* TCScheduleView.swift in Sources */,
 				3E4B3971223FC36600035DEE /* TCHomePageViewController.swift in Sources */,
 				3EF6E5DB224BD265007025B2 /* TCAccountView.swift in Sources */,
+				3EF6E5EC224CCF05007025B2 /* TCNetWorkingManager.swift in Sources */,
 				3E4F566B2235409C00221EB4 /* TCCollectionViewCell.swift in Sources */,
 				3EF6E5E1224BD2D7007025B2 /* TCScheduleViewController.swift in Sources */,
 				3E4F562C222FA5F500221EB4 /* TCAllFunctionModel.swift in Sources */,

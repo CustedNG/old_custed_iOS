@@ -29,6 +29,7 @@ let AlertStatusBarHeight : CGFloat = isIphoneXOrAbove ? 44 : 0
 //底端的tabbar高度
 let TabBarHeight :CGFloat = isIphoneXOrAbove ? 49 + 34 : 49
 //左右两端的空隙
+let NavigationHeight : CGFloat = 44
 let compactWidth : CGFloat = isIpad ? 20 : 16
 //上方的空隙
 let compactHeigh : CGFloat = isIpad ? 30 : 20
