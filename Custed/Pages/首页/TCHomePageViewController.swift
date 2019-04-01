@@ -47,6 +47,7 @@ class TCHomePageViewController: UIViewController,UIGestureRecognizerDelegate{
     }
     @objc func rightBarItemClicked(){
         print("右边点击")
+        self.tabBarController?.present(TCLoginViewController.init(), animated: true, completion: nil)
     }
     
 

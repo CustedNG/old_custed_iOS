@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Foundation
 class TCNetWorkingManager: NSObject {
     static let shared:TCNetWorkingManager = TCNetWorkingManager()
     private let datecompare:DateComponentsFormatter = DateComponentsFormatter.init()
@@ -16,8 +17,27 @@ class TCNetWorkingManager: NSObject {
         self.datecompare.unitsStyle = .positional
         self.datecompare.allowedUnits = [.second]
     }
-    func settingTakenID(id:String,pass:String) -> Void {
+//    func request(
+//        url:URLConvertible,
+//        method:HTTPMethod = .get,
+//        parameters:Parameters? = nil,
+//        encoding:ParameterEncoding = URLEncoding.default,
+//        headers:HTTPHeaders=[
+//        "accept": "application/vnd.toast+json",
+//        "custed-token" : UserDefaults.standard.value(forKey: "custed-token") as! String
+//        ],
+//        responseQueue : DispatchQueue = DispatchQueue.main,
+//        completeDo:@escaping ()->Void)
+//        -> DataRequest{
+//
+//            let response = Alamofire.request(url, method: method, parameters: parameters, encoding: encoding,headers: headers).responseJSON(queue:responseQueue) { (response) in
+//                completeDo()
+//            }
+//            return response
+//        }
+    private func settingTakenID(id:String ,pass:String) -> Void {
         //判断session有没有过期，如果过期重新获取
+//        UserDefaults.standard.value(forKey: "cust")
         let lateDate = UserDefaults.standard.value(forKey: "lastDate")
         if lateDate == nil{
             //没date数据
@@ -48,7 +68,7 @@ class TCNetWorkingManager: NSObject {
             }
             let nowDate = Date()
             let json = JSON(response.data!)
-            UserDefaults.standard.setValue(json["data"]["token_value"].stringValue, forKey: "token_name")
+            UserDefaults.standard.setValue(json["data"]["token_value"].stringValue, forKey: "custed-token")
             UserDefaults.standard.setValue(nowDate, forKey: "lastDate")
         }
     }

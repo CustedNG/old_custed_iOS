@@ -65,7 +65,19 @@ class TCAllFunctionModel: NSObject {
          */
         let queueGroup = DispatchGroup()
         let requestQueue = DispatchQueue.global(qos: .default)
-
+        requestQueue.async(group:queueGroup) {
+            let weekdays:NSArray = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+            let date = Date()
+            let calender = Calendar.current
+            let dateComponent = calender.dateComponents(in: TimeZone.init(secondsFromGMT: 3600*8)!, from: date)
+            
+            let dayInWeekString = weekdays[dateComponent.weekday!-1]
+            let dayInMonthString = String.init(format: "%d", dateComponent.day!)
+            
+            //赋值
+            self.dateInfoSource?.dayInMonth = dayInMonthString
+            self.dateInfoSource?.dayInWeek = dayInWeekString as? String
+        }
         queueGroup.enter()
         Alamofire.request("https://v1.hitokoto.cn/?charset=UTF-8").responseJSON(queue: requestQueue){ (response) in
             guard response.result.isSuccess else{
@@ -135,21 +147,6 @@ class TCAllFunctionModel: NSObject {
                 //print("string:\(tempRangeAndStatusString)")
                 queueGroup.leave()
             }
-        }
-        
-        requestQueue.async(group:queueGroup) {
-            let weekdays:NSArray = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
-            let date = Date()
-            let calender = Calendar.current
-            let dateComponent = calender.dateComponents(in: TimeZone.init(secondsFromGMT: 3600*8)!, from: date)
-            
-            let dayInWeekString = weekdays[dateComponent.weekday!-1]
-            let dayInMonthString = String.init(format: "%d", dateComponent.day!)
-            
-            //赋值
-            self.dateInfoSource?.dayInMonth = dayInMonthString
-            self.dateInfoSource?.dayInWeek = dayInWeekString as? String
-            
         }
         queueGroup.notify(queue: requestQueue) {
             //切换到主队列 刷新UI
