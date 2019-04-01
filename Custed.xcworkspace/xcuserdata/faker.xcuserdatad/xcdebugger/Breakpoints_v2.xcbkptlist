@@ -734,7 +734,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Main/TCTabBarController.swift"
-            timestampString = "575619670.7107249"
+            timestampString = "575811168.7641031"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
@@ -771,8 +771,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
             endingLineNumber = "19"
-            landmarkName = "init(frame:)"
-            landmarkType = "7">
+            landmarkName = "TCAccountView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
