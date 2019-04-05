@@ -13,7 +13,6 @@ target 'Custed' do
 	pod 'SwiftyJSON'
 	pod 'ReachabilitySwift'
 #账号信息处理
-	pod 'SwiftyUserDefaults'
 #布局
 	pod 'SnapKit'
 #svg 转UIImageVIew

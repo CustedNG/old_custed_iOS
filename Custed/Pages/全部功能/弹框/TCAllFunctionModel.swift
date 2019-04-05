@@ -12,15 +12,11 @@ import Alamofire
 import SwiftyJSON
 
 // 一言model
-struct yiYanContent {
+struct yiYan {
+    var Title : String?
     var content : String?
     var from : String?
     var textAlign :NSTextAlignment?
-}
-struct yiYan {
-    var Title : String?
-    var contents : [yiYanContent] = [yiYanContent.init()]
-    var presentAt : NSInteger?
 }
 //时间和星期model
 struct dateInfo {
@@ -29,10 +25,7 @@ struct dateInfo {
 }
 //天气model
 struct weather {
-    var updateTime : DateComponents?
-    var currentTemp : String?
-    //变色的长度 也就是当前温度的数值长度
-    var highlightLength : Int?
+    var currentTemp : NSMutableAttributedString?
     var tempRangeAndStatus : String?
 }
 class TCAllFunctionModel: NSObject {
@@ -44,6 +37,7 @@ class TCAllFunctionModel: NSObject {
         super.init()
         self.yiYanDataSource = yiYan.init()
         self.dateInfoSource = dateInfo.init()
+        self.weatherDataSource = weather.init()
         // 加载信息
     }
     
@@ -51,18 +45,7 @@ class TCAllFunctionModel: NSObject {
     
     
     //获取数据并赋值
-    func loadData(completedo:@escaping ()->Void) -> Bool {
-        /*
-         https://hitokoto.cn
-         {
-         "id": 3879,
-         "hitokoto": "当老天都不肯放过你的时候,不管怎么努力也都是徒劳......你说呢?",
-         "type": "c",
-         "from": "赤印Plus 不存在的圣诞节",
-         "creator": "神子少女A",
-         "created_at": "1537041231"
-         }
-         */
+    func loadData(completedo:@escaping ()->Void) -> Void {
         let queueGroup = DispatchGroup()
         let requestQueue = DispatchQueue.global(qos: .default)
         requestQueue.async(group:queueGroup) {
@@ -79,73 +62,29 @@ class TCAllFunctionModel: NSObject {
             self.dateInfoSource?.dayInWeek = dayInWeekString as? String
         }
         queueGroup.enter()
-        Alamofire.request("https://v1.hitokoto.cn/?charset=UTF-8").responseJSON(queue: requestQueue){ (response) in
+        self.gettingYiyan(queue: requestQueue) {
+            queueGroup.leave()
+        }
+        queueGroup.enter()
+        requestQueue.async(group:queueGroup){        Alamofire.request("https://beta.tusi.site/app/v1/etc/weather",headers:["accept": "application/vnd.toast+json"]).responseJSON(queue:requestQueue) { (response) in
             guard response.result.isSuccess else{
                 //请求错误
-                print("请求错误")
+                self.yiYanDataSource?.content = "电波无法到达～轻触重试"
                 queueGroup.leave()
                 return
             }
-            //print(Thread.current.description)
-            let jsonData = String(data: response.data!, encoding: String.Encoding.utf8)
-            //print("data:\(jsonData ?? "no")")
-            let json = JSON(parseJSON: jsonData!)
-            //赋值
-            var contentStr:String = ""
-            let rawContenStr : String = json["hitokoto"].stringValue
-            self.yiYanDataSource?.contents[0].textAlign = NSTextAlignment.center
-            if rawContenStr.count >= 17{
-                self.yiYanDataSource?.contents[0].textAlign = NSTextAlignment.left
-                contentStr.append("\t")
-            }
-            contentStr.append(rawContenStr)
-            self.yiYanDataSource?.presentAt = 0
-            self.yiYanDataSource?.Title = "「一言」"
-            self.yiYanDataSource?.contents[0].content = contentStr
-            self.yiYanDataSource?.contents[0].from = "-- 「\(json["from"].stringValue)」"
+            let json = JSON(response.data!)
+            let currentTemp = json["data"]["weather"]["wendu"].stringValue
+            let currentTempStr = "当前温度 \(currentTemp) ℃"
+            let currenAttr = NSMutableAttributedString.init(string: currentTempStr)
+            currenAttr.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.FromRGB(RGB: 0x65AEF4), range: NSRange.init(location: 5, length: currentTemp.count))
+            self.weatherDataSource?.currentTemp = currenAttr
+            let highTemp = json["data"]["weather"]["forecast"]["weather"][0]["high"].stringValue
+            let lowTemp = json["data"]["weather"]["forecast"]["weather"][0]["low"].stringValue
+            let status = json["data"]["weather"]["forecast"]["weather"][0]["day"]["type"].stringValue
+            self.weatherDataSource?.tempRangeAndStatus = "\(highTemp) - \(lowTemp) \(status)"
+            //debugPrint(response)
             queueGroup.leave()
-        }
-        // 长春citycode:101060101
-        //天气接口 http://t.weather.sojson.com/api/weather/city/101060101
-        /*
-         "8"
-         "星期五"
-         "当前气温-6°C"
-         "低温-2°C - 高温12°C - 晴"
-         */
-        queueGroup.enter()
-        requestQueue.async(group:queueGroup){
-            Alamofire.request("http://t.weather.sojson.com/api/weather/city/101060101").responseJSON(queue:requestQueue) { (response) in
-                guard response.result.isSuccess else{
-                    //请求错误
-                    print("错误")
-                    queueGroup.leave()
-                    return
-                }
-                let json = JSON(response.result.value!)
-                self.weatherDataSource = weather.init()
-                //let updateTimeString = json["cityInfo"]["updateTime"].string ?? "莫得值"
-                //print("updatetime:\(updateTimeString)")
-                let nowTemp = json["data"]["wendu"].string ?? "莫得值"
-                //print("nowTemp:\(nowTemp)")
-                let length = nowTemp.lengthOfBytes(using: String.Encoding.utf8)
-                let nowTempString:String = "当前气温\(nowTemp)°C"
-                //赋值
-                //print("现在的温度:",nowTempString)
-                self.weatherDataSource?.currentTemp = nowTempString
-                self.weatherDataSource?.highlightLength = length
-                //获取最高温、最低位和天气状况
-                let highTemp = json["data"]["forecast"][0]["high"].string ?? "莫得值"
-                let highTempInt = self.convertToInt(highTemp)
-                let lowTemp = json["data"]["forecast"][0]["low"].string ?? "莫得值"
-                let lowTempInt = self.convertToInt(lowTemp)
-                let weatherType = json["data"]["forecast"][0]["type"].string ?? "莫得值"
-                //print("high:\(highTempInt )low:\(lowTempInt),type:\(weatherType) ")
-                let tempRangeAndStatusString = "低温:\(lowTempInt)°C - 高温:\(highTempInt) - \(weatherType)"
-                //赋值
-                self.weatherDataSource?.tempRangeAndStatus = tempRangeAndStatusString
-                //print("string:\(tempRangeAndStatusString)")
-                queueGroup.leave()
             }
         }
         queueGroup.notify(queue: requestQueue) {
@@ -154,49 +93,38 @@ class TCAllFunctionModel: NSObject {
                 completedo()
             }
         }
-        
-            
-        
-        return true
     }
     //点击标签之后 重新拉取一言数据
-    func loadingYiyan(completedDo: @escaping ()->Void){
-        Alamofire.request("https://v1.hitokoto.cn/?charset=UTF-8").responseJSON{ (response) in
-            guard response.result.isSuccess else{
-                //请求错误
-                print("请求错误")
-                var nowIndex = (self.yiYanDataSource?.presentAt)!
-                if nowIndex < (self.yiYanDataSource?.contents.count)! - 1{
-                    nowIndex += 1
-                }
-                else{
-                    nowIndex = 0
-                }
-                self.yiYanDataSource?.presentAt = nowIndex
-                completedDo()
-                return
-            }
-            //print(Thread.current.description)
-            let jsonData = String(data: response.data!, encoding: String.Encoding.utf8)
-            //print("data:\(jsonData ?? "no")")
-            let json = JSON(parseJSON: jsonData!)
-            //赋值
-            let presentIndex = (self.yiYanDataSource?.presentAt)! + 1
-            var textAlign = NSTextAlignment.center
-            let rawContentStr = json["hitokoto"].stringValue
-            var contentStr:String = ""
-            if rawContentStr.count >= 17{
-                textAlign = NSTextAlignment.left
-                contentStr.append("\t")
-            }
-            contentStr.append(rawContentStr)
-            self.yiYanDataSource?.presentAt = presentIndex
-            let content = contentStr
-            let from = "-- 「\(json["from"].stringValue)」"
-            self.yiYanDataSource?.contents.append(yiYanContent.init(content: content, from: from, textAlign: textAlign))
-            completedDo()
-        }
-    }
+//    func loadingYiyan(completedDo: @escaping ()->Void){
+//        Alamofire.request("https://v1.hitokoto.cn/?charset=UTF-8").responseJSON{ (response) in
+//            guard response.result.isSuccess else{
+//                //请求错误
+//                print("请求错误")
+//                completedDo()
+//                return
+//            }
+//            debugPrint(response)
+//            //print(Thread.current.description)
+//            let jsonData = String(data: response.data!, encoding: String.Encoding.utf8)
+//            //print("data:\(jsonData ?? "no")")
+//            let json = JSON(parseJSON: jsonData!)
+//            //赋值
+////            let presentIndex = (self.yiYanDataSource?.presentAt)! + 1
+//            var textAlign = NSTextAlignment.center
+//            let rawContentStr = json["hitokoto"].stringValue
+//            var contentStr:String = ""
+//            if rawContentStr.count >= 17{
+//                textAlign = NSTextAlignment.left
+//                contentStr.append("\t")
+//            }
+////            contentStr.append(rawContentStr)
+////            self.yiYanDataSource?.presentAt = presentIndex
+////            let content = contentStr
+////            let from = "-- 「\(json["from"].stringValue)」"
+////            self.yiYanDataSource?.contents.append(yiYanContent.init(content: content, from: from, textAlign: textAlign))
+//            completedDo()
+//        }
+//    }
     func convertToInt(_ str:String) -> Int {
         //数据原型 ”高温 1.0℃“ 转换成 1
         var target = str
@@ -205,6 +133,35 @@ class TCAllFunctionModel: NSObject {
         let doubleTarget : Double = Double(target) ?? 0.0
         let intTarget : Int = Int(doubleTarget)
         return intTarget
+    }
+    
+    
+    func gettingYiyan(queue:DispatchQueue=DispatchQueue.main ,completedDo: @escaping () -> Void) -> Void {
+        let headers = ["accept": "application/vnd.toast+json"]
+        Alamofire.request("https://beta.tusi.site/app/v1/etc/hitokoto",headers: headers).responseJSON(queue:queue){ (response) in
+            guard response.result.isSuccess else{
+                //请求错误
+                completedDo()
+                return
+            }
+            //debugPrint(response)
+            //let jsonData = String(data: response.data!, encoding: String.Encoding.utf8)
+            let json = JSON(response.data!)
+            //赋值
+            var contentStr : String = "\t\t"
+            let rawContenStr : String = json["data"]["hitokoto"].stringValue
+            if rawContenStr.count >= 15{
+                self.yiYanDataSource?.textAlign = .left
+                contentStr.append(rawContenStr)
+            }
+            else{
+                self.yiYanDataSource?.textAlign = .center
+                contentStr = rawContenStr
+            }
+            self.yiYanDataSource?.content = contentStr
+            self.yiYanDataSource?.from = "——「\(json["data"]["from"].stringValue)」"
+            completedDo()
+        }
     }
     
 }

@@ -13,15 +13,15 @@ class TCCollectionViewCell: UICollectionViewCell {
     var imageView : UIImageView?
     var lbl : UILabel?
     var image : SVGKImage?
-    let cellWidth : CGFloat = 60
-    let cellLength : CGFloat = 80
+    let cellWidth : CGFloat = 60/414*ScreenWidth
+    let cellLength : CGFloat = 80/414*ScreenWidth
     var lblFontSize : CGFloat{
         get{
             if isIpad {
-                return 11*Iphone2IpadIamgeScale
+                return floor(11*Iphone2IpadIamgeScale)
             }
             else{
-                return 11
+                return floor(11/414*ScreenWidth)
             }
         }
     }

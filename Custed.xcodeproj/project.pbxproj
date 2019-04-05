@@ -44,6 +44,7 @@
 		3E4F563122321DD800221EB4 /* TCAllFunctionContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F563022321DD800221EB4 /* TCAllFunctionContentView.swift */; };
 		3E4F563322321DE900221EB4 /* TCAllFunctionContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F563222321DE900221EB4 /* TCAllFunctionContentModel.swift */; };
 		3E4F566B2235409C00221EB4 /* TCCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F566A2235409C00221EB4 /* TCCollectionViewCell.swift */; };
+		3ED276C62253C3F700605EF5 /* TCLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED276C52253C3F700605EF5 /* TCLoginViewController.swift */; };
 		3EF6E5D9224BD251007025B2 /* TCAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6E5D8224BD251007025B2 /* TCAccountViewController.swift */; };
 		3EF6E5DB224BD265007025B2 /* TCAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6E5DA224BD265007025B2 /* TCAccountView.swift */; };
 		3EF6E5DD224BD277007025B2 /* TCAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6E5DC224BD277007025B2 /* TCAccountModel.swift */; };
@@ -60,7 +61,6 @@
 		3EF6E5F5224F2533007025B2 /* 13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EF6E5F4224F2533007025B2 /* 13.jpg */; };
 		3EF6E5F7224F25F8007025B2 /* test1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3EF6E5F6224F25F8007025B2 /* test1.JPG */; };
 		3EF6E5F9224F375F007025B2 /* UIFont+fontSizeToFit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6E5F8224F375F007025B2 /* UIFont+fontSizeToFit.swift */; };
-		3EF6E60122525262007025B2 /* TCLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6E60022525262007025B2 /* TCLoginViewController.swift */; };
 		3EF6E606225254E0007025B2 /* gif in Resources */ = {isa = PBXBuildFile; fileRef = 3EF6E603225254DF007025B2 /* gif */; };
 		3EF6E607225254E0007025B2 /* png in Resources */ = {isa = PBXBuildFile; fileRef = 3EF6E604225254DF007025B2 /* png */; };
 		3EF6E608225254E0007025B2 /* svg in Resources */ = {isa = PBXBuildFile; fileRef = 3EF6E605225254E0007025B2 /* svg */; };
@@ -134,6 +134,7 @@
 		3E4F563022321DD800221EB4 /* TCAllFunctionContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCAllFunctionContentView.swift; sourceTree = "<group>"; };
 		3E4F563222321DE900221EB4 /* TCAllFunctionContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCAllFunctionContentModel.swift; sourceTree = "<group>"; };
 		3E4F566A2235409C00221EB4 /* TCCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCCollectionViewCell.swift; sourceTree = "<group>"; };
+		3ED276C52253C3F700605EF5 /* TCLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCLoginViewController.swift; sourceTree = "<group>"; };
 		3EF6E5D8224BD251007025B2 /* TCAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCAccountViewController.swift; path = Custed/Tools/Extensions/TCAccountViewController.swift; sourceTree = SOURCE_ROOT; };
 		3EF6E5DA224BD265007025B2 /* TCAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCAccountView.swift; path = Custed/Tools/Extensions/TCAccountView.swift; sourceTree = SOURCE_ROOT; };
 		3EF6E5DC224BD277007025B2 /* TCAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCAccountModel.swift; path = Custed/Tools/Extensions/TCAccountModel.swift; sourceTree = SOURCE_ROOT; };
@@ -150,7 +151,6 @@
 		3EF6E5F4224F2533007025B2 /* 13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 13.jpg; sourceTree = "<group>"; };
 		3EF6E5F6224F25F8007025B2 /* test1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test1.JPG; sourceTree = "<group>"; };
 		3EF6E5F8224F375F007025B2 /* UIFont+fontSizeToFit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+fontSizeToFit.swift"; sourceTree = "<group>"; };
-		3EF6E60022525262007025B2 /* TCLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCLoginViewController.swift; sourceTree = "<group>"; };
 		3EF6E603225254DF007025B2 /* gif */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gif; sourceTree = "<group>"; };
 		3EF6E604225254DF007025B2 /* png */ = {isa = PBXFileReference; lastKnownFileType = folder; path = png; sourceTree = "<group>"; };
 		3EF6E605225254E0007025B2 /* svg */ = {isa = PBXFileReference; lastKnownFileType = folder; path = svg; sourceTree = "<group>"; };
@@ -194,7 +194,6 @@
 		3E4B396D223FC32C00035DEE /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
-				3E4B3A3B22474F3200035DEE /* 侧滑框 */,
 				3E4B396E223FC34400035DEE /* TCHomePageView.swift */,
 				3E4B3970223FC36600035DEE /* TCHomePageViewController.swift */,
 				3E4B3972223FC37900035DEE /* TCHomePageModel.swift */,
@@ -332,6 +331,7 @@
 		3E4F5596222D4E8000221EB4 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				3E4B3A3B22474F3200035DEE /* 侧滑框 */,
 				3E4F55A7222D4F4C00221EB4 /* TCTabBarController.swift */,
 			);
 			path = Main;
@@ -497,7 +497,7 @@
 		3EF6E60222525269007025B2 /* Other pages */ = {
 			isa = PBXGroup;
 			children = (
-				3EF6E60022525262007025B2 /* TCLoginViewController.swift */,
+				3ED276C52253C3F700605EF5 /* TCLoginViewController.swift */,
 			);
 			path = "Other pages";
 			sourceTree = "<group>";
@@ -747,7 +747,6 @@
 				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -759,7 +758,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -820,7 +818,7 @@
 				3EF6E5EC224CCF05007025B2 /* TCNetWorkingManager.swift in Sources */,
 				3E4F566B2235409C00221EB4 /* TCCollectionViewCell.swift in Sources */,
 				3EF6E5E1224BD2D7007025B2 /* TCScheduleViewController.swift in Sources */,
-				3EF6E60122525262007025B2 /* TCLoginViewController.swift in Sources */,
+				3ED276C62253C3F700605EF5 /* TCLoginViewController.swift in Sources */,
 				3E4F562C222FA5F500221EB4 /* TCAllFunctionModel.swift in Sources */,
 				3EF6E5E9224BD355007025B2 /* TCGradeViewController.swift in Sources */,
 				3EF6E5DD224BD277007025B2 /* TCAccountModel.swift in Sources */,

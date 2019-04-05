@@ -141,7 +141,7 @@ class TCAllFunctionView: UIView,UICollectionViewDataSource,UICollectionViewDeleg
                 return CGSize.init(width: 60*Iphone2IpadIamgeScale, height: 80*Iphone2IpadIamgeScale)
             }
             else{
-                return CGSize.init(width: 60, height: 80)
+                return CGSize.init(width: 60/414*ScreenWidth, height: 80/414*ScreenWidth)
             }
         }
     }
@@ -152,7 +152,7 @@ class TCAllFunctionView: UIView,UICollectionViewDataSource,UICollectionViewDeleg
                 return CGSize.init(width: 60*Iphone2IpadIamgeScale, height: 60*Iphone2IpadIamgeScale)
             }
             else{
-                return CGSize.init(width: 50, height: 50)
+                return CGSize.init(width: 60/414*ScreenWidth, height: 60/414*ScreenWidth)
             }
         }
     }
@@ -163,7 +163,7 @@ class TCAllFunctionView: UIView,UICollectionViewDataSource,UICollectionViewDeleg
                 return 30*Iphone2IpadIamgeScale
             }
             else{
-                return 20
+                return 20/414*ScreenWidth
             }
         }
     }
@@ -183,10 +183,10 @@ class TCAllFunctionView: UIView,UICollectionViewDataSource,UICollectionViewDeleg
         get{
             let insetValue : CGFloat = 10
             if isIpad{
-                return UIEdgeInsets.init(top: insetValue*Iphone2IpadScale, left: insetValue*Iphone2IpadScale, bottom: insetValue*Iphone2IpadScale, right: insetValue*Iphone2IpadScale)
+                return UIEdgeInsets.init(top: insetValue*Iphone2IpadScale, left: insetValue*Iphone2IpadScale, bottom: insetValue*Iphone2IpadScale, right: 0)
             }
             else{
-                return UIEdgeInsets.init(top: insetValue, left: insetValue, bottom: insetValue, right: insetValue)
+                return UIEdgeInsets.init(top: insetValue, left: insetValue, bottom: insetValue, right: 0)
             }
         }
     }
@@ -246,15 +246,20 @@ class TCAllFunctionView: UIView,UICollectionViewDataSource,UICollectionViewDeleg
         //标题lbl
         titleLabel = UILabel()
         titleLabel!.sizeToFit()
+        titleLabel?.text = "「 一言 」"
         titleLabel!.textAlignment = .center
         titleLabel?.textColor = contentFontColor
         titleLabel!.font = UIFont.systemFont(ofSize: titleFontSize)
+        titleLabel?.isUserInteractionEnabled = true
+        let tapTitle = UITapGestureRecognizer.init(target: self, action: #selector(open))
+        titleLabel?.addGestureRecognizer(tapTitle)
         self.addSubview(titleLabel!)
         //内容lbl
             //内容lbl的textalignment 需要根据内容的长度去改变
             //字体默认大小
             //不需要sizetofit 因为宽度等于屏幕宽度
         contentLabel = UILabel()
+        //contentLabel?.text = "加载不粗来啊，轻触重试"
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapLabel))
         contentLabel?.isUserInteractionEnabled = true
         contentLabel?.addGestureRecognizer(tap)
@@ -276,7 +281,7 @@ class TCAllFunctionView: UIView,UICollectionViewDataSource,UICollectionViewDeleg
 //        layout.minimumInteritemSpacing = 15
 //        layout.sectionInset = secInset
         self.collectionView = UICollectionView.init(frame: CGRect.init(), collectionViewLayout: layout)
-        self.collectionView?.backgroundColor = backgroundColor
+        self.collectionView?.backgroundColor = self.backgroundColor
         self.collectionView?.dataSource = self
         self.collectionView?.delegate = self
         self.addSubview(self.collectionView!)
@@ -333,40 +338,44 @@ class TCAllFunctionView: UIView,UICollectionViewDataSource,UICollectionViewDeleg
         /*-------------中间-------------*/
         contentLabel?.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(-ScreenHeight/6)
-            make.width.equalTo(ScreenWidth-20*2)
+            make.centerY.equalToSuperview().offset(-ScreenHeight/20)
+            make.width.equalTo(ScreenWidth-compactWidth*2)
         })
         titleLabel?.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
-            make.bottom.equalTo((contentLabel?.snp.top)!).offset(-20)
+            make.bottom.equalTo((contentLabel?.snp.top)!).offset(-15)
         })
         fromLabel?.snp.makeConstraints({ (make) in
             make.right.equalToSuperview().offset(-20)
             make.top.equalTo((contentLabel?.snp.bottom)!).offset(20)
+            //make.bottomMargin.equalTo(10)
+            //make.bottom.lessThanOrEqualTo(collectionView!.snp_top)
         })
         /*-------------退出按钮-------------*/
         //退出按钮
         footButton?.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-compactHeigh)
+            make.bottom.equalToSuperview().offset(-10)
         })
         /*-------------底部-------------*/
-        let height : CGFloat
-        if isIpad {
-            height = ScreenHeight/4
-        }
-        else{
-            height = 220
-        }
+//        let height : CGFloat
+//        if isIpad {
+//            height = ScreenHeight/4
+//        }
+//        else{
+//            height = 220
+//        }
         //流式布局
         collectionView?.snp.makeConstraints({ (make) in
             make.bottom.equalTo((footButton?.snp.top)!).offset(20)
             //宽度等于cells的宽度 加上列边距 加上cell的边距
             make.width.equalTo(cellsSize.width*4+cellRow*3+cellInset.left*2*2)
+            //make.width.lessThanOrEqualToSuperview()
             make.centerX.equalToSuperview()
             //高度等于cells的高度 加上行边距 加上cell的边距
             make.height.equalTo(cellsSize.height*2+cellLine+cellInset.top*2*2)
         })
+        print(ScreenWidth,ScreenHeight,cellsSize.width,cellsSize.height)
         
     }
     override init(frame: CGRect) {
@@ -401,6 +410,15 @@ class TCAllFunctionView: UIView,UICollectionViewDataSource,UICollectionViewDeleg
         
         self.dayInMonthLabel?.text = self.models.dateInfoSource?.dayInMonth
         self.dayInWeekLabel?.text = self.models.dateInfoSource?.dayInWeek
+        
+        currenTempLabel?.attributedText = self.models.weatherDataSource?.currentTemp
+        tempRangeLabel?.text = self.models.weatherDataSource?.tempRangeAndStatus
+        
+        contentLabel?.text = self.models.yiYanDataSource?.content
+        contentLabel?.textAlignment = self.models.yiYanDataSource?.textAlign ?? .center
+        fromLabel?.text = self.models.yiYanDataSource?.from
+        
+        
 //        //让-4变色
 //        let targetStr = self.models.weatherDataSource?.currentTemp
 //        let attr :NSMutableAttributedString = NSMutableAttributedString.init(string: targetStr!)
@@ -410,19 +428,17 @@ class TCAllFunctionView: UIView,UICollectionViewDataSource,UICollectionViewDeleg
 //        attr.addAttribute(.foregroundColor, value: UIColor.blue, range: theNSRange)
 //
 //        self.currenTempLabel?.attributedText = attr
-        self.currenTempLabel?.text = self.models.weatherDataSource?.currentTemp
-        self.tempRangeLabel?.text = self.models.weatherDataSource?.tempRangeAndStatus
-        
-        self.titleLabel?.text = self.models.yiYanDataSource?.Title
-        let index :NSInteger = self.models.yiYanDataSource?.presentAt ?? 0
-        self.contentLabel?.text = self.models.yiYanDataSource?.contents[index].content
-        self.contentLabel?.textAlignment = (self.models.yiYanDataSource?.contents[index].textAlign) ?? .center
-        let paraStyle = NSMutableParagraphStyle()
-        paraStyle.lineSpacing = contentLineSapcing
-        paraStyle.headIndent = contentHeadingSapcing
-//        let attributeStr = NSMutableAttributedString.init(string: (self.contentLabel?.text)!, attributes: [NSAttributedString.Key.paragraphStyle:paraStyle])
-//        self.contentLabel?.attributedText = attributeStr
-        self.fromLabel?.text = self.models.yiYanDataSource?.contents[index].from
+        //self.currenTempLabel?.text = self.models.weatherDataSource?.currentTemp
+
+//        let index :NSInteger = self.models.yiYanDataSource?.presentAt ?? 0
+//        self.contentLabel?.text = self.models.yiYanDataSource?.contents[index].content
+//        self.contentLabel?.textAlignment = (self.models.yiYanDataSource?.contents[index].textAlign) ?? .center
+//        let paraStyle = NSMutableParagraphStyle()
+//        paraStyle.lineSpacing = contentLineSapcing
+//        paraStyle.headIndent = contentHeadingSapcing
+////        let attributeStr = NSMutableAttributedString.init(string: (self.contentLabel?.text)!, attributes: [NSAttributedString.Key.paragraphStyle:paraStyle])
+////        self.contentLabel?.attributedText = attributeStr
+//        self.fromLabel?.text = self.models.yiYanDataSource?.contents[index].from
         
         //        let index = fcModel?.yiYanDataSource?.presentAt
         //        fcView?.titleLabel?.text = fcModel?.yiYanDataSource?.Title
@@ -431,15 +447,23 @@ class TCAllFunctionView: UIView,UICollectionViewDataSource,UICollectionViewDeleg
         // 下
         
     }
-    //pragma MARK: 方法注释
-    //一行有4个
     @objc func tapLabel(){
-        self.models.loadingYiyan {
-            let index :NSInteger = self.models.yiYanDataSource?.presentAt ?? 0
-            self.contentLabel?.text = self.models.yiYanDataSource?.contents[index].content
-            self.contentLabel?.textAlignment = self.models.yiYanDataSource?.contents[index].textAlign ?? .center
-            self.fromLabel?.text = self.models.yiYanDataSource?.contents[index].from
+        if contentLabel?.text == "电波无法到达～轻触重试"{
+            self.models.loadData {
+                self.giveDataToView()
+            }
         }
+        else{
+            self.models.gettingYiyan {
+                self.contentLabel?.text = self.models.yiYanDataSource?.content
+                self.contentLabel?.textAlignment = self.models.yiYanDataSource?.textAlign ?? .center
+                self.fromLabel?.text = self.models.yiYanDataSource?.from
+            }
+        }
+    }
+    @objc func open(){
+        let url = URL.init(string: "https://hitokoto.cn/")
+        UIApplication.shared.open(url!, options: [ : ], completionHandler: nil)
     }
     
     

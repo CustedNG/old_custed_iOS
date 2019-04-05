@@ -70,7 +70,7 @@ class TCAccountView: UIView {
         let nameLabel = UILabel()
         nameLabel.text = "王宇阳"
         nameLabel.textColor = UIColor.white
-        nameLabel.font = UIFont.fontSizeToFit(size: 20)
+        nameLabel.font = UIFont.systemFont(ofSize: 20)
         nameLabel.sizeToFit()
         upperPartView?.addSubview(nameLabel)
         nameLabel.snp.makeConstraints { (make) in

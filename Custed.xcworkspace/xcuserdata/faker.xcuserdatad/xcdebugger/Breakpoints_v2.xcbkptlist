@@ -52,7 +52,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
-            timestampString = "575826612.420904"
+            timestampString = "576139025.739828"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
-            timestampString = "575826612.421033"
+            timestampString = "576139025.740989"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "369"
-            endingLineNumber = "369"
+            startingLineNumber = "377"
+            endingLineNumber = "377"
             landmarkName = "widgetsAddMas()"
             landmarkType = "7">
          </BreakpointContent>
@@ -84,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
-            timestampString = "575826612.421093"
+            timestampString = "576139025.741798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "300"
-            endingLineNumber = "300"
+            startingLineNumber = "305"
+            endingLineNumber = "305"
             landmarkName = "widgetsAddMas()"
             landmarkType = "7">
             <Locations>
@@ -132,7 +132,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
-            timestampString = "575826612.421152"
+            timestampString = "576139025.742539"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "233"
@@ -164,11 +164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
-            timestampString = "575828189.589718"
+            timestampString = "576139025.7434289"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "TCAllFunctionModel"
             landmarkType = "3">
          </BreakpointContent>
@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
-            timestampString = "575826612.421343"
+            timestampString = "576139025.7435679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "311"
-            endingLineNumber = "311"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
             landmarkName = "widgetsAddMas()"
             landmarkType = "7">
             <Locations>
@@ -228,11 +228,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
-            timestampString = "575826612.421429"
+            timestampString = "576139025.744413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
+            startingLineNumber = "319"
+            endingLineNumber = "319"
             landmarkName = "widgetsAddMas()"
             landmarkType = "7">
          </BreakpointContent>
@@ -244,11 +244,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
-            timestampString = "575828189.5904109"
+            timestampString = "576139025.745006"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "TCAllFunctionModel"
             landmarkType = "3">
          </BreakpointContent>
@@ -260,11 +260,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
-            timestampString = "575826612.4215699"
+            timestampString = "576139025.7450939"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "456"
-            endingLineNumber = "456"
+            startingLineNumber = "480"
+            endingLineNumber = "480"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -276,11 +276,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
-            timestampString = "575826612.421644"
+            timestampString = "576139025.745754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "448"
-            endingLineNumber = "448"
+            startingLineNumber = "472"
+            endingLineNumber = "472"
             landmarkName = "numberOfSections(in:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -292,11 +292,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
-            timestampString = "575826612.421729"
+            timestampString = "576139025.746408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "444"
-            endingLineNumber = "444"
+            startingLineNumber = "468"
+            endingLineNumber = "468"
             landmarkName = "TCAllFunctionView"
             landmarkType = "3">
          </BreakpointContent>
@@ -308,7 +308,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
-            timestampString = "575826612.421801"
+            timestampString = "576139025.747005"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "128"
@@ -324,11 +324,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
-            timestampString = "575826612.421887"
+            timestampString = "576139025.747631"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
+            startingLineNumber = "327"
+            endingLineNumber = "327"
             landmarkName = "widgetsAddMas()"
             landmarkType = "7">
             <Locations>
@@ -372,7 +372,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
-            timestampString = "575826612.421937"
+            timestampString = "576139025.748142"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "212"
@@ -388,43 +388,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
-            timestampString = "575828189.5908951"
+            timestampString = "576139025.748656"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
-            landmarkName = "convertToInt(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
-            timestampString = "575828189.591225"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "loadData(completedo:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
-            timestampString = "575828189.591491"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "loadData(completedo:)"
             landmarkType = "7">
             <Locations>
@@ -468,59 +436,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
-            timestampString = "575828189.5917521"
+            timestampString = "576139025.7487561"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "loadData(completedo:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
-            timestampString = "575828189.591997"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "loadData(completedo:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
-            timestampString = "575828189.592292"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "loadData(completedo:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
-            timestampString = "575828189.592531"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "loadData(completedo:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -532,23 +452,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
-            timestampString = "575826612.42252"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "419"
-            endingLineNumber = "419"
-            landmarkName = "giveDataToView()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
-            timestampString = "575826612.4226021"
+            timestampString = "576139025.748835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "194"
@@ -564,77 +468,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
-            timestampString = "575826612.422671"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "350"
-            endingLineNumber = "350"
-            landmarkName = "widgetsAddMas()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
-            timestampString = "575826612.422738"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "351"
-            endingLineNumber = "351"
-            landmarkName = "widgetsAddMas()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
-            timestampString = "575826612.4228261"
+            timestampString = "576139025.7495199"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "357"
             endingLineNumber = "357"
             landmarkName = "widgetsAddMas()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Custed.TCAllFunctionView.widgetsAddMas() -&gt; ()"
-                  moduleName = "Custed"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/faker/Desktop/CUSTED/Custed/Custed/Pages/%E5%85%A8%E9%83%A8%E5%8A%9F%E8%83%BD/%E5%BC%B9%E6%A1%86/TCAllFunctionView.swift"
-                  timestampString = "574594698.853937"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "283"
-                  endingLineNumber = "283"
-                  offsetFromSymbolStart = "2949">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #11 (SnapKit.ConstraintMaker) -&gt; () in Custed.TCAllFunctionView.widgetsAddMas() -&gt; ()"
-                  moduleName = "Custed"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/faker/Desktop/CUSTED/Custed/Custed/Pages/%E5%85%A8%E9%83%A8%E5%8A%9F%E8%83%BD/%E5%BC%B9%E6%A1%86/TCAllFunctionView.swift"
-                  timestampString = "574594698.873621"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "274"
-                  endingLineNumber = "274"
-                  offsetFromSymbolStart = "45">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -644,11 +484,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
-            timestampString = "575826612.422891"
+            timestampString = "576139025.750139"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "293"
-            endingLineNumber = "293"
+            startingLineNumber = "358"
+            endingLineNumber = "358"
+            landmarkName = "widgetsAddMas()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "576139025.7508579"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
             landmarkName = "widgetsPrepare()"
             landmarkType = "7">
             <Locations>
@@ -702,7 +558,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/AppDelegate.swift"
-            timestampString = "575828189.593105"
+            timestampString = "575977371.249492"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
@@ -718,7 +574,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Main/TCTabBarController.swift"
-            timestampString = "575811168.7641031"
+            timestampString = "575996390.258307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
@@ -734,7 +590,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x9996;&#x9875;/&#x4fa7;&#x6ed1;&#x6846;/TCLeftViewController.swift"
-            timestampString = "575390307.5411"
+            timestampString = "576088101.066435"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"
@@ -750,7 +606,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Tools/Extensions/TCAccountView.swift"
-            timestampString = "575822521.732972"
+            timestampString = "576139025.7523201"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
@@ -765,13 +621,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Custed/Pages/Other pages/TCLoginViewController.swift"
-            timestampString = "575828189.595685"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "576139025.7524641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "clicked()"
+            startingLineNumber = "465"
+            endingLineNumber = "465"
+            landmarkName = "open()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
