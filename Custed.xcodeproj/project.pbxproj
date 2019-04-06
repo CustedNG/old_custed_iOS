@@ -44,6 +44,7 @@
 		3E4F563122321DD800221EB4 /* TCAllFunctionContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F563022321DD800221EB4 /* TCAllFunctionContentView.swift */; };
 		3E4F563322321DE900221EB4 /* TCAllFunctionContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F563222321DE900221EB4 /* TCAllFunctionContentModel.swift */; };
 		3E4F566B2235409C00221EB4 /* TCCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F566A2235409C00221EB4 /* TCCollectionViewCell.swift */; };
+		3E99F9E72258F41C002BEB92 /* TCCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E99F9E62258F41C002BEB92 /* TCCacheManager.swift */; };
 		3ED276C62253C3F700605EF5 /* TCLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED276C52253C3F700605EF5 /* TCLoginViewController.swift */; };
 		3EF6E5D9224BD251007025B2 /* TCAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6E5D8224BD251007025B2 /* TCAccountViewController.swift */; };
 		3EF6E5DB224BD265007025B2 /* TCAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6E5DA224BD265007025B2 /* TCAccountView.swift */; };
@@ -134,6 +135,7 @@
 		3E4F563022321DD800221EB4 /* TCAllFunctionContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCAllFunctionContentView.swift; sourceTree = "<group>"; };
 		3E4F563222321DE900221EB4 /* TCAllFunctionContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCAllFunctionContentModel.swift; sourceTree = "<group>"; };
 		3E4F566A2235409C00221EB4 /* TCCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCCollectionViewCell.swift; sourceTree = "<group>"; };
+		3E99F9E62258F41C002BEB92 /* TCCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCCacheManager.swift; sourceTree = "<group>"; };
 		3ED276C52253C3F700605EF5 /* TCLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCLoginViewController.swift; sourceTree = "<group>"; };
 		3EF6E5D8224BD251007025B2 /* TCAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCAccountViewController.swift; path = Custed/Tools/Extensions/TCAccountViewController.swift; sourceTree = SOURCE_ROOT; };
 		3EF6E5DA224BD265007025B2 /* TCAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCAccountView.swift; path = Custed/Tools/Extensions/TCAccountView.swift; sourceTree = SOURCE_ROOT; };
@@ -456,6 +458,7 @@
 		3E4F560F222E540700221EB4 /* CacheManager */ = {
 			isa = PBXGroup;
 			children = (
+				3E99F9E62258F41C002BEB92 /* TCCacheManager.swift */,
 			);
 			path = CacheManager;
 			sourceTree = "<group>";
@@ -804,6 +807,7 @@
 				3E4F562A222FA5E000221EB4 /* TCAllFunctionView.swift in Sources */,
 				3E4B3A3D22474F5800035DEE /* TCSlideViewController.swift in Sources */,
 				3EF6E5E5224BD331007025B2 /* TCGradeModel.swift in Sources */,
+				3E99F9E72258F41C002BEB92 /* TCCacheManager.swift in Sources */,
 				3E4B3A3F224752F400035DEE /* TCLeftViewController.swift in Sources */,
 				3E4B3A7E2247E16800035DEE /* UIApplication+statusBarView.swift in Sources */,
 				3EF6E5F9224F375F007025B2 /* UIFont+fontSizeToFit.swift in Sources */,
