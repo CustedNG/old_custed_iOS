@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Foundation
+import SwiftKeychainWrapper
 class TCNetWorkingManager: NSObject {
     static let shared:TCNetWorkingManager = TCNetWorkingManager()
     private let datecompare:DateComponentsFormatter = DateComponentsFormatter.init()
@@ -47,7 +48,7 @@ class TCNetWorkingManager: NSObject {
             //有date数据，有的话就不用做操作了，没有重新拉
             let interval = Int(datecompare.string(from: lateDate as! Date, to: Date())!)
             if interval! >= 259000{
-                self.updateOrGettingID(id: id, pass: pass)
+                self.updateOrGettingID(id: KeychainWrapper.defaultKeychainWrapper.string(forKey: "Username")!, pass: KeychainWrapper.defaultKeychainWrapper.string(forKey: "Password")!)
             }
         }
     }
@@ -63,7 +64,6 @@ class TCNetWorkingManager: NSObject {
         let url = "https://beta.tusi.site/app/v1/user/session"
         Alamofire.request(url, method: .post, parameters: para, encoding: URLEncoding.default,headers: headers).responseJSON { (response) in
             guard response.response?.statusCode == 200 else{
-                //TCToast.showWithMessage("session接口请求错误:\(JSON(response.data!)["msg"].stringValue)")
                 completedDo?(JSON(response.data!)["msg"].string ?? "请求错误")
                 return
             }
@@ -76,6 +76,10 @@ class TCNetWorkingManager: NSObject {
             completedDo?(resultStr)
             
         }
+    }
+    
+    func logOut() -> Void {
+        <#function body#>
     }
     
 }

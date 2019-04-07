@@ -10,6 +10,7 @@ PODS:
   - SnapKit (4.2.0)
   - SVGKit (2.1.0):
     - CocoaLumberjack (~> 3.0)
+  - SwiftKeychainWrapper (3.2.0)
   - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - ReachabilitySwift
   - SnapKit
   - SVGKit
+  - SwiftKeychainWrapper
   - SwiftyJSON
 
 SPEC REPOS:
@@ -26,6 +28,7 @@ SPEC REPOS:
     - ReachabilitySwift
     - SnapKit
     - SVGKit
+    - SwiftKeychainWrapper
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -34,8 +37,9 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SVGKit: 8a2fc74258bdb2abb54d3b65f3dd68b0277a9c4d
+  SwiftKeychainWrapper: 82c4c02cdc36f9a24f7edfcaab3e336401caa1a1
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 7afb06159bb69639ba5d8342220ff650013c9718
+PODFILE CHECKSUM: 752034f21aba22cd8057765603e732d7db0b3c4f
 
 COCOAPODS: 1.5.3

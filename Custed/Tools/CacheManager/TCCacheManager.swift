@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Foundation
 class TCCacheManager: NSObject {
     static let shared = TCCacheManager()
     let ImagePath:String
@@ -97,7 +97,8 @@ class TCCacheManager: NSObject {
         if FileManager.default.fileExists(atPath: path){
             do {
                 let data = FileManager.default.contents(atPath: path)
-                value = try NSKeyedUnarchiver.unarchivedObject(ofClass: TestModel.self, from: data!)!
+                value = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as! NSObject
+
             }
             catch{
                 print("\(name):\(error)")

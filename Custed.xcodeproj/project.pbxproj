@@ -45,6 +45,7 @@
 		3E4F563322321DE900221EB4 /* TCAllFunctionContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F563222321DE900221EB4 /* TCAllFunctionContentModel.swift */; };
 		3E4F566B2235409C00221EB4 /* TCCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F566A2235409C00221EB4 /* TCCollectionViewCell.swift */; };
 		3E99F9E72258F41C002BEB92 /* TCCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E99F9E62258F41C002BEB92 /* TCCacheManager.swift */; };
+		3E99F9EC22590C62002BEB92 /* TCUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E99F9EB22590C62002BEB92 /* TCUserManager.swift */; };
 		3ED276C62253C3F700605EF5 /* TCLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED276C52253C3F700605EF5 /* TCLoginViewController.swift */; };
 		3EF6E5D9224BD251007025B2 /* TCAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6E5D8224BD251007025B2 /* TCAccountViewController.swift */; };
 		3EF6E5DB224BD265007025B2 /* TCAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6E5DA224BD265007025B2 /* TCAccountView.swift */; };
@@ -136,6 +137,7 @@
 		3E4F563222321DE900221EB4 /* TCAllFunctionContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCAllFunctionContentModel.swift; sourceTree = "<group>"; };
 		3E4F566A2235409C00221EB4 /* TCCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCCollectionViewCell.swift; sourceTree = "<group>"; };
 		3E99F9E62258F41C002BEB92 /* TCCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCCacheManager.swift; sourceTree = "<group>"; };
+		3E99F9EB22590C62002BEB92 /* TCUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCUserManager.swift; sourceTree = "<group>"; };
 		3ED276C52253C3F700605EF5 /* TCLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCLoginViewController.swift; sourceTree = "<group>"; };
 		3EF6E5D8224BD251007025B2 /* TCAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCAccountViewController.swift; path = Custed/Tools/Extensions/TCAccountViewController.swift; sourceTree = SOURCE_ROOT; };
 		3EF6E5DA224BD265007025B2 /* TCAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCAccountView.swift; path = Custed/Tools/Extensions/TCAccountView.swift; sourceTree = SOURCE_ROOT; };
@@ -355,13 +357,13 @@
 		3E4F5598222D4E8D00221EB4 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				3E99F9EA22590C4D002BEB92 /* User */,
 				3E4F559D222D4EC900221EB4 /* Alert */,
 				3E4B3974223FEBC800035DEE /* Toast */,
 				3E4F559E222D4ECF00221EB4 /* HUD */,
 				3EF6E5EA224BD386007025B2 /* Base */,
 				3E4B3A40224753AE00035DEE /* Extensions */,
 				3E4F560F222E540700221EB4 /* CacheManager */,
-				3E4F55A1222D4EE500221EB4 /* User */,
 				3E4F55A0222D4EDF00221EB4 /* Networking */,
 			);
 			path = Tools;
@@ -405,13 +407,6 @@
 				3EF6E5EB224CCF05007025B2 /* TCNetWorkingManager.swift */,
 			);
 			path = Networking;
-			sourceTree = "<group>";
-		};
-		3E4F55A1222D4EE500221EB4 /* User */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = User;
 			sourceTree = "<group>";
 		};
 		3E4F55A2222D4EF000221EB4 /* 我的账户 */ = {
@@ -479,6 +474,14 @@
 				3E4F566A2235409C00221EB4 /* TCCollectionViewCell.swift */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		3E99F9EA22590C4D002BEB92 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				3E99F9EB22590C62002BEB92 /* TCUserManager.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		3EF6E5EA224BD386007025B2 /* Base */ = {
@@ -749,6 +752,7 @@
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -760,6 +764,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -805,6 +810,7 @@
 				3E4B3A422247542A00035DEE /* UIViewController+slideViewController.swift in Sources */,
 				3E4F563322321DE900221EB4 /* TCAllFunctionContentModel.swift in Sources */,
 				3E4F562A222FA5E000221EB4 /* TCAllFunctionView.swift in Sources */,
+				3E99F9EC22590C62002BEB92 /* TCUserManager.swift in Sources */,
 				3E4B3A3D22474F5800035DEE /* TCSlideViewController.swift in Sources */,
 				3EF6E5E5224BD331007025B2 /* TCGradeModel.swift in Sources */,
 				3E99F9E72258F41C002BEB92 /* TCCacheManager.swift in Sources */,

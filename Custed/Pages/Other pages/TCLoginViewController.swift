@@ -230,7 +230,7 @@ class TCLoginViewController: UIViewController,UITextFieldDelegate,UIScrollViewDe
             promptBox?.text = "密 码 不 能 为 空"
             return
         }
-        TCNetWorkingManager.shared.updateOrGettingID(id: accountTextField.text!, pass: passwordTextField.text!) { (result) in
+        TCUserManager.shared.logIn(id: accountTextField.text!, pass: passwordTextField.text!) { (result) in
             self.promptBox?.isHidden = false
             self.promptBox?.text = result
         }

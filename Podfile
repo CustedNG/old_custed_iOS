@@ -17,6 +17,8 @@ target 'Custed' do
 	pod 'SnapKit'
 #svg 转UIImageVIew
 	pod 'SVGKit'
+#keyChain
+	pod 'SwiftKeychainWrapper'
   target 'CustedTests' do
     inherit! :search_paths
     # Pods for testing

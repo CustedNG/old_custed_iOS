@@ -68,7 +68,7 @@ class TCAccountView: UIView {
         }
         //姓名
         let nameLabel = UILabel()
-        nameLabel.text = "王宇阳"
+        nameLabel.text = "未登陆"
         nameLabel.textColor = UIColor.white
         nameLabel.font = UIFont.systemFont(ofSize: 20)
         nameLabel.sizeToFit()
