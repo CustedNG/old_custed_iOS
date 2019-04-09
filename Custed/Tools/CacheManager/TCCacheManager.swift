@@ -77,9 +77,26 @@ class TCCacheManager: NSObject {
     /// - Parameters:
     ///   - object: The object that need to archive
     ///   - name: The file name to store
-    func archive(object:NSObject,name:String) -> Void{
+    func softArchive(object:NSObject,name:String) -> Void{
         let path = (ArchivePath as NSString).strings(byAppendingPaths: [name])[0]
         print(path)
+        if FileManager.default.fileExists(atPath: path) == true{
+            return
+        }
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: object, requiringSecureCoding: true)
+            FileManager.default.createFile(atPath: path, contents: data, attributes: nil)
+        }catch{
+            print("\(name):\(error)")
+        }
+    }
+    /// Description:
+    ///
+    /// - Parameters:
+    ///   - object: object description
+    ///   - name: name description
+    func hardArchive(object:NSObject,name:String) -> Void{
+        let path = (ArchivePath as NSString).strings(byAppendingPaths: [name])[0]
         do {
             let data = try NSKeyedArchiver.archivedData(withRootObject: object, requiringSecureCoding: true)
             FileManager.default.createFile(atPath: path, contents: data, attributes: nil)
@@ -98,7 +115,6 @@ class TCCacheManager: NSObject {
             do {
                 let data = FileManager.default.contents(atPath: path)
                 value = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as! NSObject
-
             }
             catch{
                 print("\(name):\(error)")
@@ -166,5 +182,15 @@ class TCCacheManager: NSObject {
         catch{
             print("\(error)")
         }
+    }
+    
+    
+    func archiveExist(name:String) -> Bool{
+        let path = (ArchivePath as NSString).strings(byAppendingPaths: [name])[0]
+        print(path)
+        if FileManager.default.fileExists(atPath: path){
+            return true
+        }
+        return false
     }
 }

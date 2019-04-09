@@ -46,6 +46,14 @@
 		3E4F566B2235409C00221EB4 /* TCCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F566A2235409C00221EB4 /* TCCollectionViewCell.swift */; };
 		3E99F9E72258F41C002BEB92 /* TCCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E99F9E62258F41C002BEB92 /* TCCacheManager.swift */; };
 		3E99F9EC22590C62002BEB92 /* TCUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E99F9EB22590C62002BEB92 /* TCUserManager.swift */; };
+		3E99F9F02259F7A7002BEB92 /* defaultAvatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3E99F9EF2259F7A7002BEB92 /* defaultAvatar.jpg */; };
+		3E99F9F2225B455C002BEB92 /* aboutUs.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E99F9F1225B455C002BEB92 /* aboutUs.svg */; };
+		3E99F9F4225B456E002BEB92 /* bbplatform.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E99F9F3225B456E002BEB92 /* bbplatform.svg */; };
+		3E99F9F6225B45AE002BEB92 /* changeDr.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E99F9F5225B45AE002BEB92 /* changeDr.svg */; };
+		3E99F9F8225B45C1002BEB92 /* dataBank.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E99F9F7225B45C1002BEB92 /* dataBank.svg */; };
+		3E99F9FA225B45F9002BEB92 /* jwgl.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E99F9F9225B45F9002BEB92 /* jwgl.svg */; };
+		3E99F9FC225BA768002BEB92 /* changeAccount.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E99F9FB225BA768002BEB92 /* changeAccount.svg */; };
+		3E99F9FE225BA7F1002BEB92 /* setting.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E99F9FD225BA7F1002BEB92 /* setting.svg */; };
 		3ED276C62253C3F700605EF5 /* TCLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED276C52253C3F700605EF5 /* TCLoginViewController.swift */; };
 		3EF6E5D9224BD251007025B2 /* TCAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6E5D8224BD251007025B2 /* TCAccountViewController.swift */; };
 		3EF6E5DB224BD265007025B2 /* TCAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6E5DA224BD265007025B2 /* TCAccountView.swift */; };
@@ -138,6 +146,14 @@
 		3E4F566A2235409C00221EB4 /* TCCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCCollectionViewCell.swift; sourceTree = "<group>"; };
 		3E99F9E62258F41C002BEB92 /* TCCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCCacheManager.swift; sourceTree = "<group>"; };
 		3E99F9EB22590C62002BEB92 /* TCUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCUserManager.swift; sourceTree = "<group>"; };
+		3E99F9EF2259F7A7002BEB92 /* defaultAvatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultAvatar.jpg; sourceTree = "<group>"; };
+		3E99F9F1225B455C002BEB92 /* aboutUs.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = aboutUs.svg; sourceTree = "<group>"; };
+		3E99F9F3225B456E002BEB92 /* bbplatform.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bbplatform.svg; sourceTree = "<group>"; };
+		3E99F9F5225B45AE002BEB92 /* changeDr.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = changeDr.svg; sourceTree = "<group>"; };
+		3E99F9F7225B45C1002BEB92 /* dataBank.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = dataBank.svg; sourceTree = "<group>"; };
+		3E99F9F9225B45F9002BEB92 /* jwgl.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = jwgl.svg; sourceTree = "<group>"; };
+		3E99F9FB225BA768002BEB92 /* changeAccount.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = changeAccount.svg; sourceTree = "<group>"; };
+		3E99F9FD225BA7F1002BEB92 /* setting.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = setting.svg; sourceTree = "<group>"; };
 		3ED276C52253C3F700605EF5 /* TCLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCLoginViewController.swift; sourceTree = "<group>"; };
 		3EF6E5D8224BD251007025B2 /* TCAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCAccountViewController.swift; path = Custed/Tools/Extensions/TCAccountViewController.swift; sourceTree = SOURCE_ROOT; };
 		3EF6E5DA224BD265007025B2 /* TCAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCAccountView.swift; path = Custed/Tools/Extensions/TCAccountView.swift; sourceTree = SOURCE_ROOT; };
@@ -511,8 +527,16 @@
 		3EF6E609225255DA007025B2 /* Used image */ = {
 			isa = PBXGroup;
 			children = (
+				3E99F9FD225BA7F1002BEB92 /* setting.svg */,
+				3E99F9FB225BA768002BEB92 /* changeAccount.svg */,
+				3E99F9F9225B45F9002BEB92 /* jwgl.svg */,
+				3E99F9F1225B455C002BEB92 /* aboutUs.svg */,
+				3E99F9EF2259F7A7002BEB92 /* defaultAvatar.jpg */,
 				3EF6E60A225255E6007025B2 /* custedLogo.png */,
 				3EF6E60C225268D9007025B2 /* custedpassword.svg */,
+				3E99F9F3225B456E002BEB92 /* bbplatform.svg */,
+				3E99F9F5225B45AE002BEB92 /* changeDr.svg */,
+				3E99F9F7225B45C1002BEB92 /* dataBank.svg */,
 			);
 			path = "Used image";
 			sourceTree = "<group>";
@@ -653,11 +677,14 @@
 			files = (
 				3EF6E607225254E0007025B2 /* png in Resources */,
 				3E4F5573222D4D1D00221EB4 /* LaunchScreen.storyboard in Resources */,
+				3E99F9FC225BA768002BEB92 /* changeAccount.svg in Resources */,
 				3E4B3A82224A15C200035DEE /* 123.jpg in Resources */,
 				3EF6E5EF224D0379007025B2 /* widget_week_close.png in Resources */,
 				3E4B39E622421FCF00035DEE /* 失物招领.svg in Resources */,
+				3E99F9FA225B45F9002BEB92 /* jwgl.svg in Resources */,
 				3E4B39DC22421DE600035DEE /* allFunc.svg in Resources */,
 				3EF6E5F5224F2533007025B2 /* 13.jpg in Resources */,
+				3E99F9F2225B455C002BEB92 /* aboutUs.svg in Resources */,
 				3E4B39E722421FCF00035DEE /* 体测成绩.svg in Resources */,
 				3E4B39E922421FCF00035DEE /* 一键教评.svg in Resources */,
 				3EF6E5F0224D0379007025B2 /* widget_week_open.png in Resources */,
@@ -668,10 +695,15 @@
 				3EF6E606225254E0007025B2 /* gif in Resources */,
 				3E4B39E522421FCF00035DEE /* 电话黄页.svg in Resources */,
 				3EF6E60D225268D9007025B2 /* custedpassword.svg in Resources */,
+				3E99F9FE225BA7F1002BEB92 /* setting.svg in Resources */,
 				3E4F5570222D4D1D00221EB4 /* Assets.xcassets in Resources */,
+				3E99F9F4225B456E002BEB92 /* bbplatform.svg in Resources */,
 				3E4B39DB22421DE600035DEE /* dataBank.svg in Resources */,
 				3EF6E60B225255E6007025B2 /* custedLogo.png in Resources */,
+				3E99F9F02259F7A7002BEB92 /* defaultAvatar.jpg in Resources */,
 				3EF6E608225254E0007025B2 /* svg in Resources */,
+				3E99F9F8225B45C1002BEB92 /* dataBank.svg in Resources */,
+				3E99F9F6225B45AE002BEB92 /* changeDr.svg in Resources */,
 				3E4B39F92245125E00035DEE /* custedid.svg in Resources */,
 				3EF6E5F7224F25F8007025B2 /* test1.JPG in Resources */,
 			);

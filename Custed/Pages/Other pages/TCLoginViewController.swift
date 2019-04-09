@@ -216,7 +216,6 @@ class TCLoginViewController: UIViewController,UITextFieldDelegate,UIScrollViewDe
         
     }
     @objc func clicked(){
-        print("点击")
         self.dismiss(animated: true, completion: nil)
     }
     @objc func loginButtonClicked(){
@@ -232,10 +231,12 @@ class TCLoginViewController: UIViewController,UITextFieldDelegate,UIScrollViewDe
         }
         TCUserManager.shared.logIn(id: accountTextField.text!, pass: passwordTextField.text!) { (result) in
             self.promptBox?.isHidden = false
-            self.promptBox?.text = result
+            if result == "请求成功"{
+                self.dismiss(animated: true, completion: {
+                    TCToast.showWithMessage("登陆成功")
+                })
+            }
         }
-    }
-    override func viewDidLayoutSubviews() {
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderColor = shadowColor.cgColor

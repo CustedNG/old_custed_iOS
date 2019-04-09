@@ -164,7 +164,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
-            timestampString = "576157099.120627"
+            timestampString = "576433228.560859"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
@@ -244,7 +244,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
-            timestampString = "576157099.121946"
+            timestampString = "576433228.560987"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
@@ -388,7 +388,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
-            timestampString = "576157099.127653"
+            timestampString = "576433228.561183"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "93"
@@ -436,7 +436,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionModel.swift"
-            timestampString = "576157099.127723"
+            timestampString = "576433228.561236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "94"
@@ -558,7 +558,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/AppDelegate.swift"
-            timestampString = "575977371.249492"
+            timestampString = "576427974.740914"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
@@ -574,7 +574,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Main/TCTabBarController.swift"
-            timestampString = "575996390.258307"
+            timestampString = "576431499.78605"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
@@ -605,13 +605,77 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Custed/Tools/Extensions/TCAccountView.swift"
-            timestampString = "576157099.129649"
+            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
+            timestampString = "576182216.156504"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "init(frame:)"
+            startingLineNumber = "465"
+            endingLineNumber = "465"
+            landmarkName = "open()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Tools/Networking/TCNetWorkingManager.swift"
+            timestampString = "576433228.561486"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "gettingTakenID()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Custed.TCNetWorkingManager.gettingTakenID() -&gt; Swift.String"
+                  moduleName = "Custed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faker/Desktop/Custed/Custed/Custed/Tools/Networking/TCNetWorkingManager.swift"
+                  timestampString = "576433228.752497"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "3404">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.String) -&gt; () in Custed.TCNetWorkingManager.gettingTakenID() -&gt; Swift.String"
+                  moduleName = "Custed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faker/Desktop/Custed/Custed/Custed/Tools/Networking/TCNetWorkingManager.swift"
+                  timestampString = "576433228.755249"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Tools/Extensions/TCAccountView.swift"
+            timestampString = "576433228.561547"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
+            landmarkName = "layoutSubviews()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -621,13 +685,93 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Custed/Pages/&#x5168;&#x90e8;&#x529f;&#x80fd;/&#x5f39;&#x6846;/TCAllFunctionView.swift"
-            timestampString = "576182216.156504"
+            filePath = "Custed/Tools/Extensions/TCAccountView.swift"
+            timestampString = "576433228.5622391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "465"
-            endingLineNumber = "465"
-            landmarkName = "open()"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "widgetsPrepare()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Tools/Extensions/TCAccountView.swift"
+            timestampString = "576433228.562789"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "widgetsPrepare()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Tools/Extensions/TCAccountModel.swift"
+            timestampString = "576433228.563237"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "gettingInfo(completedDo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Tools/Extensions/TCAccountViewController.swift"
+            timestampString = "576433228.5633399"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Tools/Extensions/TCAccountViewController.swift"
+            timestampString = "576433228.563416"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Tools/Extensions/TCAccountViewController.swift"
+            timestampString = "576433228.563471"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

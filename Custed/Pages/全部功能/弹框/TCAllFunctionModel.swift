@@ -144,7 +144,6 @@ class TCAllFunctionModel: NSObject {
                 completedDo()
                 return
             }
-            //debugPrint(response)
             //let jsonData = String(data: response.data!, encoding: String.Encoding.utf8)
             let json = JSON(response.data!)
             //赋值

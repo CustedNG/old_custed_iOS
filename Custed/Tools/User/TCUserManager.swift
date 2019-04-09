@@ -33,7 +33,22 @@ class TCUserManager: NSObject {
 
     //keyChain
     func logOut() -> Void{
+        //清除本地的用户缓存
         KeychainWrapper.defaultKeychainWrapper.removeAllKeys()
+        UserDefaults.standard.removeObject(forKey: "isLogin")
+        UserDefaults.standard.removeObject(forKey: "custed-token")
+        UserDefaults.standard.removeObject(forKey: "lastDate")
+        //delete preferences
+        let url = "https://beta.tusi.site/app/v1/user/session"
+        let header = ["accept": "application/vnd.toast+json"]
+        Alamofire.request(url, method: .delete, parameters: nil, headers: header).response { (response) in
+            if response.response?.statusCode == 200{
+                TCToast.showWithMessage("退出成功")
+            }
+            else if response.response?.statusCode == 403{
+                TCToast.showWithMessage("会话不存在或已注销")
+            }
+        }
     }
 //    func logIn(Username:String,password:String) -> Void {
 //        KeychainWrapper.defaultKeychainWrapper.set(Username, forKey: "Username")
@@ -58,6 +73,7 @@ class TCUserManager: NSObject {
             let nowDate = Date()
             let json = JSON(response.data!)
             //debugPrint(response)
+            UserDefaults.standard.setValue(true, forKey: "isLogin")
             KeychainWrapper.defaultKeychainWrapper.set(id, forKey: "Username")
             KeychainWrapper.defaultKeychainWrapper.set(pass, forKey: "Password")
             UserDefaults.standard.setValue(json["data"]["token_value"].stringValue, forKey: "custed-token")

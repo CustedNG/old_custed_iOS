@@ -36,21 +36,38 @@ class TCNetWorkingManager: NSObject {
 //            }
 //            return response
 //        }
-    func settingTakenID(id:String ,pass:String) -> Void {
+    func gettingTakenID() -> String {
         //判断session有没有过期，如果过期重新获取
 //        UserDefaults.standard.value(forKey: "cust")
         let lateDate = UserDefaults.standard.value(forKey: "lastDate")
+        //print(lateDate)
+        var tokenID:String = ""
         if lateDate == nil{
             //没date数据
-            self.updateOrGettingID(id: id, pass: pass)
+            let id = KeychainWrapper.defaultKeychainWrapper.string(forKey: "Username")!
+            let pass = KeychainWrapper.defaultKeychainWrapper.string(forKey: "Password")!
+            self.updateOrGettingID(id: id, pass: pass,completedDo: { (token) in
+                tokenID = token
+                //print(token)
+            })
         }
         else{
             //有date数据，有的话就不用做操作了，没有重新拉
-            let interval = Int(datecompare.string(from: lateDate as! Date, to: Date())!)
+            let str = datecompare.string(from: lateDate as! Date, to: Date())!
+            let str2 = str.replacingOccurrences(of: ",", with: "")
+            let interval = Int(str2)
             if interval! >= 259000{
-                self.updateOrGettingID(id: KeychainWrapper.defaultKeychainWrapper.string(forKey: "Username")!, pass: KeychainWrapper.defaultKeychainWrapper.string(forKey: "Password")!)
+                self.updateOrGettingID(id: KeychainWrapper.defaultKeychainWrapper.string(forKey: "Username")!, pass: KeychainWrapper.defaultKeychainWrapper.string(forKey: "Password")!,completedDo: { (token) in
+                    tokenID = token
+                    //print(token)
+                })
+            }
+            else{
+                tokenID = UserDefaults.standard.value(forKey: "custed-token") as! String
             }
         }
+        //print(tokenID)
+        return tokenID
     }
     func updateOrGettingID(id:String,pass:String,completedDo:((String)->Void)?=nil ) -> Void {
         let headers = [
@@ -78,8 +95,8 @@ class TCNetWorkingManager: NSObject {
         }
     }
     
-    func logOut() -> Void {
-        <#function body#>
-    }
+//    func logOut() -> Void {
+//        <#function body#>
+//    }
     
 }

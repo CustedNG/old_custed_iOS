@@ -57,8 +57,6 @@ class TCHUDBase: UIView {
             make.bottom.equalToSuperview().offset(-10)
             make.centerX.equalToSuperview()
         }
-        
-
     }
     
     required init?(coder aDecoder: NSCoder) {
