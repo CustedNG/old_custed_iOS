@@ -30,7 +30,7 @@ class TCAccountView: UIView,UITableViewDelegate{
     let cellWidth : CGFloat = ScreenWidth/10
     let cellHeight : CGFloat = ScreenWidth/10
     let fontSize : CGFloat = 13*ScreenWidth/414
-    let cellForTablViewCellHeight = 40*ScreenHeight/896
+    let cellForTablViewCellHeight = 50*ScreenHeight/896
     let cellIdentifier : String = "AccountCell"
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -218,9 +218,10 @@ class TCAccountView: UIView,UITableViewDelegate{
         logOut!.layer.borderWidth = 2
         logOut!.layer.borderColor = UIColor.FromRGB(RGB: 0x4A9FF2).cgColor
         logOut!.addTarget(self, action: #selector(logoutClick), for: .touchUpInside)
-        underPartView!.addSubview(logOut!)
+        self.addSubview(logOut!)
         logOut?.snp.makeConstraints({ (make) in
-            make.top.equalTo(tableView.snp_bottom).offset(10)
+            make.bottom.equalToSuperview().offset(-TabBarHeight-15)
+            make.height.equalTo(40)
             make.width.equalTo(ScreenWidth*4/5)
             make.centerX.equalToSuperview()
         })
@@ -260,7 +261,7 @@ class TCAccountView: UIView,UITableViewDelegate{
         underPartView?.snp.remakeConstraints({ (make) in
             make.width.equalToSuperview()
             make.top.equalTo(upperPartView!.snp_bottom).offset(15)
-            make.height.equalTo(ScreenHeight-frame.height-TabBarHeight-15)
+            make.height.equalTo(ScreenHeight-frame.height-TabBarHeight-15-30)
         })
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

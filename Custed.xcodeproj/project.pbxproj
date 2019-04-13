@@ -50,10 +50,11 @@
 		3E99F9F2225B455C002BEB92 /* aboutUs.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E99F9F1225B455C002BEB92 /* aboutUs.svg */; };
 		3E99F9F4225B456E002BEB92 /* bbplatform.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E99F9F3225B456E002BEB92 /* bbplatform.svg */; };
 		3E99F9F6225B45AE002BEB92 /* changeDr.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E99F9F5225B45AE002BEB92 /* changeDr.svg */; };
-		3E99F9F8225B45C1002BEB92 /* dataBank.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E99F9F7225B45C1002BEB92 /* dataBank.svg */; };
 		3E99F9FA225B45F9002BEB92 /* jwgl.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E99F9F9225B45F9002BEB92 /* jwgl.svg */; };
 		3E99F9FC225BA768002BEB92 /* changeAccount.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E99F9FB225BA768002BEB92 /* changeAccount.svg */; };
 		3E99F9FE225BA7F1002BEB92 /* setting.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E99F9FD225BA7F1002BEB92 /* setting.svg */; };
+		3E99FA03225F6D96002BEB92 /* ScheduleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E99FA02225F6D96002BEB92 /* ScheduleDataModel.swift */; };
+		3E99FA0522608AA9002BEB92 /* Alamofire.SessionManager+ephemeralRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E99FA0422608AA9002BEB92 /* Alamofire.SessionManager+ephemeralRequest.swift */; };
 		3ED276C62253C3F700605EF5 /* TCLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED276C52253C3F700605EF5 /* TCLoginViewController.swift */; };
 		3EF6E5D9224BD251007025B2 /* TCAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6E5D8224BD251007025B2 /* TCAccountViewController.swift */; };
 		3EF6E5DB224BD265007025B2 /* TCAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6E5DA224BD265007025B2 /* TCAccountView.swift */; };
@@ -150,17 +151,18 @@
 		3E99F9F1225B455C002BEB92 /* aboutUs.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = aboutUs.svg; sourceTree = "<group>"; };
 		3E99F9F3225B456E002BEB92 /* bbplatform.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bbplatform.svg; sourceTree = "<group>"; };
 		3E99F9F5225B45AE002BEB92 /* changeDr.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = changeDr.svg; sourceTree = "<group>"; };
-		3E99F9F7225B45C1002BEB92 /* dataBank.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = dataBank.svg; sourceTree = "<group>"; };
 		3E99F9F9225B45F9002BEB92 /* jwgl.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = jwgl.svg; sourceTree = "<group>"; };
 		3E99F9FB225BA768002BEB92 /* changeAccount.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = changeAccount.svg; sourceTree = "<group>"; };
 		3E99F9FD225BA7F1002BEB92 /* setting.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = setting.svg; sourceTree = "<group>"; };
+		3E99FA02225F6D96002BEB92 /* ScheduleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDataModel.swift; sourceTree = "<group>"; };
+		3E99FA0422608AA9002BEB92 /* Alamofire.SessionManager+ephemeralRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alamofire.SessionManager+ephemeralRequest.swift"; sourceTree = "<group>"; };
 		3ED276C52253C3F700605EF5 /* TCLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCLoginViewController.swift; sourceTree = "<group>"; };
 		3EF6E5D8224BD251007025B2 /* TCAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCAccountViewController.swift; path = Custed/Tools/Extensions/TCAccountViewController.swift; sourceTree = SOURCE_ROOT; };
 		3EF6E5DA224BD265007025B2 /* TCAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCAccountView.swift; path = Custed/Tools/Extensions/TCAccountView.swift; sourceTree = SOURCE_ROOT; };
 		3EF6E5DC224BD277007025B2 /* TCAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCAccountModel.swift; path = Custed/Tools/Extensions/TCAccountModel.swift; sourceTree = SOURCE_ROOT; };
-		3EF6E5DE224BD2B9007025B2 /* TCScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCScheduleView.swift; path = Custed/Tools/Extensions/TCScheduleView.swift; sourceTree = SOURCE_ROOT; };
-		3EF6E5E0224BD2D7007025B2 /* TCScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCScheduleViewController.swift; path = Custed/Tools/Extensions/TCScheduleViewController.swift; sourceTree = SOURCE_ROOT; };
-		3EF6E5E2224BD2F7007025B2 /* TCScheduleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCScheduleModel.swift; path = Custed/Tools/Extensions/TCScheduleModel.swift; sourceTree = SOURCE_ROOT; };
+		3EF6E5DE224BD2B9007025B2 /* TCScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCScheduleView.swift; path = "Custed/Pages/课程表/TCScheduleView.swift"; sourceTree = SOURCE_ROOT; };
+		3EF6E5E0224BD2D7007025B2 /* TCScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCScheduleViewController.swift; path = "Custed/Pages/课程表/TCScheduleViewController.swift"; sourceTree = SOURCE_ROOT; };
+		3EF6E5E2224BD2F7007025B2 /* TCScheduleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCScheduleModel.swift; path = "Custed/Pages/课程表/TCScheduleModel.swift"; sourceTree = SOURCE_ROOT; };
 		3EF6E5E4224BD331007025B2 /* TCGradeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCGradeModel.swift; path = Custed/Tools/Extensions/TCGradeModel.swift; sourceTree = SOURCE_ROOT; };
 		3EF6E5E6224BD341007025B2 /* TCGradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCGradeView.swift; path = Custed/Tools/Extensions/TCGradeView.swift; sourceTree = SOURCE_ROOT; };
 		3EF6E5E8224BD355007025B2 /* TCGradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TCGradeViewController.swift; path = Custed/Tools/Extensions/TCGradeViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -286,6 +288,7 @@
 				3E4B3A7D2247E16800035DEE /* UIApplication+statusBarView.swift */,
 				3EF6E5F1224D0E6D007025B2 /* UIColor+fromRGB.swift */,
 				3EF6E5F8224F375F007025B2 /* UIFont+fontSizeToFit.swift */,
+				3E99FA0422608AA9002BEB92 /* Alamofire.SessionManager+ephemeralRequest.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -360,11 +363,11 @@
 		3E4F5597222D4E8700221EB4 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				3E99FA01225F6D6A002BEB92 /* 课程表 */,
 				3EF6E60222525269007025B2 /* Other pages */,
 				3E4B396D223FC32C00035DEE /* 首页 */,
 				3E4F55A5222D4F1F00221EB4 /* 成绩 */,
 				3E4F55A4222D4F1600221EB4 /* 全部功能 */,
-				3E4F55A3222D4F0F00221EB4 /* 课程表 */,
 				3E4F55A2222D4EF000221EB4 /* 我的账户 */,
 			);
 			path = Pages;
@@ -435,16 +438,6 @@
 			path = "我的账户";
 			sourceTree = "<group>";
 		};
-		3E4F55A3222D4F0F00221EB4 /* 课程表 */ = {
-			isa = PBXGroup;
-			children = (
-				3EF6E5DE224BD2B9007025B2 /* TCScheduleView.swift */,
-				3EF6E5E0224BD2D7007025B2 /* TCScheduleViewController.swift */,
-				3EF6E5E2224BD2F7007025B2 /* TCScheduleModel.swift */,
-			);
-			path = "课程表";
-			sourceTree = "<group>";
-		};
 		3E4F55A4222D4F1600221EB4 /* 全部功能 */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,9 +452,9 @@
 		3E4F55A5222D4F1F00221EB4 /* 成绩 */ = {
 			isa = PBXGroup;
 			children = (
-				3EF6E5E4224BD331007025B2 /* TCGradeModel.swift */,
 				3EF6E5E6224BD341007025B2 /* TCGradeView.swift */,
 				3EF6E5E8224BD355007025B2 /* TCGradeViewController.swift */,
+				3EF6E5E4224BD331007025B2 /* TCGradeModel.swift */,
 			);
 			path = "成绩";
 			sourceTree = "<group>";
@@ -500,6 +493,17 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		3E99FA01225F6D6A002BEB92 /* 课程表 */ = {
+			isa = PBXGroup;
+			children = (
+				3EF6E5E2224BD2F7007025B2 /* TCScheduleModel.swift */,
+				3EF6E5E0224BD2D7007025B2 /* TCScheduleViewController.swift */,
+				3EF6E5DE224BD2B9007025B2 /* TCScheduleView.swift */,
+				3E99FA02225F6D96002BEB92 /* ScheduleDataModel.swift */,
+			);
+			path = "课程表";
+			sourceTree = "<group>";
+		};
 		3EF6E5EA224BD386007025B2 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -536,7 +540,6 @@
 				3EF6E60C225268D9007025B2 /* custedpassword.svg */,
 				3E99F9F3225B456E002BEB92 /* bbplatform.svg */,
 				3E99F9F5225B45AE002BEB92 /* changeDr.svg */,
-				3E99F9F7225B45C1002BEB92 /* dataBank.svg */,
 			);
 			path = "Used image";
 			sourceTree = "<group>";
@@ -702,7 +705,6 @@
 				3EF6E60B225255E6007025B2 /* custedLogo.png in Resources */,
 				3E99F9F02259F7A7002BEB92 /* defaultAvatar.jpg in Resources */,
 				3EF6E608225254E0007025B2 /* svg in Resources */,
-				3E99F9F8225B45C1002BEB92 /* dataBank.svg in Resources */,
 				3E99F9F6225B45AE002BEB92 /* changeDr.svg in Resources */,
 				3E4B39F92245125E00035DEE /* custedid.svg in Resources */,
 				3EF6E5F7224F25F8007025B2 /* test1.JPG in Resources */,
@@ -839,9 +841,11 @@
 				3EF6E5F2224D0E6D007025B2 /* UIColor+fromRGB.swift in Sources */,
 				3E4F55A8222D4F4C00221EB4 /* TCTabBarController.swift in Sources */,
 				3E4B396F223FC34400035DEE /* TCHomePageView.swift in Sources */,
+				3E99FA03225F6D96002BEB92 /* ScheduleDataModel.swift in Sources */,
 				3E4B3A422247542A00035DEE /* UIViewController+slideViewController.swift in Sources */,
 				3E4F563322321DE900221EB4 /* TCAllFunctionContentModel.swift in Sources */,
 				3E4F562A222FA5E000221EB4 /* TCAllFunctionView.swift in Sources */,
+				3E99FA0522608AA9002BEB92 /* Alamofire.SessionManager+ephemeralRequest.swift in Sources */,
 				3E99F9EC22590C62002BEB92 /* TCUserManager.swift in Sources */,
 				3E4B3A3D22474F5800035DEE /* TCSlideViewController.swift in Sources */,
 				3EF6E5E5224BD331007025B2 /* TCGradeModel.swift in Sources */,

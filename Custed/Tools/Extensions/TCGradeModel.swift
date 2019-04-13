@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import Foundation
+import Alamofire
 class TCGradeModel: NSObject {
 
 }

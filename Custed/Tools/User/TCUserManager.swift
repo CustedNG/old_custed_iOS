@@ -83,5 +83,8 @@ class TCUserManager: NSObject {
             
         }
     }
-    
+    func getTokenValue() ->String?{
+        let value = UserDefaults.standard.string(forKey: "custed-token")
+        return value
+    }
 }
