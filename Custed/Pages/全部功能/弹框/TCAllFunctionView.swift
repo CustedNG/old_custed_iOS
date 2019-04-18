@@ -281,7 +281,7 @@ class TCAllFunctionView: UIView,UICollectionViewDataSource,UICollectionViewDeleg
 //        layout.minimumInteritemSpacing = 15
 //        layout.sectionInset = secInset
         self.collectionView = UICollectionView.init(frame: CGRect.init(), collectionViewLayout: layout)
-        self.collectionView?.backgroundColor = self.backgroundColor
+        self.collectionView?.backgroundColor = nil
         self.collectionView?.dataSource = self
         self.collectionView?.delegate = self
         self.addSubview(self.collectionView!)

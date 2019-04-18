@@ -52,6 +52,9 @@ class TCHomePageViewController: UIViewController,UIGestureRecognizerDelegate{
             self.tabBarController?.present(TCLoginViewController.init(), animated: true, completion: nil)
         }
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print(HTTPCookieStorage.shared.cookies)
+    }
     
 
 }

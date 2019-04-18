@@ -22,6 +22,8 @@ class TCTabBarController: UITabBarController, UITabBarControllerDelegate {
         fatalError("NO")
     }
     func testSetting() -> Void {
+        let bgImage:UIImage = UIImage.imageFrom(bounds: CGRect.init(x: 0, y: 0, width: ScreenWidth, height: TabBarHeight+NavigationHeight))
+        
         let test :WYYTestViewController = WYYTestViewController()
         let homepageVC : TCHomePageViewController = TCHomePageViewController()
         let homePageNav :UINavigationController = UINavigationController.init(rootViewController: homepageVC)
@@ -32,7 +34,8 @@ class TCTabBarController: UITabBarController, UITabBarControllerDelegate {
         let allfunctionVC:TCAllFunctionContentViewController = TCAllFunctionContentViewController()
         let scheduleVC : TCScheduleViewController = TCScheduleViewController()
         let scheduleNav : UINavigationController = UINavigationController.init(rootViewController: scheduleVC)
-        scheduleNav.navigationBar.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: TabBarHeight+NavigationHeight)
+        scheduleNav.navigationBar.tintColor = UIColor.white
+        scheduleNav.navigationBar.setBackgroundImage(bgImage, for: .default)
         let accountVC : TCAccountViewController = TCAccountViewController()
         let accountNav : UINavigationController = UINavigationController.init(rootViewController: accountVC)
         accountNav.navigationBar.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: TabBarHeight+NavigationHeight)

@@ -229,6 +229,7 @@ class TCLoginViewController: UIViewController,UITextFieldDelegate,UIScrollViewDe
             promptBox?.text = "密 码 不 能 为 空"
             return
         }
+        print(accountTextField.text,passwordTextField.text)
         TCUserManager.shared.logIn(id: accountTextField.text!, pass: passwordTextField.text!) { (result) in
             self.promptBox?.isHidden = false
             if result == "请求成功"{

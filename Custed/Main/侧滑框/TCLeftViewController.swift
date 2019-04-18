@@ -28,7 +28,7 @@ class TCLeftViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.view.addSubview(rightView)
         
         
-        let img = UIImageView.init(image: UIImage.init(named: "123.jpg"))
+        let img = UIImageView.init(image: UIImage.init(named: "13.jpg"))
         img.clipsToBounds = true
         rightView.addSubview(img)
         img.snp.makeConstraints { (make) in

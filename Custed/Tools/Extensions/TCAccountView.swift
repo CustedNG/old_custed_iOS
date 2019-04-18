@@ -230,12 +230,6 @@ class TCAccountView: UIView,UITableViewDelegate{
     @objc func JWGLClicked(sender: UITapGestureRecognizer,target: UIView){
         self.delegate?.imageViewClick(tag: sender.view?.tag ?? 0)
     }
-    @objc func ZLKClicked(){
-        
-    }
-    @objc func BBClicked(){
-        
-    }
     @objc func logoutClick(){
         self.delegate?.buttonClicked()
     }

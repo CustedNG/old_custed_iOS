@@ -22,6 +22,7 @@ let isIphoneXOrAbove = (ScreenHeight == 812 || ScreenHeight == 896) ? true : fal
 let isUnderIphoneX = (ScreenHeight == 812 || ScreenHeight == 896) ? false : true
 let isIpad = UIDevice.current.userInterfaceIdiom.rawValue == 1
 /*--------------------------屏幕适配设置--------------------------*/
+let SVGSIze:CGFloat = isIpad ? 30 : 25
 //顶部的statusbar高度
 let StatusBarheight :CGFloat = isIphoneXOrAbove ? 44 : 20
 //对于iphonex以上的 刘海长度

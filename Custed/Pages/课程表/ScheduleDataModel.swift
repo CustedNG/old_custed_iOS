@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 class Schedule:NSObject,Codable,NSSecureCoding{
     static var supportsSecureCoding: Bool = true
     var code:Int
@@ -30,14 +31,14 @@ class Schedule:NSObject,Codable,NSSecureCoding{
         self.code = aDecoder.decodeInteger(forKey: CodingKeys.code.rawValue)
         self.msg = aDecoder.decodeObject(forKey: CodingKeys.msg.rawValue) as! String
         self.data = aDecoder.decodeObject(of: scheduleData.self, forKey: CodingKeys.data.rawValue)!
-        self.runtime = aDecoder.decodeObject(forKey: CodingKeys.runtime.rawValue) as! Float
+        self.runtime = aDecoder.decodeFloat(forKey: CodingKeys.runtime.rawValue)
     }
 }
 class scheduleData:NSObject,Codable,NSSecureCoding{
     static var supportsSecureCoding: Bool = true
     var ver:String
     var table:scheduleTable
-    var section_rules:[SectionRules]
+    var section_rules:[String:SectionRules]
     enum CodingKeys:String,CodingKey {
         case ver
         case table
@@ -52,7 +53,7 @@ class scheduleData:NSObject,Codable,NSSecureCoding{
     required init?(coder aDecoder: NSCoder) {
         self.ver = aDecoder.decodeObject(forKey: CodingKeys.ver.rawValue) as! String
         self.table = aDecoder.decodeObject(of: scheduleTable.self, forKey: CodingKeys.table.rawValue)!
-        self.section_rules = aDecoder.decodeObject(of: [scheduleTable.self], forKey: CodingKeys.section_rules.rawValue) as! [SectionRules]
+        self.section_rules = aDecoder.decodeObject(forKey: CodingKeys.section_rules.rawValue) as! [String:SectionRules]
     }
 }
 class scheduleTable:NSObject,Codable,NSSecureCoding{
@@ -104,6 +105,7 @@ class lesson:NSObject,Codable,NSSecureCoding{
     var year:Int
     var weeks:[Int]
     var classes:[String]
+    var week_day:Int
     var location:String
     var raw_weeks:String
     var end_section:Int
@@ -115,11 +117,13 @@ class lesson:NSObject,Codable,NSSecureCoding{
     var subject_uid:String
     var teacher_name:String
     var start_section:Int
+    var color:UIColor!
     enum CodingKeys:String,CodingKey {
         case term
         case year
         case weeks
         case classes
+        case week_day
         case location
         case raw_weeks
         case end_section
@@ -137,6 +141,7 @@ class lesson:NSObject,Codable,NSSecureCoding{
         aCoder.encode(year,forKey: CodingKeys.year.rawValue)
         aCoder.encode(weeks,forKey: CodingKeys.weeks.rawValue)
         aCoder.encode(classes,forKey: CodingKeys.classes.rawValue)
+        aCoder.encode(week_day,forKey: CodingKeys.week_day.rawValue)
         aCoder.encode(location,forKey: CodingKeys.location.rawValue)
         aCoder.encode(raw_weeks,forKey: CodingKeys.raw_weeks.rawValue)
         aCoder.encode(end_section,forKey: CodingKeys.end_section.rawValue)
@@ -155,6 +160,7 @@ class lesson:NSObject,Codable,NSSecureCoding{
         self.year = aDecoder.decodeInteger(forKey: CodingKeys.year.rawValue)
         self.weeks = aDecoder.decodeObject(forKey: CodingKeys.weeks.rawValue) as! [Int]
         self.classes = aDecoder.decodeObject(forKey: CodingKeys.classes.rawValue) as! [String]
+        self.week_day = aDecoder.decodeInteger(forKey: CodingKeys.week_day.rawValue)
         self.location = aDecoder.decodeObject(forKey: CodingKeys.location.rawValue) as! String
         self.raw_weeks = aDecoder.decodeObject(forKey: CodingKeys.raw_weeks.rawValue) as! String
         self.end_section = aDecoder.decodeInteger(forKey: CodingKeys.end_section.rawValue)
@@ -166,6 +172,7 @@ class lesson:NSObject,Codable,NSSecureCoding{
         self.subject_uid = aDecoder.decodeObject(forKey: CodingKeys.subject_uid.rawValue) as! String
         self.teacher_name = aDecoder.decodeObject(forKey: CodingKeys.teacher_name.rawValue) as! String
         self.start_section = aDecoder.decodeInteger(forKey: CodingKeys.start_section.rawValue)
+        //self.color = UIColor.RandomColor()
     }
 }
 class subject:NSObject,Codable,NSSecureCoding{
@@ -173,6 +180,7 @@ class subject:NSObject,Codable,NSSecureCoding{
     var is_exam:Bool
     var subject_uid:String
     var subject_name:String
+    var color:UIColor!
     enum CodingKeys:String,CodingKey {
         case is_exam
         case subject_uid
@@ -188,11 +196,12 @@ class subject:NSObject,Codable,NSSecureCoding{
         self.is_exam = aDecoder.decodeBool(forKey: CodingKeys.is_exam.rawValue)
         self.subject_uid = aDecoder.decodeObject(forKey: CodingKeys.subject_uid.rawValue) as! String
         self.subject_name = aDecoder.decodeObject(forKey: CodingKeys.subject_name.rawValue) as! String
+        self.color = UIColor.RandomColor()
     }
 }
 class SectionRules:NSObject,Codable,NSSecureCoding{
     static var supportsSecureCoding: Bool = true
-    var rules:[rule]
+    var rules:[String:rule]
     var type:Int
     enum CodingKeys:String,CodingKey{
         case rules = "rule"
@@ -204,8 +213,8 @@ class SectionRules:NSObject,Codable,NSSecureCoding{
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.rules = aDecoder.decodeObject(forKey: CodingKeys.rules.rawValue) as! [rule]
-        self.type = aDecoder.decodeInteger(forKey: CodingKeys.rules.rawValue)
+        self.rules = aDecoder.decodeObject(forKey: CodingKeys.rules.rawValue) as! [String:rule]
+        self.type = aDecoder.decodeInteger(forKey: CodingKeys.type.rawValue)
     }
 }
 class rule:NSObject,Codable,NSSecureCoding{
@@ -232,4 +241,10 @@ class rule:NSObject,Codable,NSSecureCoding{
         self.end_time = aDecoder.decodeObject(forKey: CodingKeys.end_time.rawValue) as! String
         self.start_time = aDecoder.decodeObject(forKey: CodingKeys.start_time.rawValue) as! String
     }
+    
+    
+    
+    
+    
 }
+

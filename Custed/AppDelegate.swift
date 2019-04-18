@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         let slide  = TCSlideViewController.init(SlideViewController: TCLeftViewController(), MainTabBarController: TCTabBarController())
         window?.rootViewController = slide
+    
     }
     
     
