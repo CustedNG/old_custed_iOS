@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		371F0A70DEF1D1E02630174B /* Pods_Custed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 613C2C716B05B64E23C3D2E1 /* Pods_Custed.framework */; };
 		3E03A99922675B45000090B7 /* headerForClassSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E03A99822675B45000090B7 /* headerForClassSchedule.swift */; };
+		3E03A99B22687030000090B7 /* cellsForScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E03A99A22687030000090B7 /* cellsForScheduleView.swift */; };
 		3E4B396F223FC34400035DEE /* TCHomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4B396E223FC34400035DEE /* TCHomePageView.swift */; };
 		3E4B3971223FC36600035DEE /* TCHomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4B3970223FC36600035DEE /* TCHomePageViewController.swift */; };
 		3E4B3973223FC37900035DEE /* TCHomePageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4B3972223FC37900035DEE /* TCHomePageModel.swift */; };
@@ -45,6 +46,8 @@
 		3E4F563122321DD800221EB4 /* TCAllFunctionContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F563022321DD800221EB4 /* TCAllFunctionContentView.swift */; };
 		3E4F563322321DE900221EB4 /* TCAllFunctionContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F563222321DE900221EB4 /* TCAllFunctionContentModel.swift */; };
 		3E4F566B2235409C00221EB4 /* TCCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F566A2235409C00221EB4 /* TCCollectionViewCell.swift */; };
+		3E721030226C580400A2A6D1 /* ClassDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E72102F226C580400A2A6D1 /* ClassDetailsView.swift */; };
+		3E721032226DFEFB00A2A6D1 /* close.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E721031226DFEFB00A2A6D1 /* close.svg */; };
 		3E99D2A522631C9C003893FC /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3E99D2A422631C9C003893FC /* 7.jpg */; };
 		3E99D2A72266049F003893FC /* UIImage+imageFromLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E99D2A62266049F003893FC /* UIImage+imageFromLayer.swift */; };
 		3E99D2AA22661F7D003893FC /* left.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E99D2A922661F7D003893FC /* left.svg */; };
@@ -107,6 +110,7 @@
 		2EA7D2F25CA6D31715A0CDD3 /* Pods-Custed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Custed.release.xcconfig"; path = "Pods/Target Support Files/Pods-Custed/Pods-Custed.release.xcconfig"; sourceTree = "<group>"; };
 		3B272728EC24D775111E15D2 /* Pods-CustedUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustedUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CustedUITests/Pods-CustedUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3E03A99822675B45000090B7 /* headerForClassSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = headerForClassSchedule.swift; sourceTree = "<group>"; };
+		3E03A99A22687030000090B7 /* cellsForScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellsForScheduleView.swift; sourceTree = "<group>"; };
 		3E4B396E223FC34400035DEE /* TCHomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHomePageView.swift; sourceTree = "<group>"; };
 		3E4B3970223FC36600035DEE /* TCHomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHomePageViewController.swift; sourceTree = "<group>"; };
 		3E4B3972223FC37900035DEE /* TCHomePageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHomePageModel.swift; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 		3E4F563022321DD800221EB4 /* TCAllFunctionContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCAllFunctionContentView.swift; sourceTree = "<group>"; };
 		3E4F563222321DE900221EB4 /* TCAllFunctionContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCAllFunctionContentModel.swift; sourceTree = "<group>"; };
 		3E4F566A2235409C00221EB4 /* TCCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCCollectionViewCell.swift; sourceTree = "<group>"; };
+		3E72102F226C580400A2A6D1 /* ClassDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassDetailsView.swift; sourceTree = "<group>"; };
+		3E721031226DFEFB00A2A6D1 /* close.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = close.svg; sourceTree = "<group>"; };
 		3E99D2A422631C9C003893FC /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
 		3E99D2A62266049F003893FC /* UIImage+imageFromLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+imageFromLayer.swift"; sourceTree = "<group>"; };
 		3E99D2A922661F7D003893FC /* left.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = left.svg; sourceTree = "<group>"; };
@@ -219,12 +225,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3E03A99722675B27000090B7 /* headers */ = {
+		3E03A99722675B27000090B7 /* subviews */ = {
 			isa = PBXGroup;
 			children = (
+				3E99D2A8226617AF003893FC /* TitleVIew */,
 				3E03A99822675B45000090B7 /* headerForClassSchedule.swift */,
+				3E03A99A22687030000090B7 /* cellsForScheduleView.swift */,
+				3E72102F226C580400A2A6D1 /* ClassDetailsView.swift */,
 			);
-			path = headers;
+			path = subviews;
 			sourceTree = "<group>";
 		};
 		3E4B396D223FC32C00035DEE /* 首页 */ = {
@@ -252,7 +261,7 @@
 				3EF6E603225254DF007025B2 /* gif */,
 				3EF6E604225254DF007025B2 /* png */,
 				3EF6E605225254E0007025B2 /* svg */,
-				3EF6E5F3224F2201007025B2 /* test Image */,
+				3EF6E5F3224F2201007025B2 /* testing Image */,
 				3E4B39C4224216F200035DEE /* AllFunction img */,
 				3E4B39C3224216BB00035DEE /* TabbarImg */,
 			);
@@ -519,9 +528,8 @@
 		3E99FA01225F6D6A002BEB92 /* 课程表 */ = {
 			isa = PBXGroup;
 			children = (
-				3E03A99722675B27000090B7 /* headers */,
+				3E03A99722675B27000090B7 /* subviews */,
 				3EF6E5DE224BD2B9007025B2 /* TCScheduleView.swift */,
-				3E99D2A8226617AF003893FC /* TitleVIew */,
 				3EF6E5E2224BD2F7007025B2 /* TCScheduleModel.swift */,
 				3EF6E5E0224BD2D7007025B2 /* TCScheduleViewController.swift */,
 				3E99FA02225F6D96002BEB92 /* ScheduleDataModel.swift */,
@@ -536,12 +544,12 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		3EF6E5F3224F2201007025B2 /* test Image */ = {
+		3EF6E5F3224F2201007025B2 /* testing Image */ = {
 			isa = PBXGroup;
 			children = (
 				3E99D2A422631C9C003893FC /* 7.jpg */,
 			);
-			path = "test Image";
+			path = "testing Image";
 			sourceTree = "<group>";
 		};
 		3EF6E60222525269007025B2 /* Other pages */ = {
@@ -555,6 +563,7 @@
 		3EF6E609225255DA007025B2 /* Used image */ = {
 			isa = PBXGroup;
 			children = (
+				3E721031226DFEFB00A2A6D1 /* close.svg */,
 				3E99D2AB22661F8E003893FC /* right.svg */,
 				3E99D2A922661F7D003893FC /* left.svg */,
 				3E99F9FD225BA7F1002BEB92 /* setting.svg */,
@@ -710,6 +719,7 @@
 				3EF6E5EF224D0379007025B2 /* widget_week_close.png in Resources */,
 				3E4B39E622421FCF00035DEE /* 失物招领.svg in Resources */,
 				3E99F9FA225B45F9002BEB92 /* jwgl.svg in Resources */,
+				3E721032226DFEFB00A2A6D1 /* close.svg in Resources */,
 				3E4B39DC22421DE600035DEE /* allFunc.svg in Resources */,
 				3E99F9F2225B455C002BEB92 /* aboutUs.svg in Resources */,
 				3E99D2AC22661F8E003893FC /* right.svg in Resources */,
@@ -863,6 +873,7 @@
 				3E4B3978223FEBF400035DEE /* TCToast.swift in Sources */,
 				3EF6E5E7224BD341007025B2 /* TCGradeView.swift in Sources */,
 				3E4F55B2222DAA7300221EB4 /* TCHUD.swift in Sources */,
+				3E03A99B22687030000090B7 /* cellsForScheduleView.swift in Sources */,
 				3EF6E5F2224D0E6D007025B2 /* UIColor+fromRGB+RandomColor.swift in Sources */,
 				3E4F55A8222D4F4C00221EB4 /* TCTabBarController.swift in Sources */,
 				3E4B396F223FC34400035DEE /* TCHomePageView.swift in Sources */,
@@ -889,6 +900,7 @@
 				3E03A99922675B45000090B7 /* headerForClassSchedule.swift in Sources */,
 				3E4B3971223FC36600035DEE /* TCHomePageViewController.swift in Sources */,
 				3EF6E5DB224BD265007025B2 /* TCAccountView.swift in Sources */,
+				3E721030226C580400A2A6D1 /* ClassDetailsView.swift in Sources */,
 				3EF6E5EC224CCF05007025B2 /* TCNetWorkingManager.swift in Sources */,
 				3E4F566B2235409C00221EB4 /* TCCollectionViewCell.swift in Sources */,
 				3EF6E5E1224BD2D7007025B2 /* TCScheduleViewController.swift in Sources */,

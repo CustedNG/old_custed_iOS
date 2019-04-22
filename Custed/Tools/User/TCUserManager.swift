@@ -77,7 +77,7 @@ class TCUserManager: NSObject {
                 debugPrint(response)
                 return
             }
-            let nowDate = Date()
+            let nowDate = Date.init(timeIntervalSinceNow: 0)
             let json = JSON(response.data!)
             debugPrint(response)
             UserDefaults.standard.setValue(true, forKey: "isLogin")
@@ -107,10 +107,13 @@ class TCUserManager: NSObject {
         let str = datecompare.string(from: lateDate as! Date, to: Date())!
         let str2 = str.replacingOccurrences(of: ",", with: "")
         let interval = Int(str2)
-        if interval! >= 430000{
+        if interval! <= 430000{
             let id = KeychainWrapper.defaultKeychainWrapper.string(forKey: "Username")!
             let pass = KeychainWrapper.defaultKeychainWrapper.string(forKey: "Password")!
             self.logIn(id: id, pass: pass)
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
+                
+            }
         }
     }
 }

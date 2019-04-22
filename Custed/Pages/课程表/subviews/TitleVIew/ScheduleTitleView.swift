@@ -11,7 +11,7 @@ import SVGKit
 protocol titleVIewClick:class{
     func arrowButtonForTitleViewClicked(tag:Int)
 }
-class ScheduleTitleView: UIView {
+class ScheduleTitleView: UIView{
     var weeksLabel:UILabel!
     var semesterLabel:UILabel!
     weak var delegate:titleVIewClick?
@@ -19,13 +19,13 @@ class ScheduleTitleView: UIView {
     /// Description:override this variable to make sure self is interactable
     override open var intrinsicContentSize: CGSize{
         get{
-            return CGSize.init(width: ScreenWidth/5, height: 44)
+            return CGSize.init(width: ScreenWidth*2/3, height: 44)
         }
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
+        //self.layer.add(fadeAnimation, forKey: "fade")
         self.backgroundColor = nil
-    
         weeksLabel = UILabel()
         weeksLabel.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(weeksLabelTap))
@@ -34,6 +34,7 @@ class ScheduleTitleView: UIView {
         weeksLabel.textColor = UIColor.white
         self.addSubview(weeksLabel)
         weeksLabel.snp.makeConstraints { (make) in
+            make.width.equalTo(150)
             make.centerX.equalToSuperview()
             make.top.equalToSuperview()
         }
@@ -62,7 +63,7 @@ class ScheduleTitleView: UIView {
             make.centerY.equalTo(weeksLabel)
         }
         semesterLabel = UILabel()
-        semesterLabel.font = UIFont.fontSizeToFit(size: 11)
+        semesterLabel.font = UIFont.systemFont(ofSize: 11)
         semesterLabel.textAlignment = .center
         semesterLabel.textColor = UIColor.white
         self.addSubview(semesterLabel)

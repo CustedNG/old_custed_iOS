@@ -117,7 +117,9 @@ class lesson:NSObject,Codable,NSSecureCoding{
     var subject_uid:String
     var teacher_name:String
     var start_section:Int
-    var color:UIColor!
+    var canShow:Bool = false
+    var start_time:String = ""
+    var end_time:String = ""
     enum CodingKeys:String,CodingKey {
         case term
         case year
@@ -153,6 +155,9 @@ class lesson:NSObject,Codable,NSSecureCoding{
         aCoder.encode(subject_uid,forKey: CodingKeys.subject_uid.rawValue)
         aCoder.encode(teacher_name,forKey: CodingKeys.teacher_name.rawValue)
         aCoder.encode(start_section,forKey: CodingKeys.start_section.rawValue)
+        
+        aCoder.encode(start_time,forKey: "start_time")
+        aCoder.encode(end_time,forKey: "end_time")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -172,7 +177,9 @@ class lesson:NSObject,Codable,NSSecureCoding{
         self.subject_uid = aDecoder.decodeObject(forKey: CodingKeys.subject_uid.rawValue) as! String
         self.teacher_name = aDecoder.decodeObject(forKey: CodingKeys.teacher_name.rawValue) as! String
         self.start_section = aDecoder.decodeInteger(forKey: CodingKeys.start_section.rawValue)
-        //self.color = UIColor.RandomColor()
+        
+        self.start_time = aDecoder.decodeObject(forKey: "start_time") as! String
+        self.end_time = aDecoder.decodeObject(forKey: "end_time") as! String
     }
 }
 class subject:NSObject,Codable,NSSecureCoding{
@@ -180,7 +187,6 @@ class subject:NSObject,Codable,NSSecureCoding{
     var is_exam:Bool
     var subject_uid:String
     var subject_name:String
-    var color:UIColor!
     enum CodingKeys:String,CodingKey {
         case is_exam
         case subject_uid
@@ -196,7 +202,7 @@ class subject:NSObject,Codable,NSSecureCoding{
         self.is_exam = aDecoder.decodeBool(forKey: CodingKeys.is_exam.rawValue)
         self.subject_uid = aDecoder.decodeObject(forKey: CodingKeys.subject_uid.rawValue) as! String
         self.subject_name = aDecoder.decodeObject(forKey: CodingKeys.subject_name.rawValue) as! String
-        self.color = UIColor.RandomColor()
+        //self.color = UIColor.RandomColor()
     }
 }
 class SectionRules:NSObject,Codable,NSSecureCoding{

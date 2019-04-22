@@ -9,34 +9,37 @@
 import UIKit
 import SVGKit
 protocol ScheduleViewProtocol:class,UICollectionViewDataSource {
-    func clickCells(index:IndexPath)
+    func clickCells(collectionView:UICollectionView,cell:cellsForScheduleView,index:IndexPath)
+    func AlertCancel()
 }
-class TCScheduleView: UIView,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 6
-    }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellsIdentifier, for: indexPath)
-        cell.backgroundColor = UIColor.blue
-        cell.layer.cornerRadius = 5
-        return cell
-    }
+class TCScheduleView: UIView,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize.init(width: (ScreenWidth-15-3*7)/7, height: itemHeighe)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if section == 0{
+            return UIEdgeInsets.init(top: 0, left: 15, bottom: 5, right: 3)
+        }
         return UIEdgeInsets.init(top: 0, left: 15, bottom: 5, right: 3)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 3
+        return 0
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        collectionView.flashScrollIndicators()
+//        print("content:",collectionView.contentScaleFactor)
+//        print("cone",collectionView.scrollIndicatorInsets)
+//        print(cell?.frame.origin)
+//        print(collectionView.layoutAttributesForItem(at: indexPath))
+        print(collectionView.contentOffset)
+        self.delegate?.clickCells(collectionView:collectionView,cell: cell as! cellsForScheduleView, index: indexPath)
+    }
+    weak var delegate:ScheduleViewProtocol?
     var dayInWeekLabels = Array<UILabel>()
     var dayInMonthLabels = Array<UILabel>()
     var classSchedule:UICollectionView!
@@ -45,13 +48,13 @@ class TCScheduleView: UIView,UICollectionViewDelegate,UICollectionViewDataSource
     let headerLabelWidth:CGFloat = (ScreenWidth-15)/7
     let headerLabelheight:CGFloat = 22.0
     let collectionViewHeight:CGFloat = ScreenHeight - NavigationHeight - 2*22.0 - TabBarHeight - StatusBarheight
-    let itemHeighe:CGFloat = (ScreenHeight - NavigationHeight - 2*22.0 - TabBarHeight - StatusBarheight - 5*5 - 2)/6
+    var itemHeighe:CGFloat = (ScreenHeight - NavigationHeight - 2*22.0 - TabBarHeight - StatusBarheight - 5*5 - 2)/6
+    
     //(ScreenHeight-NavigationHeight-2*22.0-TabBarHeight-2*5)/6
+    var showedCellFrame:CGRect!
     override init(frame: CGRect){
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
-        
-        widgetsPrepare()
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("no")
@@ -93,10 +96,12 @@ class TCScheduleView: UIView,UICollectionViewDelegate,UICollectionViewDataSource
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         classSchedule = UICollectionView.init(frame: CGRect.init(x: 0, y: headerLabelheight*2, width: ScreenWidth, height: collectionViewHeight), collectionViewLayout: layout)
-        classSchedule.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellsIdentifier)
-        classSchedule.register(headerForClassSchedule.self, forSupplementaryViewOfKind: "UIView", withReuseIdentifier: headerIdentifier)
-        
+        classSchedule.register(cellsForScheduleView.self, forCellWithReuseIdentifier: cellsIdentifier)
+        classSchedule.flashScrollIndicators()
         classSchedule.backgroundColor = UIColor.white
+        if itemHeighe <= 80{
+            itemHeighe = 80
+        }
         let slide = headerForClassSchedule.init(itemsHeight: itemHeighe, viewHeight: collectionViewHeight)
         classSchedule.addSubview(slide)
         slide.snp.makeConstraints { (make) in
@@ -104,11 +109,15 @@ class TCScheduleView: UIView,UICollectionViewDelegate,UICollectionViewDataSource
             make.left.equalToSuperview()
         }
         classSchedule.delegate = self
-        classSchedule.dataSource = self
+        classSchedule.dataSource = delegate
         self.addSubview(classSchedule)
         
         
         
+    }
+    @objc func cancelAlert(){
+        print("cancel")
+        self.delegate?.AlertCancel()
     }
     @objc func arrowButtonClicked(){
         print("clicked")

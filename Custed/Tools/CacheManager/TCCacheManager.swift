@@ -187,7 +187,7 @@ class TCCacheManager: NSObject {
     
     func archiveExist(name:String) -> Bool{
         let path = (ArchivePath as NSString).strings(byAppendingPaths: [name])[0]
-        print(path)
+        //print(path)
         if FileManager.default.fileExists(atPath: path){
             return true
         }

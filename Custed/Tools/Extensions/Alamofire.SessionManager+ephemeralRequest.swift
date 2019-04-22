@@ -12,6 +12,15 @@ extension SessionManager {
     public static let ephemeral : SessionManager = {
         let configuration = URLSessionConfiguration.ephemeral
         configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
+        configuration.timeoutIntervalForRequest = TimeInterval.init(5.0)
+        configuration.timeoutIntervalForResource = TimeInterval.init(10.0)
         return SessionManager(configuration: configuration)
+    }()
+    public static let timeOut : SessionManager = {
+        let config = URLSessionConfiguration.default
+        config.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
+        config.timeoutIntervalForRequest = TimeInterval.init(5.0)
+        config.timeoutIntervalForResource = TimeInterval.init(10.0)
+        return SessionManager(configuration: config)
     }()
 }

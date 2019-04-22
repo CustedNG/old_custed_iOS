@@ -17,6 +17,9 @@ class dataAfterParsing:NSObject,NSSecureCoding{
         aCoder.encode(currentWeeks,forKey: "currentWeeks")
         aCoder.encode(schedule,forKey: "schedule")
         aCoder.encode(semester,forKey: "semester")
+        aCoder.encode(lessonColorIndex,forKey: "lessonColorIndex")
+        aCoder.encode(semesterStartTime,forKey: "semesterStartTime")
+        aCoder.encode(weeksCount,forKey: "weeksCount")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -24,12 +27,18 @@ class dataAfterParsing:NSObject,NSSecureCoding{
         self.currentWeeks = aDecoder.decodeInteger(forKey: "currentWeeks")
         self.schedule = aDecoder.decodeObject(forKey: "schedule") as! [Int : [String]]
         self.semester = aDecoder.decodeObject(forKey: "semester") as! String
+        self.lessonColorIndex = aDecoder.decodeObject(forKey: "lessonColorIndex") as! [String:Int]
+        self.semesterStartTime = aDecoder.decodeObject(forKey: "semesterStartTime") as? Date
+        self.weeksCount = aDecoder.decodeInteger(forKey: "weeksCount")
+        
     }
     override init() {
         self.ScheduleForWeeks = Dictionary<Int,[Int:[Int:lesson]]>()
         self.currentWeeks = 0
         self.schedule = Dictionary<Int,[String]>()
         self.semester = ""
+        self.lessonColorIndex = [String:Int]()
+        self.weeksCount = 0
         super.init()
     }
     
@@ -37,12 +46,65 @@ class dataAfterParsing:NSObject,NSSecureCoding{
     var ScheduleForWeeks:[Int:[Int:[Int:lesson]]]
     var currentWeeks:Int
     //第几周：【几月，几日，几日】
-    var schedule:[Int:[String]]
-    var semester:String
+    var schedule:[Int:[String]] //
+    var semester:String //标题的那个学期
+    var lessonColorIndex:[String:Int] //课程名字：颜色表中的index
+    var semesterStartTime:Date? //学期开始的时间
+    var weeksCount:Int //这个学期有多少周
 }
 class TCScheduleModel: NSObject{
     var model:Schedule?
     var data:dataAfterParsing = dataAfterParsing.init()
+    var othersColor : UIColor = UIColor.init(red: 0.851, green: 0.314, blue: 0.475, alpha: 1.0)
+    var colorArray = [
+        UIColor.FromRGB(RGB: 0x9d5b8b),
+        UIColor.FromRGB(RGB: 0x96514d),
+        UIColor.FromRGB(RGB: 0x6e7955),
+        UIColor.FromRGB(RGB: 0xaa4c8f),
+        UIColor.FromRGB(RGB: 0x946243),
+        UIColor.FromRGB(RGB: 0x007bbb),
+        UIColor.FromRGB(RGB: 0x4c6cb3),
+        UIColor.FromRGB(RGB: 0x9e3d3f),
+        UIColor.FromRGB(RGB: 0x1e50a2),
+        UIColor.FromRGB(RGB: 0x4a488e),
+        UIColor.FromRGB(RGB: 0x7058a3),
+        UIColor.FromRGB(RGB: 0xe4007f),
+        UIColor.FromRGB(RGB: 0x666c67),
+        UIColor.FromRGB(RGB: 0xd83473),
+        UIColor.FromRGB(RGB: 0x043c78),
+        UIColor.FromRGB(RGB: 0xba2636),
+        UIColor.FromRGB(RGB: 0x4d5aaf),
+        UIColor.FromRGB(RGB: 0x69b076),
+        UIColor.FromRGB(RGB: 0x769164),
+        UIColor.FromRGB(RGB: 0x00a381),
+        UIColor.FromRGB(RGB: 0x008899)
+    ]
+    var weeks = [
+        "第一周",
+        "第二周",
+        "第三周",
+        "第四周",
+        "第五周",
+        "第六周",
+        "第七周",
+        "第八周",
+        "第九周",
+        "第十周",
+        "第十一周",
+        "第十二周",
+        "第十三周",
+        "第十四周",
+        "第十五周",
+        "第十六周",
+        "第十七周",
+        "第十八周",
+        "第十九周",
+        "第二十周",
+        "第二十一周",
+        "第二十二周",
+        "第二十三周",
+        "第二十四周"
+    ]
     var archivedFileName:String = "schedule.archiver"
     private let weekdays:NSArray = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"]
     func convertSectionRuleTime(dateStr : String) ->[Int]{
@@ -52,61 +114,91 @@ class TCScheduleModel: NSObject{
         let datec = Calendar.current.dateComponents(in: TimeZone.init(secondsFromGMT: 3600*8)!, from: str!)
         return [datec.hour!,datec.minute!]
     }
-    func getScheduleData(isRemote:Bool=false,completedDo:@escaping ()->Void) -> Void{
-
-        //URLCache.shared.removeAllCachedResponses()
+    /// Description: Calling this function in every viewdidload called
+    ///
+    /// - Parameters:
+    ///   - completedDo:
+    func getScheduleData(completedDo:@escaping ()->Void) -> Void{
+        var flag:Bool = false
         gettingEtag(completedDo: { (isGttingDataFromRemote) in
             if isGttingDataFromRemote == true{
-                //URLCache.shared.removeAllCachedResponses()
-                var url = "https://beta.tusi.site/app/v1/cust/jwgl/schedule/"
-                if isRemote == true{
-                    url = "https://beta.tusi.site/app/v1/cust/jwgl/schedule/remote"
+                let queue = DispatchQueue.global(qos: .default)
+                let group = DispatchGroup.init()
+                queue.sync {
+                    TCUserManager.shared.updateTakenValueValidTime()
                 }
-                let headers = [
-                    "accept": "application/vnd.toast+json"
-                ]
-                let response = Alamofire.request(url,headers:headers).response{ (DefaultDataResponse) in
-                    //debugPrint(DefaultDataResponse)
-                    guard DefaultDataResponse.response?.statusCode == 200 else{
-                        TCToast.showWithMessage(DefaultDataResponse.error.debugDescription)
-                        return
-                    }
-                    do{
-                        let decoder = JSONDecoder()
-                        self.model = try decoder.decode(Schedule.self, from: DefaultDataResponse.data!)
-                        let responseHeaders = DefaultDataResponse.response?.allHeaderFields as! [String:String]
-                        let Url = DefaultDataResponse.request?.url
-                        let cookies = HTTPCookie.cookies(withResponseHeaderFields: responseHeaders, for: Url!)
-                        HTTPCookieStorage.shared.setCookies(cookies, for: Url!, mainDocumentURL: nil)
-                        self.parseData()
-                        completedDo()
-                    }catch{
-                        print("\(error)")
-                    }
+                group.enter()
+                queue.sync {
+                    let url = "https://beta.tusi.site/app/v1/cust/jwgl/schedule/"
+                    let headers = [
+                        "accept": "application/vnd.toast+json"
+                    ]
+                    Alamofire.SessionManager.timeOut.request(url,headers:headers).response(queue: queue, completionHandler:{ DefaultDataResponse in
+                        //debugPrint(DefaultDataResponse)
+                        guard DefaultDataResponse.response?.statusCode == 200 else{
+                            if TCCacheManager.shared.archiveExist(name: self.archivedFileName) == true{
+                                self.data = TCCacheManager.shared.unarchive(name: self.archivedFileName) as! dataAfterParsing
+                            }
+                            else{
+                                DispatchQueue.main.async {
+                                    TCToast.showWithMessage("网络异常～")
+                                }
+                                
+                            }
+                            //                            completedDo()
+                            group.leave()
+                            return
+                        }
+                        do{
+                            let decoder = JSONDecoder()
+                            print(true)
+                            self.model = try decoder.decode(Schedule.self, from: DefaultDataResponse.data!)
+                            let responseHeaders = DefaultDataResponse.response?.allHeaderFields as! [String:String]
+                            let Url = DefaultDataResponse.request?.url
+                            let cookies = HTTPCookie.cookies(withResponseHeaderFields: responseHeaders, for: Url!)
+                            print(cookies)
+                            HTTPCookieStorage.shared.setCookies(cookies, for: Url!, mainDocumentURL: nil)
+                            let now = Date.init(timeIntervalSinceNow: 0)
+                            UserDefaults.standard.setValue(now, forKey: "lastDate")
+                            UserDefaults.standard.synchronize()
+                            self.parseData()
+                            flag = true
+                            group.leave()
+                            //重用了
+                        }catch{
+                            print("\(error)")
+                            group.leave()
+                        }
+                    })
+                    
+                    group.notify(queue: queue, execute: {
+                        if flag == true{
+                            DispatchQueue.main.sync {
+                                completedDo()
+                            }
+                        }
+                        
+                    })
+                    
                 }
-                
-                debugPrint(response)
             }
             else{
-//                self.model = (TCCacheManager.shared.unarchive(name: self.archivedFileName) as! Schedule)
-//                self.parseData()
-//                completedDo()
-//                return
-                self.data = TCCacheManager.shared.unarchive(name: self.archivedFileName) as! dataAfterParsing
+                if TCCacheManager.shared.archiveExist(name: self.archivedFileName) == true{
+                    self.data = TCCacheManager.shared.unarchive(name: self.archivedFileName) as! dataAfterParsing
+                }
+                else{
+                    TCToast.showWithMessage("获取缓存失败")
+                }
                 completedDo()
             }
             
-        })
-        
-        
-        
-    }
-    func gettingData()->Void{
-    }
+        })}
     /// Description:Getting etag
     ///
     /// - Returns:if statusCode == 200 return true ==304 return false
     func gettingEtag(completedDo:@escaping (Bool)->Void)->Void{
+//        completedDo(true)
+//        return
         if NetworkReachabilityManager()?.isReachable == false{
             completedDo(false)
             return
@@ -132,36 +224,73 @@ class TCScheduleModel: NSObject{
         }
         
     }
+    /// Description: force to update from remote
+    ///
+    /// - Parameter completedDo: do after completed
+    func forceUpdate(completedDo:@escaping ()->Void){
+        let url = "https://beta.tusi.site/app/v1/cust/jwgl/schedule/remote"
+        
+        let headers = [
+            "accept": "application/vnd.toast+json"
+        ]
+        Alamofire.SessionManager.timeOut.request(url,headers:headers).response { (DefaultDataResponse) in
+            //debugPrint(DefaultDataResponse)
+            guard DefaultDataResponse.response?.statusCode == 200 else{
+                TCToast.showWithMessage("网络异常～")
+                completedDo()
+                return
+            }
+            do{
+                let decoder = JSONDecoder()
+                self.model = try decoder.decode(Schedule.self, from: DefaultDataResponse.data!)
+                let responseHeaders = DefaultDataResponse.response?.allHeaderFields as! [String:String]
+                let Url = DefaultDataResponse.request?.url
+                let cookies = HTTPCookie.cookies(withResponseHeaderFields: responseHeaders, for: Url!)
+                print(cookies)
+                HTTPCookieStorage.shared.setCookies(cookies, for: Url!, mainDocumentURL: nil)
+                let now = Date.init(timeIntervalSinceNow: 0)
+                UserDefaults.standard.setValue(now, forKey: "lastDate")
+                UserDefaults.standard.synchronize()
+                self.parseData()
+                completedDo()
+            }catch{
+                print("\(error)")
+            }
+        }
+    }
     func parseData()->Void{
+        var index = 0
+        self.data.weeksCount = self.model!.data.table.weeks_count
+        for i in 1...self.data.weeksCount{
+            self.data.ScheduleForWeeks[i] = [ Int:[Int:lesson]]()
+        }
         for (_,value) in (self.model?.data.table.lessons)!{
-                if value.lesson_type == 2{
-                    value.color = UIColor.init(red: 0.851, green: 0.314, blue: 0.475, alpha: 1.0)
+            //找名字和找颜色
+            if value.lesson_name == ""{
+                let subject_uid = value.subject_uid
+                if subject_uid != ""{
+                    value.lesson_name = (self.model?.data.table.subjects[subject_uid]!.subject_name)!
                 }
-                if value.lesson_name == ""{
-                    let subject_uid = value.subject_uid
-                    for (subjectKey,subjectValue) in (self.model?.data.table.subjects)!{
-                        if subject_uid == subjectKey{
-                            value.lesson_name = subjectValue.subject_name
-                            value.color = subjectValue.color
-                        }
-                    }
+                self.data.lessonColorIndex[value.lesson_name] = index%20
+                index += 1
+            }
+            //找时间
+            value.start_time = (self.model?.data.section_rules[String(value.lesson_type)]?.rules[String(value.start_section)]!.start_time)!
+            value.end_time = (self.model?.data.section_rules[String(1)]?.rules[String(value.end_section)]!.end_time)!
+            //整出每周的课表
+            for week in value.weeks{
+                if self.data.ScheduleForWeeks[week]![value.week_day] == nil{
+                    self.data.ScheduleForWeeks[week]![value.week_day] = [value.start_section:value]
                 }
-                print(value.lesson_name)
-                for week in value.weeks{
-                    if self.data.ScheduleForWeeks[week] == nil {
-                        self.data.ScheduleForWeeks[week] = [value.week_day:[value.start_section:value]]
-                    }
-                    else if self.data.ScheduleForWeeks[week]![value.week_day] == nil{
-                        self.data.ScheduleForWeeks[week]![value.week_day] = [value.start_section:value]
-                    }
-                    else{
-                        self.data.ScheduleForWeeks[week]![value.week_day]![value.start_section] = value
-                    }
+                else{
+                    self.data.ScheduleForWeeks[week]![value.week_day]![value.start_section] = value
                 }
+            }
         }
         let datef = DateFormatter.init()
         datef.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let str = datef.date(from: self.model?.data.table.start_date ?? "")
+        self.data.semesterStartTime = str!
         var datec = Calendar.current.dateComponents(in: TimeZone.init(secondsFromGMT: 3600*8)!, from: str!)
         let nowDate = Date.init(timeIntervalSinceNow: 0)
         let nowDateC = Calendar.current.dateComponents(in: TimeZone.init(secondsFromGMT: 3600*8)! , from: nowDate)
@@ -189,4 +318,5 @@ class TCScheduleModel: NSObject{
         }
         
     }
+    
 }
