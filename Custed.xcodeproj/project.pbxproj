@@ -48,6 +48,7 @@
 		3E4F566B2235409C00221EB4 /* TCCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F566A2235409C00221EB4 /* TCCollectionViewCell.swift */; };
 		3E721030226C580400A2A6D1 /* ClassDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E72102F226C580400A2A6D1 /* ClassDetailsView.swift */; };
 		3E721032226DFEFB00A2A6D1 /* close.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E721031226DFEFB00A2A6D1 /* close.svg */; };
+		3E721035226E184900A2A6D1 /* AlertTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E721034226E184900A2A6D1 /* AlertTableView.swift */; };
 		3E99D2A522631C9C003893FC /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3E99D2A422631C9C003893FC /* 7.jpg */; };
 		3E99D2A72266049F003893FC /* UIImage+imageFromLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E99D2A62266049F003893FC /* UIImage+imageFromLayer.swift */; };
 		3E99D2AA22661F7D003893FC /* left.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E99D2A922661F7D003893FC /* left.svg */; };
@@ -155,6 +156,7 @@
 		3E4F566A2235409C00221EB4 /* TCCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCCollectionViewCell.swift; sourceTree = "<group>"; };
 		3E72102F226C580400A2A6D1 /* ClassDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassDetailsView.swift; sourceTree = "<group>"; };
 		3E721031226DFEFB00A2A6D1 /* close.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = close.svg; sourceTree = "<group>"; };
+		3E721034226E184900A2A6D1 /* AlertTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTableView.swift; sourceTree = "<group>"; };
 		3E99D2A422631C9C003893FC /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
 		3E99D2A62266049F003893FC /* UIImage+imageFromLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+imageFromLayer.swift"; sourceTree = "<group>"; };
 		3E99D2A922661F7D003893FC /* left.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = left.svg; sourceTree = "<group>"; };
@@ -400,6 +402,7 @@
 		3E4F5598222D4E8D00221EB4 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				3E721033226E177E00A2A6D1 /* ToolViews */,
 				3E99F9EA22590C4D002BEB92 /* User */,
 				3E4F559D222D4EC900221EB4 /* Alert */,
 				3E4B3974223FEBC800035DEE /* Toast */,
@@ -507,6 +510,14 @@
 				3E4F566A2235409C00221EB4 /* TCCollectionViewCell.swift */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		3E721033226E177E00A2A6D1 /* ToolViews */ = {
+			isa = PBXGroup;
+			children = (
+				3E721034226E184900A2A6D1 /* AlertTableView.swift */,
+			);
+			path = ToolViews;
 			sourceTree = "<group>";
 		};
 		3E99D2A8226617AF003893FC /* TitleVIew */ = {
@@ -871,6 +882,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E4B3978223FEBF400035DEE /* TCToast.swift in Sources */,
+				3E721035226E184900A2A6D1 /* AlertTableView.swift in Sources */,
 				3EF6E5E7224BD341007025B2 /* TCGradeView.swift in Sources */,
 				3E4F55B2222DAA7300221EB4 /* TCHUD.swift in Sources */,
 				3E03A99B22687030000090B7 /* cellsForScheduleView.swift in Sources */,
