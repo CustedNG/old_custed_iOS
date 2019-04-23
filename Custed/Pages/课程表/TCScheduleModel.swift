@@ -57,27 +57,27 @@ class TCScheduleModel: NSObject{
     var data:dataAfterParsing = dataAfterParsing.init()
     var othersColor : UIColor = UIColor.init(red: 0.851, green: 0.314, blue: 0.475, alpha: 1.0)
     var colorArray = [
-        UIColor.FromRGB(RGB: 0x9d5b8b),
-        UIColor.FromRGB(RGB: 0x96514d),
-        UIColor.FromRGB(RGB: 0x6e7955),
-        UIColor.FromRGB(RGB: 0xaa4c8f),
-        UIColor.FromRGB(RGB: 0x946243),
-        UIColor.FromRGB(RGB: 0x007bbb),
-        UIColor.FromRGB(RGB: 0x4c6cb3),
-        UIColor.FromRGB(RGB: 0x9e3d3f),
-        UIColor.FromRGB(RGB: 0x1e50a2),
-        UIColor.FromRGB(RGB: 0x4a488e),
-        UIColor.FromRGB(RGB: 0x7058a3),
-        UIColor.FromRGB(RGB: 0xe4007f),
-        UIColor.FromRGB(RGB: 0x666c67),
-        UIColor.FromRGB(RGB: 0xd83473),
-        UIColor.FromRGB(RGB: 0x043c78),
-        UIColor.FromRGB(RGB: 0xba2636),
-        UIColor.FromRGB(RGB: 0x4d5aaf),
-        UIColor.FromRGB(RGB: 0x69b076),
-        UIColor.FromRGB(RGB: 0x769164),
-        UIColor.FromRGB(RGB: 0x00a381),
-        UIColor.FromRGB(RGB: 0x008899)
+        UIColor.FromRGB(RGB: 0xc49d62),
+        UIColor.FromRGB(RGB: 0xb2bbb8),
+        UIColor.FromRGB(RGB: 0xa1aaa7),
+        UIColor.FromRGB(RGB: 0x6e7d66),
+        UIColor.FromRGB(RGB: 0xbc9e7a),
+        UIColor.FromRGB(RGB: 0x8eab8f),
+        UIColor.FromRGB(RGB: 0x99544f),
+        UIColor.FromRGB(RGB: 0x894d45),
+        UIColor.FromRGB(RGB: 0x86ada8),
+        UIColor.FromRGB(RGB: 0xaf8c64),
+        UIColor.FromRGB(RGB: 0x714b4a),
+        UIColor.FromRGB(RGB: 0xb1735a),
+        UIColor.FromRGB(RGB: 0xe2d5c5),
+        UIColor.FromRGB(RGB: 0xafbba5),
+        UIColor.FromRGB(RGB: 0x7c7774),
+        UIColor.FromRGB(RGB: 0xbcb2a8),
+        UIColor.FromRGB(RGB: 0x6e6458),
+        UIColor.FromRGB(RGB: 0xa88476),
+        UIColor.FromRGB(RGB: 0x3a466e),
+        UIColor.FromRGB(RGB: 0x6b707c),
+        UIColor.FromRGB(RGB: 0xb08670)
     ]
     var weeks = [
         "第一周",
@@ -271,8 +271,10 @@ class TCScheduleModel: NSObject{
                 if subject_uid != ""{
                     value.lesson_name = (self.model?.data.table.subjects[subject_uid]!.subject_name)!
                 }
-                self.data.lessonColorIndex[value.lesson_name] = index%20
-                index += 1
+                if self.data.lessonColorIndex[value.lesson_name] == nil{
+                    self.data.lessonColorIndex[value.lesson_name] = index%20
+                    index += 1
+                }
             }
             //找时间
             value.start_time = (self.model?.data.section_rules[String(value.lesson_type)]?.rules[String(value.start_section)]!.start_time)!

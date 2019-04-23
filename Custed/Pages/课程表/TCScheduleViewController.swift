@@ -46,7 +46,7 @@ class TCScheduleViewController: UIViewController,titleVIewClick,ScheduleViewProt
             return
         }
         //print(cell.info?.lesson_name)
-        
+        print(cell.backgroundColor)
         alertView.showDetail(collectionView:collectionView, frame: cell.frame, lesson: cell.info, color: cell.backgroundColor)
         //print(cell.frame)
     }
@@ -82,6 +82,7 @@ class TCScheduleViewController: UIViewController,titleVIewClick,ScheduleViewProt
                 //print(myModel.data.lessonColor[lesson!.lesson_name])
             }
             cell.nameLabel.text = lesson!.lesson_name
+            print(lesson!.lesson_name,myModel.data.lessonColorIndex[lesson!.lesson_name])
             cell.positionLabel.text = "@"+lesson!.location
             cell.info = lesson
         }
