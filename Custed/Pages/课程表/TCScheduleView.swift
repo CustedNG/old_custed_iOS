@@ -112,8 +112,6 @@ class TCScheduleView: UIView,UICollectionViewDelegate,UICollectionViewDelegateFl
         classSchedule.dataSource = delegate
         self.addSubview(classSchedule)
         
-        
-        
     }
     @objc func cancelAlert(){
         print("cancel")

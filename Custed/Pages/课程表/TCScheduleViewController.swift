@@ -8,7 +8,37 @@
 
 import UIKit
 import SVGKit
-class TCScheduleViewController: UIViewController,titleVIewClick,ScheduleViewProtocol{
+class TCScheduleViewController: UIViewController,titleVIewClick,ScheduleViewProtocol,AlertTableViewProtocol{
+    //Tools alert
+    func clickAlertCells(with: Int) {
+        print(with)
+        switch with {
+        case 0:
+            do{
+                
+            }
+        case 1:
+            do{
+                
+            }
+        case 2:
+            do{
+                self.rightNavClose()
+                TCHUD.show()
+                myModel.forceUpdate {
+                    self.reloadCollectionViewData()
+                    TCHUD.dissmiss()
+                }
+            }
+        case 3:
+            do{
+                
+            }
+        default: break
+            
+        }
+    }
+    //detail alert
     func AlertCancel() {
         alertView.closeDetailAlert()
     }
@@ -92,9 +122,12 @@ class TCScheduleViewController: UIViewController,titleVIewClick,ScheduleViewProt
     let myView = TCScheduleView()
     let myModel = TCScheduleModel()
     let titleView = ScheduleTitleView.init()
+    lazy var toolAlertBox = AlertTableView.init(dataSouce: ["我想蹭课","添加课程","强制刷新课表","bug提交"])
     lazy var alertView = ClassDetailsView()
     var presentWeek : Int = 0
     var fadeAnimation:CATransition!
+    var cancelBarItem:UIBarButtonItem!
+    var rightBarItem:UIBarButtonItem!
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
@@ -116,11 +149,15 @@ class TCScheduleViewController: UIViewController,titleVIewClick,ScheduleViewProt
     init() {
         super.init(nibName: nil, bundle: nil)
         self.title = "课程表"
+        let close = SVGKImage.init(named: "close.svg")
+        close?.size = CGSize.init(width: 25, height: 25)
+        cancelBarItem = UIBarButtonItem.init(image: close?.uiImage, style: .plain, target: self, action: #selector(rightNavClose))
         //self.navigationItem.prompt = "test"
         let right = SVGKImage.init(named: "list.svg")
         right?.size = CGSize.init(width: 25, height: 25)
+        rightBarItem = UIBarButtonItem.init(image: right?.uiImage, style: UIBarButtonItem.Style.plain, target: self, action: #selector(rightNavClicked))
         self.navigationItem.titleView = titleView
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: right?.uiImage, style: UIBarButtonItem.Style.plain, target: self, action: #selector(rightNavClicked))
+        self.navigationItem.rightBarButtonItem = rightBarItem
         
     }
     required init?(coder aDecoder: NSCoder) {
@@ -137,18 +174,20 @@ class TCScheduleViewController: UIViewController,titleVIewClick,ScheduleViewProt
     override func loadView() {
         myView.delegate = self
         self.titleView.delegate = self
+        toolAlertBox.alertDelegate = self
         self.view = myView
     }
     
     @objc func rightNavClicked(){
-        TCHUD.show()
-        myModel.forceUpdate {
-            self.presentWeek = self.gettingCurrentWeek()
-            self.assignToViews()
-            self.reloadCollectionViewData()
-            TCHUD.dissmiss()
-        }
+        toolAlertBox.Show()
+        self.navigationItem.setRightBarButton(cancelBarItem, animated:true)
+        
     }
+    @objc func rightNavClose(){
+        toolAlertBox.Hide()
+        self.navigationItem.setRightBarButton(rightBarItem, animated: true)
+    }
+    /// Description: first time load data
     func assignToViews(){
         self.titleView.weeksLabel.text = self.myModel.weeks[self.presentWeek-1]
         self.titleView.semesterLabel.text = self.myModel.data.semester
@@ -158,6 +197,7 @@ class TCScheduleViewController: UIViewController,titleVIewClick,ScheduleViewProt
             self.myView.dayInMonthLabels[i].text = self.myModel.data.schedule[self.presentWeek]![i]
         }
     }
+    /// Description: call this function when presentWeek Changed or force to fresh class schedule
     func reloadCollectionViewData(){
         myView.classSchedule.reloadData()
         self.titleView.weeksLabel.text = self.myModel.weeks[self.presentWeek-1]
