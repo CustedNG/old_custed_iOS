@@ -37,8 +37,8 @@ class dataAfterParsing:NSObject,NSSecureCoding{
         self.currentWeeks = 0
         self.schedule = Dictionary<Int,[String]>()
         self.semester = ""
-        self.lessonColorIndex = [String:Int]()
         self.weeksCount = 0
+        self.lessonColorIndex = [String:Int]()
         super.init()
     }
     
@@ -69,7 +69,7 @@ class TCScheduleModel: NSObject{
         UIColor.FromRGB(RGB: 0xaf8c64),
         UIColor.FromRGB(RGB: 0x714b4a),
         UIColor.FromRGB(RGB: 0xb1735a),
-        UIColor.FromRGB(RGB: 0xe2d5c5),
+        UIColor.FromRGB(RGB: 0x6b707c),
         UIColor.FromRGB(RGB: 0xafbba5),
         UIColor.FromRGB(RGB: 0x7c7774),
         UIColor.FromRGB(RGB: 0xbcb2a8),
@@ -188,6 +188,7 @@ class TCScheduleModel: NSObject{
                 }
                 else{
                     TCToast.showWithMessage("获取缓存失败")
+                    return
                 }
                 completedDo()
             }
@@ -227,9 +228,8 @@ class TCScheduleModel: NSObject{
     /// Description: force to update from remote
     ///
     /// - Parameter completedDo: do after completed
-    func forceUpdate(completedDo:@escaping ()->Void){
+    func forceUpdate(completedDo:@escaping (Bool)->Void){
         let url = "https://beta.tusi.site/app/v1/cust/jwgl/schedule/remote"
-        
         let headers = [
             "accept": "application/vnd.toast+json"
         ]
@@ -237,29 +237,32 @@ class TCScheduleModel: NSObject{
             //debugPrint(DefaultDataResponse)
             guard DefaultDataResponse.response?.statusCode == 200 else{
                 TCToast.showWithMessage("网络异常～")
-                completedDo()
+                completedDo(false)
                 return
             }
             do{
                 let decoder = JSONDecoder()
                 self.model = try decoder.decode(Schedule.self, from: DefaultDataResponse.data!)
+                //print(DefaultDataResponse.response?.statusCode)
+                //print(DefaultDataResponse.data!)
                 let responseHeaders = DefaultDataResponse.response?.allHeaderFields as! [String:String]
                 let Url = DefaultDataResponse.request?.url
                 let cookies = HTTPCookie.cookies(withResponseHeaderFields: responseHeaders, for: Url!)
-                print(cookies)
+                //print(cookies)
                 HTTPCookieStorage.shared.setCookies(cookies, for: Url!, mainDocumentURL: nil)
                 let now = Date.init(timeIntervalSinceNow: 0)
                 UserDefaults.standard.setValue(now, forKey: "lastDate")
                 UserDefaults.standard.synchronize()
                 self.parseData()
-                completedDo()
+                completedDo(true)
             }catch{
                 print("\(error)")
             }
         }
     }
     func parseData()->Void{
-        var index = 0
+        self.data.lessonColorIndex = [String:Int]()
+        var index:Int = .random(in: 0..<20)
         self.data.weeksCount = self.model!.data.table.weeks_count
         for i in 1...self.data.weeksCount{
             self.data.ScheduleForWeeks[i] = [ Int:[Int:lesson]]()
@@ -271,6 +274,7 @@ class TCScheduleModel: NSObject{
                 if subject_uid != ""{
                     value.lesson_name = (self.model?.data.table.subjects[subject_uid]!.subject_name)!
                 }
+                
                 if self.data.lessonColorIndex[value.lesson_name] == nil{
                     self.data.lessonColorIndex[value.lesson_name] = index%20
                     index += 1

@@ -37,9 +37,9 @@ class AlertTableView: UITableView,UITableViewDelegate,UITableViewDataSource{
     private let dataArray:Array<String>
     private let identifier="cellsForAlert"
     init(dataSouce:Array<String>) {
-        visibleFrame = CGRect.init(x: ScreenWidth*2/3, y: StatusBarheight+NavigationHeight, width: ScreenWidth/3, height: CGFloat(dataSouce.count*40))
+        visibleFrame = CGRect.init(x: ScreenWidth*2/3, y: 0, width: ScreenWidth/3, height: CGFloat(dataSouce.count*40))
         dataArray = dataSouce
-        onsetFrame = CGRect.init(x: ScreenWidth*2/3, y: StatusBarheight+NavigationHeight, width: ScreenWidth/3, height: 0)
+        onsetFrame = CGRect.init(x: ScreenWidth*2/3, y: 0, width: ScreenWidth/3, height: 0)
         super.init(frame: onsetFrame, style: .plain)
         self.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
         self.delegate = self
@@ -51,10 +51,10 @@ class AlertTableView: UITableView,UITableViewDelegate,UITableViewDataSource{
     }
     
     func Show(){
-        let window:UIWindow = ((UIApplication.shared.delegate?.window)!)!
+        //let window:UIWindow = ((UIApplication.shared.delegate?.window)!)!
         //这一行是为了防止课程表中，课程详情弹出的时候，自身也能被点击
         //其实这个类不应该写的，但是我之前没想好，又当条懒狗，所以把自身的层级关系放到下面，以后这个类一定要改。
-        window.insertSubview(self, at: 1)
+        //window.insertSubview(self, at: 1)
         self.isHidden = false
         UIView.animate(withDuration: 0.3, animations: {
             self.frame = self.visibleFrame

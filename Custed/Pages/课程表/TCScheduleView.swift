@@ -43,6 +43,7 @@ class TCScheduleView: UIView,UICollectionViewDelegate,UICollectionViewDelegateFl
     var dayInWeekLabels = Array<UILabel>()
     var dayInMonthLabels = Array<UILabel>()
     var classSchedule:UICollectionView!
+    var toolAlertBox = AlertTableView.init(dataSouce: ["我想蹭课","添加课程","强制刷新课表","bug提交"])
     let cellsIdentifier = "classScheduleCells"
     let headerIdentifier = "headers"
     let headerLabelWidth:CGFloat = (ScreenWidth-15)/7
@@ -111,6 +112,10 @@ class TCScheduleView: UIView,UICollectionViewDelegate,UICollectionViewDelegateFl
         classSchedule.delegate = self
         classSchedule.dataSource = delegate
         self.addSubview(classSchedule)
+        
+        //弹框
+        self.addSubview(toolAlertBox)
+        toolAlertBox.isHidden = true
         
     }
     @objc func cancelAlert(){

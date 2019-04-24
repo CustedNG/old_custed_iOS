@@ -25,8 +25,10 @@ class TCScheduleViewController: UIViewController,titleVIewClick,ScheduleViewProt
             do{
                 self.rightNavClose()
                 TCHUD.show()
-                myModel.forceUpdate {
-                    self.reloadCollectionViewData()
+                myModel.forceUpdate {isSuccessful in
+                    if isSuccessful == true{
+                        self.reloadCollectionViewData()
+                    }
                     TCHUD.dissmiss()
                 }
             }
@@ -76,7 +78,7 @@ class TCScheduleViewController: UIViewController,titleVIewClick,ScheduleViewProt
             return
         }
         //print(cell.info?.lesson_name)
-        print(cell.backgroundColor)
+        //print(cell.backgroundColor)
         alertView.showDetail(collectionView:collectionView, frame: cell.frame, lesson: cell.info, color: cell.backgroundColor)
         //print(cell.frame)
     }
@@ -112,18 +114,18 @@ class TCScheduleViewController: UIViewController,titleVIewClick,ScheduleViewProt
                 //print(myModel.data.lessonColor[lesson!.lesson_name])
             }
             cell.nameLabel.text = lesson!.lesson_name
-            print(lesson!.lesson_name,myModel.data.lessonColorIndex[lesson!.lesson_name])
+            //print(lesson!.lesson_name,myModel.data.lessonColorIndex[lesson!.lesson_name])
             cell.positionLabel.text = "@"+lesson!.location
             cell.info = lesson
         }
         return cell
     }
     
-
+    /*-------------property------------------------------------*/
     let myView = TCScheduleView()
     let myModel = TCScheduleModel()
     let titleView = ScheduleTitleView.init()
-    lazy var toolAlertBox = AlertTableView.init(dataSouce: ["我想蹭课","添加课程","强制刷新课表","bug提交"])
+    //lazy var toolAlertBox = AlertTableView.init(dataSouce: ["我想蹭课","添加课程","强制刷新课表","bug提交"])
     lazy var alertView = ClassDetailsView()
     var presentWeek : Int = 0
     var fadeAnimation:CATransition!
@@ -175,24 +177,27 @@ class TCScheduleViewController: UIViewController,titleVIewClick,ScheduleViewProt
     override func loadView() {
         myView.delegate = self
         self.titleView.delegate = self
-        toolAlertBox.alertDelegate = self
+        myView.toolAlertBox.alertDelegate = self
         self.view = myView
     }
     
     @objc func rightNavClicked(){
-        toolAlertBox.Show()
+        myView.toolAlertBox.Show()
         self.navigationItem.setRightBarButton(cancelBarItem, animated:true)
         
     }
     @objc func rightNavClose(){
-        toolAlertBox.Hide()
+        myView.toolAlertBox.Hide()
         self.navigationItem.setRightBarButton(rightBarItem, animated: true)
     }
     /// Description: first time load data
     func assignToViews(){
         self.titleView.weeksLabel.text = self.myModel.weeks[self.presentWeek-1]
         self.titleView.semesterLabel.text = self.myModel.data.semester
+        print(self.presentWeek)
+        print(self.myModel.data.schedule)
         self.myView.dayInWeekLabels[0].text = self.myModel.data.schedule[self.presentWeek]![0]
+        
         print(self.myModel.data.schedule[self.presentWeek]![0])
         for i in 1..<8{
             self.myView.dayInMonthLabels[i].text = self.myModel.data.schedule[self.presentWeek]![i]
