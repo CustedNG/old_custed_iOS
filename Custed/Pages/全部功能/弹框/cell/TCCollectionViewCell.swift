@@ -28,7 +28,7 @@ class TCCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         imageView = UIImageView.init()
         lbl = UILabel()
-        lbl!.backgroundColor = UIColor.white
+        lbl!.backgroundColor = .clear
         lbl?.font = UIFont.systemFont(ofSize: lblFontSize)
         lbl!.textAlignment = NSTextAlignment.center
         self.addSubview(imageView!)
