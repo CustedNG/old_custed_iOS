@@ -43,36 +43,39 @@ class TCAccountView: UIView,UITableViewDelegate{
         fatalError("no")
     }
     func widgetsPrepare(){
-        upperPartView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight/3))
+        //frame: CGRect.init(x: 0, y: NavigationHeight+StatusBarheight, width: ScreenWidth, height: ScreenHeight/3)
+        upperPartView = UIView.init()
         upperPartView?.backgroundColor = UIColor.white
         self.addSubview(upperPartView!)
+        //print("self.frame",self.frame)
         upperPartView?.snp.makeConstraints({ (make) in
+            make.top.equalToSuperview()
             make.width.equalToSuperview()
             make.height.lessThanOrEqualToSuperview()
         })
         
         //我的账户
-        let rightButton = UIButton.init(type: .custom)
-        let rightImage = SVGKImage.init(named: "list.svg")
-        rightButton.tintColor = UIColor.white
-        rightImage?.size = CGSize.init(width: 25, height: 25)
-        rightButton.setTitleColor(UIColor.white, for: .normal)
-        rightButton.setImage(rightImage?.uiImage, for: .normal)
-        upperPartView?.addSubview(rightButton)
-        rightButton.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(StatusBarheight)
-            make.rightMargin.equalTo(-compactWidth)
-        }
-        let titleLabel = UILabel()
-        titleLabel.text = "我的账户"
-        //titleLabel.textColor = UIColor.white
-        titleLabel.sizeToFit()
-        titleLabel.font = UIFont.init(name: "Helvetica-Bold", size: 18)
-        upperPartView?.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { (make) in
-            make.centerY.equalTo(rightButton)
-            make.centerX.equalToSuperview()
-        }
+//        let rightButton = UIButton.init(type: .custom)
+//        let rightImage = SVGKImage.init(named: "list.svg")
+//        rightButton.tintColor = UIColor.white
+//        rightImage?.size = CGSize.init(width: 25, height: 25)
+//        rightButton.setTitleColor(UIColor.white, for: .normal)
+//        rightButton.setImage(rightImage?.uiImage, for: .normal)
+//        upperPartView?.addSubview(rightButton)
+//        rightButton.snp.makeConstraints { (make) in
+//            make.top.equalToSuperview().offset(StatusBarheight)
+//            make.rightMargin.equalTo(-compactWidth)
+//        }
+//        let titleLabel = UILabel()
+//        titleLabel.text = "我的账户"
+//        //titleLabel.textColor = UIColor.white
+//        titleLabel.sizeToFit()
+//        titleLabel.font = UIFont.init(name: "Helvetica-Bold", size: 18)
+//        upperPartView?.addSubview(titleLabel)
+//        titleLabel.snp.makeConstraints { (make) in
+//            make.centerY.equalTo(rightButton)
+//            make.centerX.equalToSuperview()
+//        }
         //图
         avatarView = UIImageView.init()
         avatarView!.layer.cornerRadius = ScreenWidth/5/2
@@ -84,7 +87,7 @@ class TCAccountView: UIView,UITableViewDelegate{
         upperPartView?.addSubview(avatarView!)
         avatarView!.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize.init(width: ScreenWidth/5, height: ScreenWidth/5))
-            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.top.equalToSuperview().offset(NavigationHeight+StatusBarheight)
             make.centerX.equalToSuperview()
         }
         //姓名
@@ -139,7 +142,7 @@ class TCAccountView: UIView,UITableViewDelegate{
         JWGLImageVIew.image = JWGLsvg?.uiImage
         underPartView!.addSubview(JWGLImageVIew)
         JWGLImageVIew.snp.makeConstraints { (make) in
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(10)
             make.centerX.equalToSuperview()
         }
         let JWGLLabel = UILabel()
@@ -162,7 +165,7 @@ class TCAccountView: UIView,UITableViewDelegate{
         ZLKImageVIew.image = ZLKsvg?.uiImage
         underPartView!.addSubview(ZLKImageVIew)
         ZLKImageVIew.snp.makeConstraints { (make) in
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(10)
             make.right.equalTo(JWGLImageVIew.snp_left).offset(-50)
         }
         let ZLKLabel = UILabel()
@@ -185,7 +188,7 @@ class TCAccountView: UIView,UITableViewDelegate{
         BBImageVIew.image = BBsvg?.uiImage
         underPartView!.addSubview(BBImageVIew)
         BBImageVIew.snp.makeConstraints { (make) in
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(10)
             make.left.equalTo(JWGLImageVIew.snp_right).offset(50)
         }
         let BBLabel = UILabel()
@@ -238,7 +241,8 @@ class TCAccountView: UIView,UITableViewDelegate{
         let gradientColors = [
             UIColor.FromRGB(RGB: 0x34C6FB).cgColor,
             UIColor.FromRGB(RGB: 0x4A9FF2).cgColor]
-        let frame = upperPartView!.frame
+        let superFrame = upperPartView!.frame
+        let frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: superFrame.height+NavigationHeight+StatusBarheight)
         //print(frame)
         let gradientColor = CAGradientLayer()
         gradientColor.startPoint = CGPoint.init(x: 0, y: 0)
@@ -251,7 +255,7 @@ class TCAccountView: UIView,UITableViewDelegate{
     override func updateConstraints() {
         super.updateConstraints()
         let frame = upperPartView!.frame
-        print(frame)
+        //print(frame)
         underPartView?.snp.remakeConstraints({ (make) in
             make.width.equalToSuperview()
             make.top.equalTo(upperPartView!.snp_bottom).offset(15)

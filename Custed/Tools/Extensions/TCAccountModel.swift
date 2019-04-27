@@ -52,8 +52,6 @@ class Info:NSObject,NSCoding,NSSecureCoding {
         self.avatar = aDecoder.decodeObject(forKey: "avatar") as? String
         self.reg_time = aDecoder.decodeObject(forKey: "reg_time") as? String
     }
-    
-
 }
 
 class TCAccountModel: NSObject {

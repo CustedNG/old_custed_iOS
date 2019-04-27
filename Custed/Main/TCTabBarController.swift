@@ -38,8 +38,12 @@ class TCTabBarController: UITabBarController, UITabBarControllerDelegate {
         scheduleNav.navigationBar.setBackgroundImage(bgImage, for: .default)
         let accountVC : TCAccountViewController = TCAccountViewController()
         let accountNav : UINavigationController = UINavigationController.init(rootViewController: accountVC)
-        accountNav.navigationBar.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: TabBarHeight+NavigationHeight)
-        self.viewControllers = [homePageNav,GradeNav,allfunctionVC,scheduleNav,accountVC]
+        accountNav.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        accountNav.navigationBar.shadowImage = UIImage()
+        accountNav.navigationBar.backgroundColor = .clear
+        accountNav.navigationBar.isTranslucent = true
+//        accountNav.navigationBar.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: TabBarHeight+NavigationHeight)
+        self.viewControllers = [homePageNav,GradeNav,allfunctionVC,scheduleNav,accountNav]
         self.delegate = self
     }
     

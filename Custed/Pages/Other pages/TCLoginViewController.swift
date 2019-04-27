@@ -231,12 +231,14 @@ class TCLoginViewController: UIViewController,UITextFieldDelegate,UIScrollViewDe
         }
         print(accountTextField.text,passwordTextField.text)
         TCUserManager.shared.logIn(id: accountTextField.text!, pass: passwordTextField.text!) { (result) in
-            self.promptBox?.isHidden = false
             if result == "请求成功"{
                 self.dismiss(animated: true, completion: {
                     TCToast.showWithMessage("登陆成功")
                 })
+                return
             }
+            self.promptBox?.isHidden = false
+            self.promptBox?.text = result
         }
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {

@@ -574,7 +574,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Main/TCTabBarController.swift"
-            timestampString = "577719692.756472"
+            timestampString = "577806773.8612"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
@@ -670,11 +670,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Tools/Extensions/TCAccountView.swift"
-            timestampString = "577182336.354232"
+            timestampString = "577806773.861419"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "layoutSubviews()"
             landmarkType = "7">
          </BreakpointContent>
@@ -686,11 +686,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Tools/Extensions/TCAccountView.swift"
-            timestampString = "577182336.354993"
+            timestampString = "577806773.8620549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "widgetsPrepare()"
             landmarkType = "7">
          </BreakpointContent>
@@ -702,11 +702,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Tools/Extensions/TCAccountView.swift"
-            timestampString = "577182336.355706"
+            timestampString = "577806773.862473"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "widgetsPrepare()"
             landmarkType = "7">
          </BreakpointContent>
@@ -718,7 +718,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Tools/Extensions/TCAccountModel.swift"
-            timestampString = "577336044.9997621"
+            timestampString = "577806773.862944"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "96"
@@ -734,7 +734,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Tools/Extensions/TCAccountViewController.swift"
-            timestampString = "577115902.5564311"
+            timestampString = "577806773.863028"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -750,7 +750,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Tools/Extensions/TCAccountViewController.swift"
-            timestampString = "577115902.556501"
+            timestampString = "577806773.863098"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
@@ -766,7 +766,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Tools/Extensions/TCAccountViewController.swift"
-            timestampString = "577115902.556563"
+            timestampString = "577806773.8631639"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
@@ -798,11 +798,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Tools/User/TCUserManager.swift"
-            timestampString = "577337127.408105"
+            timestampString = "577731565.225825"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "logIn(id:pass:completedDo:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -814,11 +814,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Tools/User/TCUserManager.swift"
-            timestampString = "577337127.408191"
+            timestampString = "577731565.225968"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "logIn(id:pass:completedDo:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -830,13 +830,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/Other pages/TCLoginViewController.swift"
-            timestampString = "577533492.502252"
+            timestampString = "577732436.5227799"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "233"
             endingLineNumber = "233"
-            landmarkName = "loginButtonClicked()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -878,11 +878,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Tools/User/TCUserManager.swift"
-            timestampString = "577337127.4083019"
+            timestampString = "577731565.22675"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "logIn(id:pass:completedDo:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -894,11 +894,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Tools/User/TCUserManager.swift"
-            timestampString = "577337127.4083641"
+            timestampString = "577731565.226863"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "logIn(id:pass:completedDo:)"
             landmarkType = "7">
             <Locations>
@@ -942,11 +942,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Tools/User/TCUserManager.swift"
-            timestampString = "577337127.408408"
+            timestampString = "577731565.226961"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "logIn(id:pass:completedDo:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -958,21 +958,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleViewController.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.742008"
+            timestampString = "577804107.223531"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
-            landmarkName = "assignToViews()"
-=======
-            timestampString = "577721529.341315"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "init()"
->>>>>>> Tools
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -983,21 +974,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleViewController.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.7421139"
+            timestampString = "577804107.223623"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
-            landmarkName = "assignToViews()"
-=======
-            timestampString = "577721529.341434"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "init()"
->>>>>>> Tools
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1008,11 +990,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleView.swift"
-            timestampString = "577719692.758083"
+            timestampString = "577804107.2236789"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "arrowButtonClicked()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1040,21 +1022,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleViewController.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.742262"
+            timestampString = "577804107.223761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "rightNavClicked()"
-=======
-            timestampString = "577721529.341615"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "viewDidLoad()"
->>>>>>> Tools
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1065,7 +1038,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleView.swift"
-            timestampString = "577719692.758724"
+            timestampString = "577804107.223812"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "33"
@@ -1081,21 +1054,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleViewController.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.742354"
+            timestampString = "577804107.223856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173">
-=======
-            timestampString = "577721529.341731"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "gettingCurrentWeek()"
             landmarkType = "7">
->>>>>>> Tools
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1105,23 +1070,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleViewController.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.7424181"
+            timestampString = "577804107.2238981"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "TCScheduleViewController"
-            landmarkType = "3">
-=======
-            timestampString = "577721529.341804"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
             landmarkName = "gettingCurrentWeek()"
             landmarkType = "7">
->>>>>>> Tools
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1131,21 +1086,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleViewController.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.742478"
+            timestampString = "577804107.22394"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
-            landmarkName = "loadView()"
-=======
-            timestampString = "577721529.341866"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "viewDidLoad()"
->>>>>>> Tools
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1188,11 +1134,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Tools/User/TCUserManager.swift"
-            timestampString = "577337127.410777"
+            timestampString = "577731565.227944"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "logIn(id:pass:completedDo:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1204,11 +1150,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleModel.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.742602"
-=======
-            timestampString = "577719692.75937"
->>>>>>> Tools
+            timestampString = "577804107.2240289"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "160"
@@ -1224,15 +1166,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleModel.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.743135"
-=======
-            timestampString = "577719692.759791"
->>>>>>> Tools
+            timestampString = "577804107.224081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
+            startingLineNumber = "323"
+            endingLineNumber = "323"
             landmarkName = "parseData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1244,15 +1182,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleModel.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.743727"
-=======
-            timestampString = "577719692.760147"
->>>>>>> Tools
+            timestampString = "577804107.224123"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "317"
-            endingLineNumber = "317"
+            startingLineNumber = "321"
+            endingLineNumber = "321"
             landmarkName = "parseData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1264,11 +1198,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleModel.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.744095"
-=======
-            timestampString = "577719692.760674"
->>>>>>> Tools
+            timestampString = "577804107.224166"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "128"
@@ -1284,11 +1214,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleModel.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.744505"
-=======
-            timestampString = "577719692.760842"
->>>>>>> Tools
+            timestampString = "577804107.22421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "140"
@@ -1304,11 +1230,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleModel.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.744866"
-=======
-            timestampString = "577719692.761025"
->>>>>>> Tools
+            timestampString = "577804107.22431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "155"
@@ -1324,11 +1246,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleModel.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.745252"
-=======
-            timestampString = "577719692.761167"
->>>>>>> Tools
+            timestampString = "577804107.224389"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "132"
@@ -1344,11 +1262,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleModel.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.745658"
-=======
-            timestampString = "577719692.761273"
->>>>>>> Tools
+            timestampString = "577804107.224457"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "150"
@@ -1364,11 +1278,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleModel.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.746071"
-=======
-            timestampString = "577719692.761372"
->>>>>>> Tools
+            timestampString = "577804107.224522"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "158"
@@ -1384,11 +1294,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleModel.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.746492"
-=======
-            timestampString = "577719692.761467"
->>>>>>> Tools
+            timestampString = "577804107.224582"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "175"
@@ -1404,11 +1310,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleModel.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.746897"
-=======
-            timestampString = "577719692.761555"
->>>>>>> Tools
+            timestampString = "577804107.224627"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "180"
@@ -1456,11 +1358,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleModel.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.7473201"
-=======
-            timestampString = "577719692.761644"
->>>>>>> Tools
+            timestampString = "577804107.2246701"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "139"
@@ -1476,21 +1374,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleViewController.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.747696"
+            timestampString = "577804107.224715"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "viewDidLoad()"
-=======
-            timestampString = "577721529.342249"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "collectionView(_:cellForItemAt:)"
->>>>>>> Tools
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1501,11 +1390,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleModel.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.747767"
-=======
-            timestampString = "577719692.761834"
->>>>>>> Tools
+            timestampString = "577804107.224757"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "176"
@@ -1553,7 +1438,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleView.swift"
-            timestampString = "577719692.761914"
+            timestampString = "577804107.2248009"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
@@ -1569,12 +1454,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Tools/ToolViews/AlertTableView.swift"
-            timestampString = "577721529.342358"
+            timestampString = "577804107.2248451"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
             endingLineNumber = "62"
-            landmarkName = "Hide()"
+            landmarkName = "Show()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1585,7 +1470,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Tools/ToolViews/AlertTableView.swift"
-            timestampString = "577721529.3428169"
+            timestampString = "577804107.225364"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
@@ -1633,22 +1518,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleViewController.swift"
-<<<<<<< HEAD
-            timestampString = "577725036.748369"
-=======
-            timestampString = "577721529.3432339"
->>>>>>> Tools
+            timestampString = "577804107.225705"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
             endingLineNumber = "15"
-<<<<<<< HEAD
-            landmarkName = "TCScheduleViewController"
-            landmarkType = "3">
-=======
             landmarkName = "clickAlertCells(with:)"
             landmarkType = "7">
->>>>>>> Tools
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -1711,6 +1587,246 @@
                   offsetFromSymbolStart = "465">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleModel.swift"
+            timestampString = "577804107.2257791"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
+            landmarkName = "parseData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Custed.TCScheduleModel.parseData() -&gt; ()"
+                  moduleName = "Custed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faker/Desktop/Custed/Custed/Custed/Pages/%E8%AF%BE%E7%A8%8B%E8%A1%A8/TCScheduleModel.swift"
+                  timestampString = "577727278.891179"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "272"
+                  endingLineNumber = "272"
+                  offsetFromSymbolStart = "3226">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Custed.TCScheduleModel.parseData() -&gt; ()"
+                  moduleName = "Custed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faker/Desktop/Custed/Custed/Custed/Pages/%E8%AF%BE%E7%A8%8B%E8%A1%A8/TCScheduleModel.swift"
+                  timestampString = "577727278.893216"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "272"
+                  endingLineNumber = "272"
+                  offsetFromSymbolStart = "18266">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleModel.swift"
+            timestampString = "577804107.225845"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
+            landmarkName = "parseData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleModel.swift"
+            timestampString = "577804107.225908"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "getScheduleData(completedDo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleModel.swift"
+            timestampString = "577804107.225967"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "getScheduleData(completedDo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleModel.swift"
+            timestampString = "577804107.226027"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
+            landmarkName = "getScheduleData(completedDo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleModel.swift"
+            timestampString = "577804107.226087"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
+            landmarkName = "forceUpdate(completedDo:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DefaultDataResponse) -&gt; () in Custed.TCScheduleModel.forceUpdate(completedDo: () -&gt; ()) -&gt; ()"
+                  moduleName = "Custed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faker/Desktop/Custed/Custed/Custed/Pages/%E8%AF%BE%E7%A8%8B%E8%A1%A8/TCScheduleModel.swift"
+                  timestampString = "577731242.6314729"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "245"
+                  endingLineNumber = "245"
+                  offsetFromSymbolStart = "1335">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DefaultDataResponse) -&gt; () in Custed.TCScheduleModel.forceUpdate(completedDo: () -&gt; ()) -&gt; ()"
+                  moduleName = "Custed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faker/Desktop/Custed/Custed/Custed/Pages/%E8%AF%BE%E7%A8%8B%E8%A1%A8/TCScheduleModel.swift"
+                  timestampString = "577731242.633697"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "245"
+                  endingLineNumber = "245"
+                  offsetFromSymbolStart = "4994">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Pages/&#x8bfe;&#x7a0b;&#x8868;/TCScheduleModel.swift"
+            timestampString = "577804107.226146"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
+            landmarkName = "forceUpdate(completedDo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Tools/Extensions/TCAccountView.swift"
+            timestampString = "577806773.864211"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "widgetsPrepare()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Custed.TCAccountView.widgetsPrepare() -&gt; ()"
+                  moduleName = "Custed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faker/Desktop/Custed/Custed/Custed/Tools/Extensions/TCAccountView.swift"
+                  timestampString = "577806228.2672271"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "1143">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SnapKit.ConstraintMaker) -&gt; () in Custed.TCAccountView.widgetsPrepare() -&gt; ()"
+                  moduleName = "Custed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/faker/Desktop/Custed/Custed/Custed/Tools/Extensions/TCAccountView.swift"
+                  timestampString = "577806228.269901"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "22">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Custed/Tools/Extensions/TCAccountView.swift"
+            timestampString = "577806773.864709"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "init(frame:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

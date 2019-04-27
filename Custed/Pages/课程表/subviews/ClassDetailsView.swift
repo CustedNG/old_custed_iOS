@@ -44,7 +44,11 @@ class ClassDetailsView: UIView {
         let backgroundView = UIView()
         backgroundView.layer.cornerRadius = 10
         backgroundView.frame = self.frame
+<<<<<<< HEAD
         backgroundView.backgroundColor = UIColor.clear
+=======
+        backgroundView.backgroundColor = nil
+>>>>>>> eef1b5bb3c4bbcdf8bdd473d3399338f1877d7c3
         self.addSubview(backgroundView)
 //        let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapBackground))
 //        backgroundView.addGestureRecognizer(tap)

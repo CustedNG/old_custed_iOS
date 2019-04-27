@@ -52,6 +52,7 @@ class TCAccountViewController: UIViewController,buttonDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.myView.loadView()
+        
     }
     override func loadView() {
         super.loadView()
@@ -60,7 +61,7 @@ class TCAccountViewController: UIViewController,buttonDelegate{
     }
     init() {
         super.init(nibName: nil, bundle: nil)
-        self.tabBarItem.title = "我的账号"
+        self.title = "我的账号"
 //        let rightImage = SVGKImage.init(named: "list.svg")
 //        rightImage?.size = CGSize.init(width: 30, height: 30)
 //        let rightButton = UIBarButtonItem.init(image: rightImage?.uiImage, style: .plain, target: self, action: #selector(rightButtonClicked))

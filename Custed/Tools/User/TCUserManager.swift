@@ -43,6 +43,7 @@ class TCUserManager: NSObject {
         UserDefaults.standard.removeObject(forKey: "isLogin")
         UserDefaults.standard.removeObject(forKey: "custed-token")
         UserDefaults.standard.removeObject(forKey: "lastDate")
+        UserDefaults.standard.removeObject(forKey: "Etag")
         TCCacheManager.shared.emptyCaches()
         //delete preferences
         let url = "https://beta.tusi.site/app/v1/user/session"
