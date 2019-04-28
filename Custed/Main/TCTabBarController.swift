@@ -30,7 +30,15 @@ class TCTabBarController: UITabBarController, UITabBarControllerDelegate {
         homePageNav.navigationBar.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: TabBarHeight+NavigationHeight)
         let GradeVC : TCGradeViewController = TCGradeViewController()
         let GradeNav : UINavigationController = UINavigationController.init(rootViewController: GradeVC)
-        GradeNav.navigationBar.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: TabBarHeight+NavigationHeight)
+//        GradeNav.navigationBar.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: TabBarHeight+NavigationHeight)
+        GradeNav.navigationBar.tintColor = UIColor.white
+        GradeNav.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        GradeNav.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        GradeNav.navigationBar.shadowImage = UIImage()
+        GradeNav.navigationBar.backgroundColor = .clear
+        GradeNav.navigationBar.isTranslucent = true
+        //GradeNav.navigationBar.barTintColor = UIColor.white
+        //GradeNav.navigationBar.setBackgroundImage(bgImage, for: .default)
         let allfunctionVC:TCAllFunctionContentViewController = TCAllFunctionContentViewController()
         let scheduleVC : TCScheduleViewController = TCScheduleViewController()
         let scheduleNav : UINavigationController = UINavigationController.init(rootViewController: scheduleVC)

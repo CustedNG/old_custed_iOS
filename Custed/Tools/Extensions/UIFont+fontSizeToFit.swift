@@ -9,11 +9,12 @@
 import Foundation
 import UIKit
 extension UIFont{
-    class func fontSizeToFit(size:CGFloat) -> UIFont {
+    class func fontFitHeight(size:CGFloat) -> UIFont {
         let fontSize = floor(size/896*ScreenHeight)
         return UIFont.systemFont(ofSize: fontSize)
     }
-    class func fontSizeToFit() -> UIFont{
-        return UIFont.systemFont(ofSize: 17)
+    class func fontFitWidth(size:CGFloat) -> UIFont{
+        let fontSize = floor(size/414*ScreenWidth)
+        return UIFont.systemFont(ofSize: fontSize)
     }
 }

@@ -36,10 +36,10 @@ class AlertTableView: UITableView,UITableViewDelegate,UITableViewDataSource{
     weak var alertDelegate: AlertTableViewProtocol?
     private let dataArray:Array<String>
     private let identifier="cellsForAlert"
-    init(dataSouce:Array<String>) {
-        visibleFrame = CGRect.init(x: ScreenWidth*2/3, y: 0, width: ScreenWidth/3, height: CGFloat(dataSouce.count*40))
+    init(startPosition:CGFloat,dataSouce:Array<String>) {
+        visibleFrame = CGRect.init(x: ScreenWidth*2/3, y: startPosition, width: ScreenWidth/3, height: CGFloat(dataSouce.count*40))
         dataArray = dataSouce
-        onsetFrame = CGRect.init(x: ScreenWidth*2/3, y: 0, width: ScreenWidth/3, height: 0)
+        onsetFrame = CGRect.init(x: ScreenWidth*2/3, y: startPosition, width: ScreenWidth/3, height: 0)
         super.init(frame: onsetFrame, style: .plain)
         self.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
         self.delegate = self
@@ -47,6 +47,7 @@ class AlertTableView: UITableView,UITableViewDelegate,UITableViewDataSource{
         self.isScrollEnabled = false
         self.rowHeight = 40
         self.backgroundColor = UIColor.white
+        self.layer.cornerRadius = 5*ScreenWidth/414
         
     }
     
@@ -56,6 +57,7 @@ class AlertTableView: UITableView,UITableViewDelegate,UITableViewDataSource{
         //其实这个类不应该写的，但是我之前没想好，又当条懒狗，所以把自身的层级关系放到下面，以后这个类一定要改。
         //window.insertSubview(self, at: 1)
         self.isHidden = false
+        self.frame = self.onsetFrame
         UIView.animate(withDuration: 0.3, animations: {
             self.frame = self.visibleFrame
         })
