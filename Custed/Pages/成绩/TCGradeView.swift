@@ -12,36 +12,12 @@ import SnapKit
 protocol TCGradeViewProtocol:class{
     func clickedWith(tag:Int)
 }
-class TCGradeView: UIView,UIPageViewControllerDataSource,UIPageViewControllerDelegate,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
-    }
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .red
-        return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: ScreenWidth - 60, height: 30)
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        print(cell?.frame)
-    }
+class TCGradeView: UIView,UIPageViewControllerDataSource,UIPageViewControllerDelegate{
     
     var titleLabel:UILabel!
     var pageController:UIPageViewController
     let alertView:AlertTableView
+    var stackView:UIStackView!
     private var leftViewLabelArray=[UILabel]()
     private var leftViewController:UIViewController!
     private var rightViewController:RightViewControllerForPageController!
@@ -138,10 +114,39 @@ class TCGradeView: UIView,UIPageViewControllerDataSource,UIPageViewControllerDel
         
         
         /*----------Grade-----------*/
-        let layout = UICollectionViewFlowLayout.init()
-        layout.scrollDirection = .horizontal
+        stackView = UIStackView.init()
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.spacing = 10
+        self.addSubview(stackView)
+        for i in 0..<5{
+            let label = UILabel()
+            label.text = "testing"
+            label.font = UIFont.systemFont(ofSize: 15.0+CGFloat(i*3))
+            label.backgroundColor = .red
+            let gesture = UITapGestureRecognizer.init(target: self, action:#selector(test(sender:)))
+            label.addGestureRecognizer(gesture)
+            label.isUserInteractionEnabled = true
+            stackView.addArrangedSubview(label)
+        }
+        stackView.snp.makeConstraints { (make) in
+            make.top.equalTo(upperPartView.snp_bottom)
+            make.width.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-TabBarHeight)
+        }
         
     
+    }
+    @objc func test(sender:UITapGestureRecognizer){
+        print(sender.view!.frame)
+        stackView.layoutSubviews()
+        let target = sender.view!
+        let frame = sender.view!.frame
+        UIView.animate(withDuration: 2.0) {
+            target.frame = CGRect.init(x: frame.minX, y: frame.minY, width: frame.width, height: 100)
+        }
+        
+        
     }
     @objc func leftArrowClicked(){
         self.clickDelegate?.clickedWith(tag: 0)
