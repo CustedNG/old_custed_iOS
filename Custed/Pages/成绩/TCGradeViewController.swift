@@ -9,6 +9,12 @@
 import UIKit
 import SVGKit
 import Foundation
+/*
+ Something haven't done:
+ 1.it will not reload data if users not login in before invoke viewdidload function.even users login in after that
+ 2.request rankings message every semesters,I just got last semester ranking message.
+ 3.All the alert click event handling not implement(force to update ,security mode)
+ */
 class TCGradeViewController: UIViewController,AlertTableViewProtocol,TCGradeViewProtocol{
     func clickAlertCells(with: Int) {
         print(with)
