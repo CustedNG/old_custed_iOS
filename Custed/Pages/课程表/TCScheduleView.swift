@@ -100,8 +100,8 @@ class TCScheduleView: UIView,UICollectionViewDelegate,UICollectionViewDelegateFl
         classSchedule.register(cellsForScheduleView.self, forCellWithReuseIdentifier: cellsIdentifier)
         classSchedule.flashScrollIndicators()
         classSchedule.backgroundColor = UIColor.white
-        if itemHeighe <= 80{
-            itemHeighe = 80
+        if itemHeighe <= 93{
+            itemHeighe = 93
         }
         let slide = headerForClassSchedule.init(itemsHeight: itemHeighe, viewHeight: collectionViewHeight)
         classSchedule.addSubview(slide)

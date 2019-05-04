@@ -17,9 +17,17 @@ class TCUserManager: NSObject {
     private let datecompare:DateComponentsFormatter = DateComponentsFormatter.init()
     var filePath:String
     var cookiesDic : [String:String]?
+    
+    private var _isLogin:Bool
+    public var isLogin:Bool{
+        get{
+            return _isLogin
+        }
+    }
     override init() {
         //Libarary/Preferences/
         filePath = (NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.libraryDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString).strings(byAppendingPaths: ["Preferences"])[0]
+        self._isLogin = false //default is false
         super.init()
         self.datecompare.unitsStyle = .positional
         self.datecompare.allowedUnits = [.second]
@@ -35,7 +43,7 @@ class TCUserManager: NSObject {
         let fullPath = (filePath as NSString).strings(byAppendingPaths: [name+".plist"])[0]
         return NSDictionary.init(contentsOfFile: fullPath)
     }
-
+    
     //keyChain
     func logOut() -> Void{
         //清除本地的用户缓存
@@ -44,7 +52,9 @@ class TCUserManager: NSObject {
         UserDefaults.standard.removeObject(forKey: "custed-token")
         UserDefaults.standard.removeObject(forKey: "lastDate")
         UserDefaults.standard.removeObject(forKey: "Etag")
+        UserDefaults.standard.removeSuite(named: "gradeEtag")
         TCCacheManager.shared.emptyCaches()
+        self._isLogin = false
         //delete preferences
         let url = "https://beta.tusi.site/app/v1/user/session"
         let header = ["accept": "application/vnd.toast+json"]
@@ -55,12 +65,14 @@ class TCUserManager: NSObject {
             else if response.response?.statusCode == 403{
                 TCToast.showWithMessage("会话不存在或已注销")
             }
+            // clear away cookies after request, because cookies are required to this request
+            if HTTPCookieStorage.shared.cookies != nil{
+                for i in HTTPCookieStorage.shared.cookies!{
+                    HTTPCookieStorage.shared.deleteCookie(i)
+                }
+            }
         }
     }
-//    func logIn(Username:String,password:String) -> Void {
-//        KeychainWrapper.defaultKeychainWrapper.set(Username, forKey: "Username")
-//        KeychainWrapper.defaultKeychainWrapper.set(password, forKey: "Password")
-//    }
     func logIn(id:String,pass:String,completedDo:((String)->Void)?=nil ) -> Void {
         let headers = [
             "accept": "application/vnd.toast+json",
@@ -75,24 +87,24 @@ class TCUserManager: NSObject {
         let response = Alamofire.SessionManager.ephemeral.request(url, method: .post, parameters: para, encoding: URLEncoding.default,headers: headers).response { (response) in
             guard response.response?.statusCode == 200 else{
                 completedDo?("请求错误")
-                debugPrint(response)
+                //debugPrint(response)
                 return
             }
             let nowDate = Date.init(timeIntervalSinceNow: 0)
-            let json = JSON(response.data!)
-            debugPrint(response)
-            UserDefaults.standard.setValue(true, forKey: "isLogin")
+            //let json = JSON(response.data!)
+            //debugPrint(response)
             KeychainWrapper.defaultKeychainWrapper.set(id, forKey: "Username")
             KeychainWrapper.defaultKeychainWrapper.set(pass, forKey: "Password")
-//            UserDefaults.standard.setValue(json["data"]["token_value"].stringValue, forKey: "custed-token")
             let headerFields = response.response?.allHeaderFields as? [String: String]
             self.cookiesDic = headerFields
             let Url = response.request?.url
             let cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields!, for: Url!)
-            HTTPCookieStorage.shared.setCookies(cookies, for: Url!, mainDocumentURL: nil)
+            HTTPCookieStorage.shared.setCookies(cookies, for: Url!, mainDocumentURL:nil)
             UserDefaults.standard.setValue(nowDate, forKey: "lastDate")
-            UserDefaults.standard.synchronize()
+            UserDefaults.standard.setValue(true, forKey: "isLogin")
+            self._isLogin = true
             let resultStr = "请求成功"
+            print("----拿到token了")
             completedDo?(resultStr)
         }
         debugPrint(response)
@@ -103,18 +115,19 @@ class TCUserManager: NSObject {
         return value
     }
     func updateTakenValueValidTime(){
-        let lateDate = UserDefaults.standard.value(forKey: "lastDate")
-        //有date数据，有的话就不用做操作了，没有重新拉
-        let str = datecompare.string(from: lateDate as! Date, to: Date())!
-        let str2 = str.replacingOccurrences(of: ",", with: "")
-        let interval = Int(str2)
-        if interval! <= 430000{
+        if KeychainWrapper.defaultKeychainWrapper.string(forKey: "Username") == nil{
+            return
+        }
+        //let lateDate = UserDefaults.standard.value(forKey: "lastDate")
+        
+        //if cookies had expired,for that,the value of HTTPCookieStorage.shared.cookies will be []
+        print(HTTPCookieStorage.shared.cookies)
+        if HTTPCookieStorage.shared.cookies == [] {
+            print("正在拿token")
             let id = KeychainWrapper.defaultKeychainWrapper.string(forKey: "Username")!
             let pass = KeychainWrapper.defaultKeychainWrapper.string(forKey: "Password")!
             self.logIn(id: id, pass: pass)
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
-                
-            }
         }
     }
 }
+

@@ -124,9 +124,9 @@ class TCScheduleModel: NSObject{
             if isGttingDataFromRemote == true{
                 let queue = DispatchQueue.global(qos: .default)
                 let group = DispatchGroup.init()
-                queue.sync {
-                    TCUserManager.shared.updateTakenValueValidTime()
-                }
+//                queue.sync {
+//                    //TCUserManager.shared.updateTakenValueValidTime()
+//                }
                 group.enter()
                 queue.sync {
                     let url = "https://beta.tusi.site/app/v1/cust/jwgl/schedule/"
@@ -141,7 +141,7 @@ class TCScheduleModel: NSObject{
                             }
                             else{
                                 DispatchQueue.main.async {
-                                    TCToast.showWithMessage("网络异常～")
+                                    TCToast.showWithMessage("网络异常～\(DefaultDataResponse.response?.statusCode)")
                                 }
                                 
                             }
@@ -155,9 +155,9 @@ class TCScheduleModel: NSObject{
                             self.model = try decoder.decode(Schedule.self, from: DefaultDataResponse.data!)
                             let responseHeaders = DefaultDataResponse.response?.allHeaderFields as! [String:String]
                             let Url = DefaultDataResponse.request?.url
-                            let cookies = HTTPCookie.cookies(withResponseHeaderFields: responseHeaders, for: Url!)
-                            print(cookies)
-                            HTTPCookieStorage.shared.setCookies(cookies, for: Url!, mainDocumentURL: nil)
+                            //let cookies = HTTPCookie.cookies(withResponseHeaderFields: responseHeaders, for: Url!)
+                            //print(cookies)
+                            //HTTPCookieStorage.shared.setCookies(cookies, for: Url!, mainDocumentURL: nil)
                             let now = Date.init(timeIntervalSinceNow: 0)
                             UserDefaults.standard.setValue(now, forKey: "lastDate")
                             UserDefaults.standard.synchronize()
@@ -213,13 +213,15 @@ class TCScheduleModel: NSObject{
         Alamofire.SessionManager.ephemeral.request(url1,headers:headers).response { (DefaultDataResponse) in
             if DefaultDataResponse.response?.statusCode == Optional(200){
                 let etag:String = DefaultDataResponse.response?.allHeaderFields["Etag"] as! String
-                debugPrint(DefaultDataResponse)
+                //debugPrint(DefaultDataResponse)
                 UserDefaults.standard.setValue(etag, forKey: "Etag")
                 flag = true
+                print("判断完etag了")
                 completedDo(flag)
             }
             else{
                 flag = false
+                print("判断完etag了")
                 completedDo(flag)
             }
         }
@@ -233,23 +235,24 @@ class TCScheduleModel: NSObject{
         let headers = [
             "accept": "application/vnd.toast+json"
         ]
-        Alamofire.SessionManager.timeOut.request(url,headers:headers).response { (DefaultDataResponse) in
-            //debugPrint(DefaultDataResponse)
+        let res = Alamofire.SessionManager.timeOut.request(url,headers:headers).response { (DefaultDataResponse) in
+            debugPrint(DefaultDataResponse)
             guard DefaultDataResponse.response?.statusCode == 200 else{
-                TCToast.showWithMessage("网络异常～")
+                TCToast.showWithMessage("网络异常～\(String(describing: DefaultDataResponse.response?.statusCode))")
                 completedDo(false)
                 return
             }
             do{
                 let decoder = JSONDecoder()
                 self.model = try decoder.decode(Schedule.self, from: DefaultDataResponse.data!)
+                //print(DefaultDataResponse.request?.allHTTPHeaderFields)
                 //print(DefaultDataResponse.response?.statusCode)
                 //print(DefaultDataResponse.data!)
-                let responseHeaders = DefaultDataResponse.response?.allHeaderFields as! [String:String]
-                let Url = DefaultDataResponse.request?.url
-                let cookies = HTTPCookie.cookies(withResponseHeaderFields: responseHeaders, for: Url!)
+                //let responseHeaders = DefaultDataResponse.response?.allHeaderFields as! [String:String]
+                //let Url = DefaultDataResponse.request?.url
+                //let cookies = HTTPCookie.cookies(withResponseHeaderFields: responseHeaders, for: Url!)
                 //print(cookies)
-                HTTPCookieStorage.shared.setCookies(cookies, for: Url!, mainDocumentURL: nil)
+                //HTTPCookieStorage.shared.setCookies(cookies, for: Url!, mainDocumentURL: nil)
                 let now = Date.init(timeIntervalSinceNow: 0)
                 UserDefaults.standard.setValue(now, forKey: "lastDate")
                 UserDefaults.standard.synchronize()
@@ -259,6 +262,8 @@ class TCScheduleModel: NSObject{
                 print("\(error)")
             }
         }
+        print(HTTPCookieStorage.shared.cookies)
+        debugPrint(res)
     }
     func parseData()->Void{
         self.data.lessonColorIndex = [String:Int]()

@@ -72,7 +72,7 @@ class TCAccountModel: NSObject {
         self.info = Info()
         let header = ["accept": "application/vnd.toast+json"]
         let url = "https://beta.tusi.site/app/v1/user/info/"
-        let response = Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default , headers: header) .response{ (response) in
+        let response = Alamofire.SessionManager.timeOut.request(url, method: .get, parameters: nil, encoding: URLEncoding.default , headers: header) .response{ (response) in
             guard response.response?.statusCode == 200 else{
                 print("信息请求失败")
                 return

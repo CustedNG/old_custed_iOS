@@ -51,6 +51,7 @@ class GPARoundView: UIView {
         let titleLabel = UILabel()
         titleLabel.text = "本学期绩点"
         titleLabel.textColor = UIColor.FromRGB(RGB: 0xCAEDFD)
+        titleLabel.font = UIFont.fontFitHeight(size: 20)
         self.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
             make.bottom.equalTo(GPALabel.snp_top)

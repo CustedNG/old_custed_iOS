@@ -125,7 +125,35 @@ class TCCacheManager: NSObject {
         return nil
     }
     
-    
+    func codableArchive<T:Encodable>(object:T,name:String)->Void{
+        let path = (ArchivePath as NSString).strings(byAppendingPaths: [name])[0]
+        do{
+            let data = try JSONEncoder().encode(object)
+            print(path)
+            if FileManager.default.fileExists(atPath: path){
+                try FileManager.default.removeItem(atPath: path)
+            }
+            FileManager.default.createFile(atPath: path, contents: data, attributes: nil)
+        }catch{
+            print("\(error)")
+        }
+    }
+    func codableUnarchive<T:Decodable>(name:String,as type:T.Type)->T?{
+        let path = (ArchivePath as NSString).strings(byAppendingPaths: [name])[0]
+        var value:T?
+        if FileManager.default.fileExists(atPath: path) == true{
+            do{
+                let data = FileManager.default.contents(atPath: path)
+                value = try JSONDecoder().decode(type, from: data!)
+            }catch{
+                print("\(error)")
+            }
+        }
+        else{
+            value = nil
+        }
+        return value
+    }
     //plist
     
     /// Description:获取三个文件下的所有文件

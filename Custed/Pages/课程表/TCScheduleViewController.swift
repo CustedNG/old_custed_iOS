@@ -194,11 +194,11 @@ class TCScheduleViewController: UIViewController,titleVIewClick,ScheduleViewProt
     func assignToViews(){
         self.titleView.weeksLabel.text = self.myModel.weeks[self.presentWeek-1]
         self.titleView.semesterLabel.text = self.myModel.data.semester
-        print(self.presentWeek)
-        print(self.myModel.data.schedule)
+        //print(self.presentWeek)
+        //print(self.myModel.data.schedule)
         self.myView.dayInWeekLabels[0].text = self.myModel.data.schedule[self.presentWeek]![0]
         
-        print(self.myModel.data.schedule[self.presentWeek]![0])
+        //print(self.myModel.data.schedule[self.presentWeek]![0])
         for i in 1..<8{
             self.myView.dayInMonthLabels[i].text = self.myModel.data.schedule[self.presentWeek]![i]
         }
@@ -208,7 +208,7 @@ class TCScheduleViewController: UIViewController,titleVIewClick,ScheduleViewProt
         myView.classSchedule.reloadData()
         self.titleView.weeksLabel.text = self.myModel.weeks[self.presentWeek-1]
         self.myView.dayInWeekLabels[0].text = self.myModel.data.schedule[self.presentWeek]![0]
-        print(self.myModel.data.schedule[self.presentWeek]![0])
+        //print(self.myModel.data.schedule[self.presentWeek]![0])
         for i in 1..<8{
             self.myView.dayInMonthLabels[i].text = self.myModel.data.schedule[self.presentWeek]![i]
         }

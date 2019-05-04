@@ -12,17 +12,22 @@ import SnapKit
 protocol TCGradeViewProtocol:class{
     func clickedWith(tag:Int)
 }
-class TCGradeView: UIView,UIPageViewControllerDataSource,UIPageViewControllerDelegate{
+class TCGradeView: UIView,UIPageViewControllerDataSource,UIPageViewControllerDelegate,UITableViewDelegate,UITableViewDataSource{
     
     var titleLabel:UILabel!
     var pageController:UIPageViewController
     let alertView:AlertTableView
-    var stackView:UIStackView!
+    var gradeView:UITableView!
+    var showCell=[IndexPath]()
+    var leftArrowButton:UIButton!
+    var rightArrowButton:UIButton!
+    var Transition:CATransition!
     private var leftViewLabelArray=[UILabel]()
-    private var leftViewController:UIViewController!
+    private var leftViewController:LeftInPageViewController!
     private var rightViewController:RightViewControllerForPageController!
     private var ViewControllers : [UIViewController]!
     var GPARound:GPARoundView!
+    private var level:GradeLevels!
     weak var clickDelegate:TCGradeViewProtocol?
     override init(frame: CGRect) {
         alertView = AlertTableView.init(startPosition:NavigationHeight+StatusBarheight, dataSouce: ["安全模式","强制刷新","bug反馈"])
@@ -33,8 +38,8 @@ class TCGradeView: UIView,UIPageViewControllerDataSource,UIPageViewControllerDel
     required init?(coder aDecoder: NSCoder) {
         fatalError("no")
     }
-    func setUpUI(){
-        
+    func setUpUI(leftP:GradePersonalInfo,leftT:GradeTotal,leftR:gradeRanking,level:GradeLevels){
+        self.level = level
         //渐变部分
         let gradientColors = [
             UIColor.FromRGB(RGB: 0x34C6FB).cgColor,
@@ -52,7 +57,7 @@ class TCGradeView: UIView,UIPageViewControllerDataSource,UIPageViewControllerDel
         gradientColor.colors = gradientColors
         gradientColor.frame = gradientBGColorFrame
         
-        //upper part View , and it contains all the widgets above the gradient color
+        //upper part View,and it contains all the widgets above the gradient color
         let upperPartView = UIView.init(frame: gradientBGColorFrame)
         upperPartView.layer.insertSublayer(gradientColor, at: 0)
         self.addSubview(upperPartView)
@@ -74,7 +79,7 @@ class TCGradeView: UIView,UIPageViewControllerDataSource,UIPageViewControllerDel
         let leftArrow = SVGKImage.init(named: "left.svg")
         leftArrow?.size = svgSize
         let arrowImage = leftArrow?.uiImage.imageWithColor(color: .white)
-        let leftArrowButton = UIButton.init(type: .custom)
+        leftArrowButton = UIButton.init(type: .custom)
         leftArrowButton.setBackgroundImage(arrowImage, for: .normal)
         leftArrowButton.addTarget(self, action: #selector(leftArrowClicked), for: .touchUpInside)
         upperPartView.addSubview(leftArrowButton)
@@ -83,7 +88,8 @@ class TCGradeView: UIView,UIPageViewControllerDataSource,UIPageViewControllerDel
             make.centerY.equalTo(titleLabel)
         }
         
-        let rightArrowButton = UIButton.init(type: .custom)
+        rightArrowButton = UIButton.init(type: .custom)
+        rightArrowButton.isEnabled = false //at beginning , we'll present last semester,so disable the right button
         rightArrowButton.setBackgroundImage(arrowImage, for: .normal)
         rightArrowButton.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi)
         rightArrowButton.addTarget(self, action: #selector(rightArrowClicked), for: .touchUpInside)
@@ -98,9 +104,9 @@ class TCGradeView: UIView,UIPageViewControllerDataSource,UIPageViewControllerDel
         
         
         // pageController and pages
-        leftViewController = LeftInPageViewController.init()
+        leftViewController = LeftInPageViewController.init(leftP: leftP, leftT: leftT,leftR: leftR)
         //left for Range right for GPA
-        rightViewController = RightViewControllerForPageController.init(frame: gradientBGColorFrame)
+        rightViewController = RightViewControllerForPageController.init(frame: gradientBGColorFrame, level: level)
         ViewControllers = [leftViewController,rightViewController]
         pageController.delegate = self
         pageController.dataSource = self
@@ -114,40 +120,50 @@ class TCGradeView: UIView,UIPageViewControllerDataSource,UIPageViewControllerDel
         
         
         /*----------Grade-----------*/
-        stackView = UIStackView.init()
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.spacing = 10
-        self.addSubview(stackView)
-        for i in 0..<5{
-            let label = UILabel()
-            label.text = "testing"
-            label.font = UIFont.systemFont(ofSize: 15.0+CGFloat(i*3))
-            label.backgroundColor = .red
-            let gesture = UITapGestureRecognizer.init(target: self, action:#selector(test(sender:)))
-            label.addGestureRecognizer(gesture)
-            label.isUserInteractionEnabled = true
-            stackView.addArrangedSubview(label)
-        }
-        stackView.snp.makeConstraints { (make) in
+        gradeView = UITableView.init(frame: CGRect.zero, style: .plain)
+        gradeView.delegate = self
+        gradeView.dataSource = self
+        gradeView.backgroundColor = .white
+        gradeView.tintColor = UIColor.white
+        gradeView.separatorStyle = .none
+        gradeView.estimatedRowHeight = 0
+        //gradeView.estimatedRowHeight = 60
+        //gradeView.style
+        gradeView.register(TCGradeBox.self, forCellReuseIdentifier: "GradeBox")
+        self.addSubview(gradeView)
+        gradeView.snp.makeConstraints { (make) in
             make.top.equalTo(upperPartView.snp_bottom)
             make.width.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-TabBarHeight)
+            make.height.lessThanOrEqualTo(ScreenHeight-TabBarHeight-upperPartView.frame.height)
         }
-        
-    
+        Transition = CATransition.init()
+        Transition.timingFunction = CAMediaTimingFunction.init(name: CAMediaTimingFunctionName.linear)
+        Transition.duration = 0.5
+        Transition.type = .moveIn
+        titleLabel.layer.add(Transition, forKey: "titleAN")
+        titleLabel.text = level.description
+        // push : push to right
+    }
+    func reloadData(levels:GradeLevels,animation:UITableView.RowAnimation){
+        if animation == .left{
+            Transition.type = .moveIn
+        }
+        else{
+            Transition.type = .reveal
+        }
+        self.titleLabel.layer.add(Transition, forKey: "titleAN")
+        self.titleLabel.text = levels.description
+        self.level = levels
+        rightViewController.reloadData(DataSource: self.level)
+        gradeView.reloadSections(IndexSet.init(integer: 0), with: animation)
+        //gradeView.reloadData()
     }
     @objc func test(sender:UITapGestureRecognizer){
         print(sender.view!.frame)
-        stackView.layoutSubviews()
-        let target = sender.view!
-        let frame = sender.view!.frame
-        UIView.animate(withDuration: 2.0) {
-            target.frame = CGRect.init(x: frame.minX, y: frame.minY, width: frame.width, height: 100)
-        }
         
         
     }
+    
     @objc func leftArrowClicked(){
         self.clickDelegate?.clickedWith(tag: 0)
     }
@@ -185,7 +201,56 @@ class TCGradeView: UIView,UIPageViewControllerDataSource,UIPageViewControllerDel
     func animationWith(GPA:CGFloat){
         self.rightViewController.GPA = GPA
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! TCGradeBox
+        var frame = cell.frame
+        if showCell.contains(indexPath){
+            frame = CGRect.init(x: frame.minX, y: frame.minY, width: frame.width, height: 200)
+            showCell.removeAll { (index) -> Bool in
+                if index == indexPath{
+                    return true
+                }
+                else{
+                    return false
+                }
+            }
+        }else{
+            showCell.append(indexPath)
+        }
+        cell.expend = !cell.expend
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if showCell.contains(indexPath) == true{
+            return 160
+        }
+        return 60
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return level.exams?.count ?? 0
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //disable cell reuse
+        var cell:TCGradeBox? = tableView.dequeueReusableCell(withIdentifier: "GradeBox\(indexPath)") as? TCGradeBox
+        if cell == nil{
+            cell = TCGradeBox.init(style: .default, reuseIdentifier: "GradeBox\(indexPath)")
+        }
+        cell?.exam = level.exams![indexPath.row]
+        if self.showCell.contains(indexPath) == true{
+            cell?.expend = true
+        }
+        else{
+            cell?.expend = false
+        }
+        cell!.selectionStyle = .none
+        return cell!
+    }
 }
 extension UIView{
     var MyViewController:UIViewController?{
