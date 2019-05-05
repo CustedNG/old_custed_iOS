@@ -129,5 +129,13 @@ class TCUserManager: NSObject {
             self.logIn(id: id, pass: pass)
         }
     }
+    func hadLoginIn()->Bool{
+        if KeychainWrapper.defaultKeychainWrapper.string(forKey: "Username") == nil{
+            return false
+        }
+        else{
+            return true
+        }
+    }
 }
 

@@ -11,13 +11,42 @@ import SVGKit
 import Foundation
 /*
  Something haven't done:
- 1.it will not reload data if users not login in before invoke viewdidload function.even users login in after that
- 2.request rankings message every semesters,I just got last semester ranking message.
  3.All the alert click event handling not implement(force to update ,security mode)
  */
 class TCGradeViewController: UIViewController,AlertTableViewProtocol,TCGradeViewProtocol{
     func clickAlertCells(with: Int) {
-        print(with)
+        switch with {
+        case 0:do{
+            //security mode
+            TCHUD.show()
+            myView.alertView.Hide()
+            }
+        case 1:do{
+            myView.alertView.Hide()
+            TCHUD.show()
+            myModel.getData(isremote: true) { (isSucessful) in
+                if isSucessful == false{
+                    TCHUD.dissmiss()
+                    TCToast.showWithMessage("更新失败～请确保网络状况良好后重试")
+                }
+                else{
+                    self.gotData = true
+                    self.presentSemester = self.myModel.grade?.lastSemester ?? "1"
+                    self.maxSemester = Int(self.presentSemester)
+                    self.PersonalInfo = self.myModel.grade?.data.personal_info
+                    self.total = self.myModel.grade?.data.total
+                    self.levels = (self.myModel.grade?.data.levels)!
+                    self.myView.setUpUI(leftP: self.PersonalInfo, leftT: self.total,leftR:self.myModel.grade!.rankings! ,level: self.levels[self.presentSemester]!)
+                    TCHUD.dissmiss()
+                }
+            }
+            }
+        case 2:do{
+            // bug
+            }
+        default:
+            print("bug")
+        }
     }
     func clickedWith(tag: Int) {
         switch tag {
@@ -49,6 +78,9 @@ class TCGradeViewController: UIViewController,AlertTableViewProtocol,TCGradeView
     var maxSemester:Int!
     private var cancelBarItem:UIBarButtonItem!
     private var rightBarItem:UIBarButtonItem!
+    private var needGetData:Bool = false
+    private var gotData:Bool = false
+    private var isFirstTime:Bool = true
     var myView = TCGradeView()
     var myModel = TCGradeModel()
     //for left view in pageVC,and it's needn't to refresh
@@ -57,19 +89,46 @@ class TCGradeViewController: UIViewController,AlertTableViewProtocol,TCGradeView
     
     //for right View in PageVC and tableView
     private var levels:[String:GradeLevels]!
+    override func viewDidAppear(_ animated: Bool) {
+        print("viewDidAppear")
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewwillappear")
+        print(gotData,isFirstTime)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        myModel.getData {
-            self.presentSemester = self.myModel.grade?.lastSemester ?? "1"
-            self.maxSemester = Int(self.presentSemester)
-            self.PersonalInfo = self.myModel.grade?.data.personal_info
-            self.total = self.myModel.grade?.data.total
-            self.levels = (self.myModel.grade?.data.levels)!
-            self.myView.setUpUI(leftP: self.PersonalInfo, leftT: self.total,leftR:self.myModel.grade!.rankings! ,level: self.levels[self.presentSemester]!)
-            //self.myView.assign(leftP: self.PersonalInfo, leftT: self.total, levels: self.levels[self.presentSemester]!)
+        print(needGetData)
+        if TCUserManager.shared.hadLoginIn(){
+            needGetData = true
+        }
+        if needGetData == true{
+            myModel.getData(isremote: false) { (isSucessful) in
+                if isSucessful == true{
+                    self.gotData = true
+                    self.presentSemester = self.myModel.grade?.lastSemester ?? "1"
+                    self.maxSemester = Int(self.presentSemester)
+                    self.PersonalInfo = self.myModel.grade?.data.personal_info
+                    self.total = self.myModel.grade?.data.total
+                    self.levels = (self.myModel.grade?.data.levels)!
+                    self.myView.setUpUI(leftP: self.PersonalInfo, leftT: self.total,leftR:self.myModel.grade!.rankings! ,level: self.levels[self.presentSemester]!)
+                }
+                else{
+                    TCToast.showWithMessage("请求数据失败")
+                }
+            }
         }
         
-        
+    }
+    func packageDataToView(){
+        self.presentSemester = self.myModel.grade?.lastSemester ?? "1"
+        self.maxSemester = Int(self.presentSemester)
+        self.PersonalInfo = self.myModel.grade?.data.personal_info
+        self.total = self.myModel.grade?.data.total
+        self.levels = (self.myModel.grade?.data.levels)!
+        self.myView.setUpUI(leftP: self.PersonalInfo, leftT: self.total,leftR:self.myModel.grade!.rankings! ,level: self.levels[self.presentSemester]!)
+        self.gotData = true
     }
     init() {
         super.init(nibName: nil, bundle: nil)

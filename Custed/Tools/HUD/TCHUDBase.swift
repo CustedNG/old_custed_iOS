@@ -18,8 +18,8 @@ class TCHUDBase: UIView {
     override init(frame: CGRect){
         super.init(frame: frame)
         /*---HUD的设置---*/
-        self.backgroundColor = UIColor.init(white: 0.1, alpha: 0.2)
-        self.isUserInteractionEnabled = false
+        self.backgroundColor = UIColor.init(white: 0.1, alpha: 0.5)
+        self.isUserInteractionEnabled = true
         
         
         /*--中间那一坨黑色的--*/

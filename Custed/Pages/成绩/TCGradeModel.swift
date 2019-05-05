@@ -41,26 +41,53 @@ class TCGradeModel: NSObject {
                 needFresh(true)
             }
             else{
-                needFresh(true)
+                needFresh(false)
                 //needFresh(true)
             }
             
         }
     }
-    
-    func getData(completedDo:@escaping ()->Void ){
+    func forceToUpdate(completedDo:@escaping (Bool)->Void){
+        let header = ["accept": "application/vnd.toast+json"]
+        let url = "https://beta.tusi.site/app/v1/cust/jwgl/grade/remote"
+        Alamofire.SessionManager.timeOut.request(url,headers:header).response { (DefaultDataResponse) in
+            guard DefaultDataResponse.response?.statusCode == 200 else {
+                print(DefaultDataResponse.response?.statusCode)
+                completedDo(false)
+                return
+            }
+            let decode = JSONDecoder()
+            do {
+                self.grade = try decode.decode(Grade.self, from: DefaultDataResponse.data!)
+            }catch{
+                print("\(error)")
+            }
+            self.parseData()
+            completedDo(true)
+        }
+    }
+    func getData(isremote:Bool=false,completedDo:@escaping (Bool)->Void ){
         self.WhetherNeedRefresh { (needFresh) in
             // request
             self.grade = TCCacheManager.shared.codableUnarchive(name: self.archiverFileName, as: Grade.self)
             if needFresh == true || self.grade == nil{
                 let header = ["accept": "application/vnd.toast+json"]
-                let url = "https://beta.tusi.site/app/v1/cust/jwgl/grade"
+                let url:String
+                if isremote == true{
+                    url = "https://beta.tusi.site/app/v1/cust/jwgl/grade/remote"
+                }
+                else{
+                    url = "https://beta.tusi.site/app/v1/cust/jwgl/grade"
+                }
                 let group = DispatchGroup.init()
                 let requestQueue = DispatchQueue.global()
                 group.enter()
-                Alamofire.SessionManager.timeOut.request(url, headers: header).response(queue:requestQueue, completionHandler: { (DefaultDataResponse) in
+                let response = Alamofire.SessionManager.timeOut.request(url, headers: header).response(queue:requestQueue, completionHandler: { (DefaultDataResponse) in
                     guard DefaultDataResponse.response?.statusCode == 200 else {
                         print(DefaultDataResponse.response?.statusCode)
+                        DispatchQueue.main.async {
+                            completedDo(false)
+                        }
                         return
                     }
                     let decode = JSONDecoder()
@@ -75,6 +102,7 @@ class TCGradeModel: NSObject {
 //                    completedDo()
                     group.leave()
                 })
+                debugPrint(response)
 
                 group.notify(queue: requestQueue, execute: {
                     let index:String = self.grade?.lastSemester ?? "1"
@@ -91,12 +119,12 @@ class TCGradeModel: NSObject {
                         requestQueue.async {
                             TCCacheManager.shared.codableArchive(object: self.grade, name: self.archiverFileName)
                         }
-                        completedDo()
+                        completedDo(true)
                     })
                 })
             }
             else{
-                completedDo()
+                completedDo(true)
             }
         }
     }

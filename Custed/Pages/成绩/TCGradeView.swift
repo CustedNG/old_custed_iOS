@@ -237,9 +237,9 @@ class TCGradeView: UIView,UIPageViewControllerDataSource,UIPageViewControllerDel
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //disable cell reuse
-        var cell:TCGradeBox? = tableView.dequeueReusableCell(withIdentifier: "GradeBox\(indexPath)") as? TCGradeBox
+        var cell:TCGradeBox? = tableView.dequeueReusableCell(withIdentifier: "GradeBox") as? TCGradeBox
         if cell == nil{
-            cell = TCGradeBox.init(style: .default, reuseIdentifier: "GradeBox\(indexPath)")
+            cell = TCGradeBox.init(style: .default, reuseIdentifier: "GradeBox")
         }
         cell?.exam = level.exams![indexPath.row]
         if self.showCell.contains(indexPath) == true{
