@@ -23,6 +23,7 @@ extension SessionManager {
         config.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
         config.timeoutIntervalForRequest = TimeInterval.init(5.0)
         config.timeoutIntervalForResource = TimeInterval.init(10.0)
+        config.requestCachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalCacheData
         config.httpCookieAcceptPolicy = HTTPCookie.AcceptPolicy.onlyFromMainDocumentDomain // default setting
         config.httpShouldSetCookies = true
         return SessionManager(configuration: config)
