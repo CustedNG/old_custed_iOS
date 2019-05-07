@@ -44,6 +44,8 @@ class TCScheduleViewController: UIViewController,titleVIewClick,ScheduleViewProt
     func AlertCancel() {
         alertView.closeDetailAlert()
     }
+   
+    
     
     func arrowButtonForTitleViewClicked(tag: Int) {
         switch tag {
@@ -66,12 +68,16 @@ class TCScheduleViewController: UIViewController,titleVIewClick,ScheduleViewProt
             }
         case 3:
             do{
-                print("3")
+                UsePickerView.showCustedDataPickerView()
             }
+            
+            
+            
         default:
             print("nononono")
         }
     }
+    
     
     func clickCells(collectionView:UICollectionView,cell:cellsForScheduleView,index: IndexPath) {
         if cell.info == nil{
@@ -93,7 +99,7 @@ class TCScheduleViewController: UIViewController,titleVIewClick,ScheduleViewProt
         //week:[day:[[start_section:lesson]]]
         cell.backgroundColor = UIColor.white
         let currentWeek = self.presentWeek
-        if myModel.data.ScheduleForWeeks[currentWeek]![indexPath.row+1] == nil{
+        if myModel.data.ScheduleForWeeks[currentWeek]?[indexPath.row+1] == nil{
             cell.info = nil
             return cell
         }
@@ -108,6 +114,8 @@ class TCScheduleViewController: UIViewController,titleVIewClick,ScheduleViewProt
             if lesson?.lesson_type != 1{
                 cell.backgroundColor = myModel.othersColor
             }
+                
+                
             else{
                 let colorIndex = myModel.data.lessonColorIndex[lesson!.lesson_name]
                 cell.backgroundColor = myModel.colorArray[colorIndex!]
@@ -190,28 +198,49 @@ class TCScheduleViewController: UIViewController,titleVIewClick,ScheduleViewProt
         myView.toolAlertBox.Hide()
         self.navigationItem.setRightBarButton(rightBarItem, animated: true)
     }
+    
     /// Description: first time load data
     func assignToViews(){
         self.titleView.weeksLabel.text = self.myModel.weeks[self.presentWeek-1]
         self.titleView.semesterLabel.text = self.myModel.data.semester
+<<<<<<< HEAD
         //print(self.presentWeek)
         //print(self.myModel.data.schedule)
         self.myView.dayInWeekLabels[0].text = self.myModel.data.schedule[self.presentWeek]![0]
         
         //print(self.myModel.data.schedule[self.presentWeek]![0])
+=======
+<<<<<<< HEAD
+        self.myView.dayInWeekLabels[0].text = self.myModel.data.schedule[self.presentWeek]?[0]
+        print(self.myModel.data.schedule[self.presentWeek]?[0])
+=======
+        print(self.presentWeek)
+        print(self.myModel.data.schedule)
+        self.myView.dayInWeekLabels[0].text = self.myModel.data.schedule[self.presentWeek]![0]
+        
+        print(self.myModel.data.schedule[self.presentWeek]![0])
+>>>>>>> eef1b5bb3c4bbcdf8bdd473d3399338f1877d7c3
+>>>>>>> 5f1e8d9712f83d674d5fa249bb3596433404d9bd
         for i in 1..<8{
-            self.myView.dayInMonthLabels[i].text = self.myModel.data.schedule[self.presentWeek]![i]
+            self.myView.dayInMonthLabels[i].text = self.myModel.data.schedule[self.presentWeek]?[i]
         }
     }
     /// Description: call this function when presentWeek Changed or force to fresh class schedule
     func reloadCollectionViewData(){
         myView.classSchedule.reloadData()
         self.titleView.weeksLabel.text = self.myModel.weeks[self.presentWeek-1]
+<<<<<<< HEAD
         self.myView.dayInWeekLabels[0].text = self.myModel.data.schedule[self.presentWeek]![0]
         //print(self.myModel.data.schedule[self.presentWeek]![0])
+=======
+        self.myView.dayInWeekLabels[0].text = self.myModel.data.schedule[self.presentWeek]?[0]
+        print(self.myModel.data.schedule[self.presentWeek]?[0])
+>>>>>>> 5f1e8d9712f83d674d5fa249bb3596433404d9bd
         for i in 1..<8{
-            self.myView.dayInMonthLabels[i].text = self.myModel.data.schedule[self.presentWeek]![i]
+            self.myView.dayInMonthLabels[i].text = self.myModel.data.schedule[self.presentWeek]?[i]
         }
     }
+    //--------------------------PICKER-----------------------------//
+    lazy var UsePickerView = CustedDataPickerView()
     
 }

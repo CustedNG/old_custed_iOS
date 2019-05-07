@@ -66,7 +66,7 @@ class AlertTableView: UITableView,UITableViewDelegate,UITableViewDataSource{
         UIView.animate(withDuration: 0.3, animations: {
             self.frame = self.onsetFrame
         }) { (no) in
-            self.isHidden = true
+            self.isHidden = false
         }
     }
     required init?(coder aDecoder: NSCoder) {
