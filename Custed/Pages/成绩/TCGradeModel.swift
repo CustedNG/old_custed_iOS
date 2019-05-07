@@ -74,10 +74,10 @@ class TCGradeModel: NSObject {
                 let header = ["accept": "application/vnd.toast+json"]
                 let url:String
                 if isremote == true{
-                    url = "https://beta.tusi.site/app/v1/cust/jwgl/grade/remote"
+                    url = "https://app.cust.edu.cn/app/cust/jwgl/grade/remote"
                 }
                 else{
-                    url = "https://beta.tusi.site/app/v1/cust/jwgl/grade"
+                    url = "https://app.cust.edu.cn/app/cust/jwgl/grade"
                 }
                 let group = DispatchGroup.init()
                 let requestQueue = DispatchQueue.global()
@@ -107,7 +107,7 @@ class TCGradeModel: NSObject {
                 group.notify(queue: requestQueue, execute: {
                     let index:String = self.grade?.lastSemester ?? "1"
                     let header = ["accept": "application/vnd.toast+json"]
-                    let url = "https://beta.tusi.site/app/v1/cust/jwgl/grade/rank/"+index
+                    let url = "https://app.cust.edu.cn/app/cust/jwgl/grade/rank/"+index
                     Alamofire.SessionManager.timeOut.request(url, method: .get, headers: header) .response(completionHandler: { (response) in
                         let decoder = JSONDecoder()
                         do{

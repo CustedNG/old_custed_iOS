@@ -83,7 +83,7 @@ class TCUserManager: NSObject {
             "cust_pass":pass
         ]
         print(id,pass)
-        let url = "https://beta.tusi.site/app/v1/user/session"
+        let url = "https://app.cust.edu.cn/app/user/session/"
         let response = Alamofire.SessionManager.ephemeral.request(url, method: .post, parameters: para, encoding: URLEncoding.default,headers: headers).response { (response) in
             guard response.response?.statusCode == 200 else{
                 completedDo?("请求错误")

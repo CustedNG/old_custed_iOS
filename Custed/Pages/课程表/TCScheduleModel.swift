@@ -129,7 +129,7 @@ class TCScheduleModel: NSObject{
 //                }
                 group.enter()
                 queue.sync {
-                    let url = "https://beta.tusi.site/app/v1/cust/jwgl/schedule/"
+                    let url = "https://app.cust.edu.cn/app/cust/jwgl/schedule/"
                     let headers = [
                         "accept": "application/vnd.toast+json"
                     ]
@@ -153,8 +153,8 @@ class TCScheduleModel: NSObject{
                             let decoder = JSONDecoder()
                             print(true)
                             self.model = try decoder.decode(Schedule.self, from: DefaultDataResponse.data!)
-                            let responseHeaders = DefaultDataResponse.response?.allHeaderFields as! [String:String]
-                            let Url = DefaultDataResponse.request?.url
+//                            let responseHeaders = DefaultDataResponse.response?.allHeaderFields as! [String:String]
+//                            let Url = DefaultDataResponse.request?.url
                             //let cookies = HTTPCookie.cookies(withResponseHeaderFields: responseHeaders, for: Url!)
                             //print(cookies)
                             //HTTPCookieStorage.shared.setCookies(cookies, for: Url!, mainDocumentURL: nil)

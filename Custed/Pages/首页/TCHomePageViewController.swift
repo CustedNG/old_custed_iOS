@@ -22,6 +22,7 @@ class TCHomePageViewController: UIViewController,UIGestureRecognizerDelegate{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        myView.setUpUI()
         self.view.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.barTintColor = UIColor.yellow
         self.navigationController?.navigationBar.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: TabBarHeight+StatusBarheight)
@@ -51,6 +52,10 @@ class TCHomePageViewController: UIViewController,UIGestureRecognizerDelegate{
         if  isLogin == nil || isLogin == false{
             self.tabBarController?.present(TCLoginViewController.init(), animated: true, completion: nil)
         }
+    }
+    override func loadView() {
+        self.view = myView
+        
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print(HTTPCookieStorage.shared.cookies)

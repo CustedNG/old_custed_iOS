@@ -16,5 +16,7 @@ class TCHomePageView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("no")
     }
-
+    func setUpUI(){
+        
+    }
 }

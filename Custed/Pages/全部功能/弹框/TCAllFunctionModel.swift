@@ -66,7 +66,7 @@ class TCAllFunctionModel: NSObject {
             queueGroup.leave()
         }
         queueGroup.enter()
-        requestQueue.async(group:queueGroup){        Alamofire.SessionManager.ephemeral.request("https://beta.tusi.site/app/v1/etc/weather",headers:["accept": "application/vnd.toast+json"]).responseJSON(queue:requestQueue) { (response) in
+        requestQueue.async(group:queueGroup){        Alamofire.SessionManager.ephemeral.request("https://app.cust.edu.cn/app/etc/weather",headers:["accept": "application/vnd.toast+json"]).responseJSON(queue:requestQueue) { (response) in
             guard response.result.isSuccess else{
                 //请求错误
                 self.yiYanDataSource?.content = "电波无法到达～轻触重试"
@@ -138,7 +138,7 @@ class TCAllFunctionModel: NSObject {
     
     func gettingYiyan(queue:DispatchQueue=DispatchQueue.main ,completedDo: @escaping () -> Void) -> Void {
         let headers = ["accept": "application/vnd.toast+json"]
-        Alamofire.SessionManager.ephemeral.request("https://beta.tusi.site/app/v1/etc/hitokoto",headers: headers).responseJSON(queue:queue){ (response) in
+        Alamofire.SessionManager.ephemeral.request("https://app.cust.edu.cn/app/etc/hitokoto",headers: headers).responseJSON(queue:queue){ (response) in
             guard response.result.isSuccess else{
                 //请求错误
                 completedDo()
