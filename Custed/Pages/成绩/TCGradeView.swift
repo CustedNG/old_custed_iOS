@@ -22,10 +22,14 @@ class TCGradeView: UIView,UIPageViewControllerDataSource,UIPageViewControllerDel
     var leftArrowButton:UIButton!
     var rightArrowButton:UIButton!
     var Transition:CATransition!
+    private var upperPartView:UIView!
     private var leftViewLabelArray=[UILabel]()
     private var leftViewController:LeftInPageViewController!
     private var rightViewController:RightViewControllerForPageController!
     private var ViewControllers : [UIViewController]!
+    private var lastPoint:CGPoint = CGPoint.init(x: 0, y: 0)//last point
+    private var panGestureInGradeView:UIPanGestureRecognizer!
+    private var gradeViewTotalOffset:CGFloat = 0.0
     var GPARound:GPARoundView!
     private var level:GradeLevels!
     weak var clickDelegate:TCGradeViewProtocol?
@@ -58,7 +62,7 @@ class TCGradeView: UIView,UIPageViewControllerDataSource,UIPageViewControllerDel
         gradientColor.frame = gradientBGColorFrame
         
         //upper part View,and it contains all the widgets above the gradient color
-        let upperPartView = UIView.init(frame: gradientBGColorFrame)
+        upperPartView = UIView.init(frame: gradientBGColorFrame)
         upperPartView.layer.insertSublayer(gradientColor, at: 0)
         self.addSubview(upperPartView)
         
@@ -134,8 +138,13 @@ class TCGradeView: UIView,UIPageViewControllerDataSource,UIPageViewControllerDel
         gradeView.snp.makeConstraints { (make) in
             make.top.equalTo(upperPartView.snp_bottom)
             make.width.equalToSuperview()
-            make.height.lessThanOrEqualTo(ScreenHeight-TabBarHeight-upperPartView.frame.height)
+            make.height.equalTo(ScreenHeight-StatusBarheight-NavigationHeight-30)
         }
+        gradeView.addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
+//        panGestureInGradeView = UIPanGestureRecognizer.init(target: self, action: #selector(scrollHandling(gestureRecognizer:)))
+//        panGestureInGradeView.isEnabled = false
+//        gradeView.addGestureRecognizer(panGestureInGradeView)
+        
         Transition = CATransition.init()
         Transition.timingFunction = CAMediaTimingFunction.init(name: CAMediaTimingFunctionName.linear)
         Transition.duration = 0.5
@@ -157,11 +166,6 @@ class TCGradeView: UIView,UIPageViewControllerDataSource,UIPageViewControllerDel
         rightViewController.reloadData(DataSource: self.level)
         gradeView.reloadSections(IndexSet.init(integer: 0), with: animation)
         //gradeView.reloadData()
-    }
-    @objc func test(sender:UITapGestureRecognizer){
-        print(sender.view!.frame)
-        
-        
     }
     
     @objc func leftArrowClicked(){
@@ -236,21 +240,145 @@ class TCGradeView: UIView,UIPageViewControllerDataSource,UIPageViewControllerDel
         return level.exams?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //disable cell reuse
         var cell:TCGradeBox? = tableView.dequeueReusableCell(withIdentifier: "GradeBox") as? TCGradeBox
         if cell == nil{
             cell = TCGradeBox.init(style: .default, reuseIdentifier: "GradeBox")
         }
         cell?.exam = level.exams![indexPath.row]
         if self.showCell.contains(indexPath) == true{
-            cell?.expend = true
+            cell?.initExpend()
         }
         else{
-            cell?.expend = false
+            cell?.initNotExpend()
         }
         cell!.selectionStyle = .none
         return cell!
     }
+    private var isShowing:Bool = false//indicate the upperPartView whether be folded
+    private var feedback:UISelectionFeedbackGenerator? = nil
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        //gradeView.scrollsToTop = true
+        //gradeView.contentOffset = CGPoint.init(x: 0, y: 0)
+        print("observed:",change![NSKeyValueChangeKey.newKey])
+        let point:CGPoint = change![NSKeyValueChangeKey.newKey] as! CGPoint
+        //上推是正 下拉是负
+        if point.y > 80 && isShowing == false {
+            feedback = UISelectionFeedbackGenerator.init()
+            let frame = gradeView.frame
+            print("up")
+            self.isShowing = true
+            gradeView.isScrollEnabled = false
+            let transformWidth:CGFloat = upperPartView.frame.maxY - self.titleLabel.frame.maxY - 10
+            feedback?.prepare()
+            feedback?.selectionChanged()
+            UIView.animate(withDuration: 0.4, animations: {
+                self.gradeView.transform = CGAffineTransform.init(translationX: 0, y: -transformWidth)
+            }) { (isFinished) in
+                if isFinished == true{
+                    self.gradeView.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
+                    self.gradeView.isScrollEnabled = true
+                }
+            }
+            feedback = nil
+
+        }
+        else if point.y <= -80 && isShowing == true {
+            print("down")
+            let frame = gradeView.frame
+            self.isShowing = false
+            feedback = UISelectionFeedbackGenerator()
+            feedback?.prepare()
+            feedback?.selectionChanged()
+            UIView.animate(withDuration: 0.4, animations: {
+                self.gradeView.transform = CGAffineTransform.init(translationX: 0, y: 0)
+            }) { (isFinished) in
+                if isFinished == true{
+                    
+                }
+            }
+            feedback = nil
+            print("down")
+        }
+        //lastPoint = point
+    }
+    deinit {
+        self.gradeView.removeObserver(self, forKeyPath: "ContentOffset")
+    }
+    //handling panGesture in GradeView
+//    private var startPointY:CGFloat = 0
+//    private var offset:CGFloat = 0
+//    private var endPointY:CGFloat = 0
+//    private var isShowing:Bool = false
+    /*
+    @objc func scrollHandling(gestureRecognizer:UIGestureRecognizer){
+        let point:CGPoint = gestureRecognizer.location(in: self)
+        //print(point.y)
+        let maxTopMargin:CGFloat = NavigationHeight+StatusBarheight+titleLabel.frame.height+10
+        switch gestureRecognizer.state {
+        case .began:
+            do{
+                startPointY = point.y
+                endPointY = point.y
+            }
+        case .changed:
+            do{
+                offset = endPointY - point.y
+                // if already scrolled to the top and user still wanna scroll to top
+                print(offset,startPointY,point.y)
+                endPointY = point.y
+                //print("minY",pageController.view.frame.minY,"maxY",titleLabel.frame.maxY)
+                if gradeView.frame.minY < titleLabel.frame.maxY+15 && offset >= 0{
+                    let frame = gradeView.frame
+                    let changed = frame.minY - self.titleLabel.frame.maxY-15
+                    UIView.animate(withDuration: 0.2) {
+                    self.pageController.view.transform = CGAffineTransform.translatedBy(self.pageController.view.transform)(x: 0, y: -changed)
+                    self.gradeView.transform = CGAffineTransform.translatedBy(self.gradeView.transform)(x: 0, y: -changed)
+                    }
+                    gestureRecognizer.isEnabled = false
+                    gradeView.isScrollEnabled = true
+                    isShowing = true
+                    break
+                }
+                if pageController.view.frame.minY <= titleLabel.frame.maxY-15{
+                    UIView.animate(withDuration: 0.4, animations: {
+                        self.pageController.view.alpha = 0
+                    }) { (didfinished) in
+                        if didfinished == true{
+                            self.pageController.view.isHidden = true
+
+                        }
+                    }
+                }
+                else{
+                    if self.pageController.view.isHidden == true{
+                        self.pageController.view.isHidden = false
+                        UIView.animate(withDuration: 0.4, animations: {
+                            self.pageController.view.alpha = 1
+                        }) { (didFinished) in
+                            if didFinished{
+                                
+                            }
+                        }
+                    }
+                }
+                
+                pageController.view.transform = CGAffineTransform.translatedBy(pageController.view.transform)(x: 0, y: -offset)
+                gradeView.transform = CGAffineTransform.translatedBy(gradeView.transform)(x: 0, y: -offset)
+            }
+        case .ended:
+            do{
+            }
+        case .possible:
+            do{
+                
+            }
+        default:
+            do{
+                
+            }
+        }
+    }
+ */
 }
 extension UIView{
     var MyViewController:UIViewController?{

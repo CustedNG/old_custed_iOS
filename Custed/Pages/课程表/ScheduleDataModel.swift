@@ -13,25 +13,21 @@ class Schedule:NSObject,Codable,NSSecureCoding{
     var code:Int
     var msg:String
     var data:scheduleData
-    var runtime:Float
     enum CodingKeys:String,CodingKey {
         case code
         case msg
         case data
-        case runtime
     }
     func encode(with aCoder: NSCoder) {
         aCoder.encode(code,forKey: CodingKeys.code.rawValue)
         aCoder.encode(msg,forKey: CodingKeys.msg.rawValue)
         aCoder.encode(data,forKey: CodingKeys.data.rawValue)
-        aCoder.encode(runtime,forKey: CodingKeys.runtime.rawValue)
     }
     
     required init?(coder aDecoder: NSCoder) {
         self.code = aDecoder.decodeInteger(forKey: CodingKeys.code.rawValue)
         self.msg = aDecoder.decodeObject(forKey: CodingKeys.msg.rawValue) as! String
         self.data = aDecoder.decodeObject(of: scheduleData.self, forKey: CodingKeys.data.rawValue)!
-        self.runtime = aDecoder.decodeFloat(forKey: CodingKeys.runtime.rawValue)
     }
 }
 class scheduleData:NSObject,Codable,NSSecureCoding{

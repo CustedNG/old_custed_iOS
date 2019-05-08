@@ -12,7 +12,7 @@ struct Grade:Codable {
     var code:Int
     var msg:String
     var data:GradeData
-    var runtime:CGFloat
+    //var runtime:CGFloat
     var lastSemester:String?
     //rangkings  "semester":ranking
     var rankings:gradeRanking?
@@ -42,7 +42,7 @@ struct gradeRanking:Codable {
     var code:Int
     var msg:String
     var data:gradeRankingData
-    var runtime:CGFloat
+    //var runtime:CGFloat
 }
 struct gradeRankingData:Codable {
     var college:gradeRankAndTotal

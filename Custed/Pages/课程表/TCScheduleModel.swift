@@ -220,7 +220,7 @@ class TCScheduleModel: NSObject{
                 completedDo(flag)
             }
             else{
-                flag = false
+                flag = true
                 print("判断完etag了")
                 completedDo(flag)
             }
@@ -231,9 +231,9 @@ class TCScheduleModel: NSObject{
     ///
     /// - Parameter completedDo: do after completed
     func forceUpdate(completedDo:@escaping (Bool)->Void){
-        let url = "https://beta.tusi.site/app/v1/cust/jwgl/schedule/remote"
+        let url = "https://app.cust.edu.cn/schedule/remote"
         let headers = [
-            "accept": "application/vnd.toast+json"
+            "accept": "application/vnd.toast.v1+json"
         ]
         let res = Alamofire.SessionManager.timeOut.request(url,headers:headers).response { (DefaultDataResponse) in
             debugPrint(DefaultDataResponse)
@@ -244,7 +244,9 @@ class TCScheduleModel: NSObject{
             }
             do{
                 let decoder = JSONDecoder()
-                self.model = try decoder.decode(Schedule.self, from: DefaultDataResponse.data!)
+                //self.model = try decoder.decode(Schedule.self, from: DefaultDataResponse.data!)
+                let str = String.init(data: DefaultDataResponse.data!, encoding: .utf8)
+                print(str)
                 //print(DefaultDataResponse.request?.allHTTPHeaderFields)
                 //print(DefaultDataResponse.response?.statusCode)
                 //print(DefaultDataResponse.data!)
