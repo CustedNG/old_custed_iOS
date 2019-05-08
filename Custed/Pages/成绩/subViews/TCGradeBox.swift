@@ -11,7 +11,9 @@ import UIKit
 class TCGradeBox: UITableViewCell {
     var expend:Bool = false{
         didSet{
-            self.animateView()
+            if isAnimation == true{
+                self.animateView()
+            }
         }
     }
     var exam:GradeExams!{
@@ -19,6 +21,7 @@ class TCGradeBox: UITableViewCell {
             self.reloadData()
         }
     }
+    private var isAnimation:Bool = false
     private var sketchView:UIView!
     private var detailView:UIStackView!
     private var rightLabel:UILabel!
@@ -143,22 +146,12 @@ class TCGradeBox: UITableViewCell {
         }
     }
     func animateView(){
-//        print(expend)
-//        let enlargeAni = CABasicAnimation.init(keyPath: "transform.scale")
-//        enlargeAni.duration = 0.1
-//        enlargeAni.fromValue = 1
-//        enlargeAni.toValue = 1.05
-        
         if expend == true{
-            //            self.detailView.layer.add(enlargeAni, forKey: "enlargeAnimation")
             UIView.animate(withDuration: 0.3, animations: {
                 self.labelArray[0].alpha = 0
                 self.labelArray[1].alpha = 0
                 self.detailView.alpha = 1
             }) { (finished) in
-//                if finished == true{
-//                    self.detailView.layer.add(enlargeAni, forKey: "enlargeAnimation")
-//                }
             }
         }
         else{
@@ -169,6 +162,20 @@ class TCGradeBox: UITableViewCell {
             }
             //collapse
         }
+    }
+    func initNotExpend(){
+        self.labelArray[0].alpha = 1
+        self.labelArray[1].alpha = 1
+        self.detailView.alpha = 0
+        self.expend = false
+        isAnimation = true
+    }
+    func initExpend(){
+        self.labelArray[0].alpha = 0
+        self.labelArray[1].alpha = 0
+        self.detailView.alpha = 1
+        self.expend = true
+        isAnimation = true
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

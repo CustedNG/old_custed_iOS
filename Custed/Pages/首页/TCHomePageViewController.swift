@@ -52,6 +52,9 @@ class TCHomePageViewController: UIViewController,UIGestureRecognizerDelegate{
         if  isLogin == nil || isLogin == false{
             self.tabBarController?.present(TCLoginViewController.init(), animated: true, completion: nil)
         }
+        else{
+            print(HTTPCookieStorage.shared.cookies)
+        }
     }
     override func loadView() {
         self.view = myView

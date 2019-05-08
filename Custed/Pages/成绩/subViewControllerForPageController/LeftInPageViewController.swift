@@ -41,7 +41,12 @@ class LeftInPageViewController: UIViewController {
             label.textAlignment = .center
             label.textColor = .white
             label.tag = i
-            label.font = UIFont.fontFitHeight(size: 21-CGFloat(i))
+            if i == 1{
+                label.font = UIFont.fontFitWidth(size: 17)
+            }
+            else{
+                label.font = UIFont.fontFitWidth(size: 20)
+            }
             labelArray.append(label)
             self.view.addSubview(label)
         }

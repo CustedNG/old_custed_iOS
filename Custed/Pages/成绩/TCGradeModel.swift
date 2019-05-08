@@ -41,7 +41,7 @@ class TCGradeModel: NSObject {
                 needFresh(true)
             }
             else{
-                needFresh(false)
+                needFresh(true)
                 //needFresh(true)
             }
             
@@ -109,6 +109,7 @@ class TCGradeModel: NSObject {
                     let header = ["accept": "application/vnd.toast+json"]
                     let url = "https://app.cust.edu.cn/app/cust/jwgl/grade/rank/"+index
                     Alamofire.SessionManager.timeOut.request(url, method: .get, headers: header) .response(completionHandler: { (response) in
+                        
                         let decoder = JSONDecoder()
                         do{
                             self.grade?.rankings = try decoder.decode(gradeRanking.self, from: response.data!)
